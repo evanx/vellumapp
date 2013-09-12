@@ -1,0 +1,19 @@
+<html xmlns:fb="http://www.facebook.com/2008/fbml">
+<header>
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+  <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>    
+  <script src="http://connect.facebook.net/en_US/all.js"></script>
+</header>
+<body>
+  <div id="fb-root"></div>
+    <script>
+      // assume we are already logged in
+      FB.init({appId: '$fbAppId', xfbml: true, cookie: true, oauth: true});
+
+      FB.login({
+        scope: 'email,user_birthday'
+      });
+     </script>
+</body>
+</html>

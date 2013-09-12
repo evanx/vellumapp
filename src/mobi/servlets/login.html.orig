@@ -1,0 +1,245 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no" />
+        <title>GiftMe.mobi</title>
+        <style>
+        </style>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+        <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+        <script>
+            var hdrMainvar = null;
+            var contentMainVar = null;
+            var ftrMainVar = null;
+            var contentTransitionVar = null;
+            var stateLabelVar = null;
+            var provinceVar = null;
+            var confirmationVar = null;
+            var contentDialogVar = null;
+            var hdrConfirmationVar = null;
+            var contentConfirmationVar = null;
+            var ftrConfirmationVar = null;
+            var inputMapVar = null;
+
+            var MISSING = "missing";
+            var EMPTY = "";
+
+            $(document).ready(function() {
+                // Assign global variables  
+                hdrMainVar = $('#hdrMain');
+                contentMainVar = $('#contentMain');
+                var deviceAgent = navigator.userAgent.toLowerCase();
+                var agentID = deviceAgent.match(/(iphone|ipod|ipad|android)/);
+                alert("agentID");
+            }
+
+        </script>
+        <script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>    
+    </head>
+
+    <body>
+
+        <div data-role="page" id="loginPage">
+
+            <div data-role="header"> 
+                <a href="#registerPage" data-role="button">Register</a>
+                <h1>GiftMe.mobi</h1> 
+                <a href="#loggedInPage" data-role="button">Login</a>
+            </div>
+
+            <div data-role="content">   
+                <div id="emailDiv" data-role="fieldcontain">  
+                    <label for="email">Email</label>  
+                    <input id="email" name="email" type="text"/>  
+                </div>
+                <div id="passwordDiv" data-role="fieldcontain">  
+                    <label for="phone">Password</label>  
+                    <input id="phone" name="Password" type="password"/>  
+                </div>
+            </div>
+
+            <div data-role="footer" class="ui-bar">
+                <div data-role="controlgroup" data-type="horizontal">
+                    <a href="#loggedInPage" data-role="button">Login</a>
+                    <a href="#registerPage" data-role="button">Register</a>
+                </div>
+            </div>
+        </div> 
+
+        <div data-role="page" id="registerPage">
+
+            <div data-role="header"> 
+                <h1>GiftMe.mobi</h1> 
+            </div>
+
+            <div data-role="content">   
+                <div id="emailDiv" data-role="fieldcontain">  
+                    <label for="email">Email</label>  
+                    <input id="email" name="email" type="text"/>  
+                </div>
+                <div id="passwordDiv" data-role="fieldcontain">  
+                    <label for="password">Password</label>  
+                    <input id="password" name="password" type="password"/>  
+                </div>
+                <div id="confirmPasswordDiv" data-role="fieldcontain">  
+                    <label for="confirmPassword">Confirm password</label>  
+                    <input id="confirmPassword" name="confirmPassword" type="password"/>  
+                </div>
+            </div>
+
+            <div data-role="footer" class="ui-bar">
+                <div data-role="controlgroup" data-type="horizontal">
+                    <a href="#loggedInPage" data-role="button">Register</a>
+                </div>
+            </div>
+        </div>
+
+        <div data-role="page" id="loggedInPage">
+            <div data-role="header"> 
+                <h1>GiftMe.mobi</h1> 
+            </div>
+
+            <div data-role="content">   
+                <div id="loggedInAmountDiv" data-role="fieldcontain">  
+                    <label id="loggedInAmountLabel" for="loggedInAmount">Amount</label>  
+                    <select id="loggedInAmount" name="loggedInAmount" tabindex="2">  
+                        <option value="amount100">R100</option>  
+                        <option value="amount250">R250</option>  
+                        <option value="amount500">R500</option>  
+                    </select>  
+                </div>
+                <div id="loggedInToEmailDiv" data-role="fieldcontain">  
+                    <label for="loggedInToEmail">To email</label>  
+                    <input id="loggedInToEmail" name="loggedInToEmail" type="text"/>  
+                </div>
+            </div>
+
+            <div data-role="footer" class="ui-bar">
+                <div data-role="controlgroup" data-type="horizontal">
+                    <a href="#givePage" data-role="button">Give</a>
+                    <a href="#spendPage" data-role="button">Spend</a>
+                    <a href="#withdrawPage" data-role="button">Withdraw</a>
+                    <a href="#accountPage" data-role="button">Account</a>
+                    <a href="#loginPage" data-role="button">Logout</a>
+                </div>
+            </div>                
+        </div>
+
+        <div data-role="page" id="givePage">
+            <div data-role="header"> 
+                <h1>GiftMe.mobi</h1> 
+            </div>
+
+            <div data-role="content">   
+                <div id="giveAmountDiv" data-role="fieldcontain">  
+                    <label id="giveAmountLabel" for="giveAmount">Amount</label>  
+                    <select id="giveAmount" name="giveAmount" tabindex="2">  
+                        <option value="amount100">R100</option>  
+                        <option value="amount250">R250</option>  
+                        <option value="amount500">R500</option>  
+                    </select>  
+                </div>
+                <div id="giveInToEmailDiv" data-role="fieldcontain">  
+                    <label for="giveInToEmail">To email</label>  
+                    <input id="giveInToEmail" name="giveInToEmail" type="text"/>  
+                </div>
+            </div>
+
+            <div data-role="footer" class="ui-bar">
+                <div data-role="controlgroup" data-type="horizontal">
+                    <a href="#givePage" data-role="button">Give</a>
+                    <a href="#spendPage" data-role="button">Spend</a>
+                    <a href="#withdrawPage" data-role="button">Withdraw</a>
+                    <a href="#loginPage" data-role="button">Logout</a>
+                </div>
+            </div>                            
+        </div>    
+
+        <div data-role="page" id="spendPage">
+            <div data-role="header"> 
+                <h1>GiftMe.mobi</h1> 
+            </div>
+
+            <div id="spendAmountDiv" data-role="fieldcontain">  
+                <label id="spendAmountLabel" for="spendAmount">Amount</label>  
+                <select id="spendAmount" name="spendAmount" tabindex="2">  
+                    <option value="amount100">R100</option>  
+                    <option value="amount250">R250</option>  
+                    <option value="amount500">R500</option>  
+                </select>  
+            </div>
+
+            <div data-role="content">   
+                <div id="spendAccountDiv" data-role="fieldcontain">  
+                    <label id="spendAccountLabel" for="spendAccount">Store</label>  
+                    <select id="spendAccount" name="spendAccount" tabindex="2">  
+                        <option value="1">TakeALot.com</option>  
+                        <option value="2">Kalahari.net</option>  
+                        <option value="3">WebTickets.co.za</option>  
+                    </select>  
+                </div>
+            </div>
+
+            <div data-role="footer" class="ui-bar">
+                <div data-role="controlgroup" data-type="horizontal">
+                    <a href="#givePage" data-role="button">Give</a>
+                    <a href="#spendPage" data-role="button">Spend</a>
+                    <a href="#withdrawPage" data-role="button">Withdraw</a>
+                    <a href="#accountPage" data-role="button">Account</a>
+                    <a href="#loginPage" data-role="button">Logout</a>
+                </div>
+            </div>                            
+        </div>    
+
+        <div data-role="page" id="withdrawPage">
+            <div data-role="header"> 
+                <h1>GiftMe.mobi</h1> 
+            </div>
+
+            <div data-role="content">   
+                <div id="withdrawAccountDiv" data-role="fieldcontain">  
+                    <label id="withdrawAccountLabel" for="withdrawAccount">Account</label>  
+                    <select id="withdrawAccount" name="withdrawAccount" tabindex="2">  
+                        <option value="1">EFT</option>  
+                        <option value="2">ATM</option>  
+                    </select>  
+                </div>
+            </div>
+
+            <div data-role="footer" class="ui-bar">
+                <div data-role="controlgroup" data-type="horizontal">
+                    <a href="#givePage" data-role="button">Give</a>
+                    <a href="#spendPage" data-role="button">Spend</a>
+                    <a href="#withdrawPage" data-role="button">Withdraw</a>
+                    <a href="#accountPage" data-role="button">Account</a>
+                    <a href="#loginPage" data-role="button">Logout</a>
+                </div>
+            </div>                            
+        </div>    
+
+        <div data-role="page" id="accountPage">
+            <div data-role="header"> 
+                <h1>GiftMe.mobi</h1> 
+            </div>
+
+            <div data-role="content">   
+                <div id="accountInfoDiv" data-role="fieldcontain">  
+                    <label id="accountInfoLabel" for="accountInfo">Info</label>  
+                    <select id="accountInfo" name="accountInfo" tabindex="2">  
+                        <option value="accountInfo1">List</option>  
+                    </select>  
+                </div>
+            </div>
+
+            <div data-role="footer" class="ui-bar">
+                <div data-role="controlgroup" data-type="horizontal">
+                    <a href="#givePage" data-role="button">Give</a>
+                    <a href="#spendPage" data-role="button">Spend</a>
+                    <a href="#withdrawPage" data-role="button">Withdraw</a>
+                    <a href="#accountPage" data-role="button">Account</a>
+                    <a href="#loginPage" data-role="button">Logout</a>
+                </div>
+            </div>                            
+        </div>    
+
+    </body>
+</html>
