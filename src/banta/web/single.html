@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Evanx</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <link href="http://netdna.bootstrapcdn.com/bootswatch/2.3.2/united/bootstrap.min.css" rel="stylesheet"/>        
+        
+        <style type="text/css">
+            body {
+                padding-top: 60px;
+                padding-bottom: 40px;
+            }
+        </style>
+        
+        <link rel="shortcut icon" href="https://banta.appcentral.info/favicon.ico">
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="brand reload-clickable" id="title">Evanx</a>
+                    <div class="nav-collapse collapse">
+                        <p class="navbar-text pull-right">
+                        </p>
+                        <ul class="nav">
+                            <li class="nav-item"><a class="home-clickable nav-clickable">Home</a></li>
+                            <li class="nav-item"><a class="about-clickable nav-clickable">About</a></li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+
+        <div class="container">            
+            <div class="hero-unit page-container" id="home-container">
+                <h1>Welcome</h1>
+                <p>
+                    <a class="btn btn-primary about-clickable">Learn more &raquo;</a>
+                </p>
+            </div>
+
+            <div class="hero-unit page-container hide" id="contactus-container">
+                <h1>Contact</h1>
+                <p>By evan.summers at gmail.com</p>
+            </div>
+
+            <div class="hero-unit page-container hide" id="about-container">
+                <h1>About</h1>
+                <p>evan.summers at gmail.com</p>
+                <p>blog: <a href="https://www.java.net/blogs/evanx">https://www.java.net/blogs/evanx</a></p>
+                <p>code: <a href="https://code.google.com/p/vellum">https://code.google.com/p/vellum</a></p>
+            </div>
+
+        </div>
+
+        <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>        
+        
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('.home-clickable').click(homeClick);
+                $('.about-clickable').click(aboutClick);
+            });
+
+            function aboutClick() {
+                $('.nav-item').removeClass('active');
+                $('.page-container').hide();
+                $("#about-container").show();
+            }
+                    
+            function homeClick() {
+                $('.nav-item').removeClass('active');
+                $('.page-container').hide();
+                $("#home-container").show();
+            }
+        </script>
+
+    </body>
+</html>

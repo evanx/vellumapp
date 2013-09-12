@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Banta</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- Le styles -->
+        <link href="bootstrap/css/united-bootstrap.css" rel="stylesheet">
+        <style type="text/css">
+            body {
+                padding-top: 60px;
+                padding-bottom: 40px;
+            }
+            .sidebar-nav {
+                padding: 9px 0;
+            }
+
+            @media (max-width: 980px) {
+                /* Enable use of floated navbar text */
+                .navbar-text.pull-right {
+                    float: none;
+                    padding-left: 5px;
+                    padding-right: 5px;
+                }
+            }
+            
+        </style>
+        <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+        <link href="banta.css" rel="stylesheet">
+        
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="bootstrap/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <!-- Fav and touch icons -->
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="bootstrap/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="bootstrap/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="bootstrap/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="bootstrap/ico/apple-touch-icon-57-precomposed.png">
+        <link rel="shortcut icon" href="favicon.ico">
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="brand reload-clickable" id="title">Banta</a>
+                    <div class="nav-collapse collapse">
+                        <p class="navbar-text pull-right">
+                            <a class="navbar-link loggedin-viewable logout-clickable hide" id="loggedin-username-clickable"></a>
+                            <a class="navbar-link loggedin-viewable logout-clickable">Logout</a>
+                        </p>
+                        <ul class="nav invisible">
+                            <li class="active nav-item"><a class="home-clickable nav-clickable">Home &laquo;</a></li>
+                            <li class="nav-item"><a class="about-clickable nav-clickable">About &raquo;</a></li>
+                            <li class="nav-item"><a class="logout-clickable nav-clickable">Logout</a></li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+
+        <div class="container page-container" id="landing-container">
+            <h2 id="heading">test</h2>
+            <p><a class="btn about-clickable">Learn more &raquo;</a></p>
+            <form action="login()" id="login-form" class="banta-form">
+                <input type="text" name="id" placeholder="Phone number" id="login-id-input">
+                <button type="button" class="btn">Login</button>
+                <button type="button" class="btn">Register</button>
+            </form>
+        </div>
+
+        <script src="assets/js/moment.min.js"></script>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.cookie.min.js"></script>
+        <script src="assets/js/jquery.validate.min.js"></script>        
+        <script src="assets/js/jquery.json-2.2.min.js"></script>
+        <script src="assets/js/jquery.websocket-0.0.1.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="util.js"></script>
+        <script src="test.js"></script>
+    </body>
+</html>

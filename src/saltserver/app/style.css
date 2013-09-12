@@ -1,0 +1,279 @@
+
+a:visited, a:link, a:active, a:hover {
+  text-decoration: none;
+  color: blue;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+pre console {
+  font-family: monospaced;
+  font-size: 9pt;
+}
+
+.menuBarDiv {
+  margin-bottom: 4px;
+}
+
+.menuItem {
+  font-family: verdana;
+  font-size: 10pt;
+  color: #eee;
+}
+
+.actionBarDiv {
+  margin-bottom: 4px;
+}
+
+.actionItem {
+  font-family: verdana;
+  font-size: 10pt;
+  color: #eee;
+}
+
+.hostName {
+  font-family: verdana;
+  font-size: 10pt;
+  color: #333;
+  font-weight: bold;
+}
+
+.queryName {
+  font-family: monospace;
+  font-size: 11pt;
+}
+
+.queryTitle {
+  background-color: #e0ecef;
+  font-family: monospace;
+  font-size: 12pt;
+  color: black;
+  border-top: solid 2px #a7c6df;
+}
+
+.queryDetail {
+  font-family: monospace;
+  font-size: 10pt;
+}
+
+.resultSet table {
+  margin-left: 2ex;
+  border: solid 1px;
+  background-color: #e0ecef;
+  border: 2px solid #a7c6df;
+  margin: 2ex 0 2ex 2ex;
+  border-collapse: collapse;
+  border-spacing: 0;
+  -moz-box-shadow: 3px 3px 5px #dfdfdf;
+}
+
+.resultSet table thead tr {
+  font-family: monospace;
+  font-size: 09pt;
+}
+
+.resultSet table thead th {
+  /*width: 250px;*/
+  background-color: #e0ecef;
+  border-bottom: solid 1px;
+  border: 1px solid #a7c6df;
+  padding: 0.5ex;
+  font-size: 10pt;
+}
+
+.resultSet table thead th.sub {
+  font-size: 8pt;
+  font-weight: normal;
+}
+
+table.resultSet tbody {
+  /*
+  display: block;
+  height: 300px;
+  overflow: auto
+  */
+}
+
+.resultSet table tbody tr {
+  vertical-align: top;
+}
+
+.resultSet table tbody td {
+  padding-right: 8px;
+  padding-left: 8px;
+  font-family: monospace;
+  font-size: 9pt;
+  border: 1px solid #a7c6df;
+}
+
+tr.row0 {
+  background-color: #ffffff;
+}
+
+tr.row1 {
+  background-color: #e0ecef;
+}
+
+td.int8Cell, td.numericCell, td.int4Cell, td.float8Cell {
+  text-align: right;
+}
+
+td.rowLabel {
+  text-align: right;
+  font-weight: bold;
+}
+
+.pageInfo {
+  margin-bottom: 2px;
+  font-family: monospace;
+  font-size: 9pt;
+  color: #444;
+}
+
+.connectInfo {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  font-family: monospace;
+  font-size: 9pt;
+  color: #444;
+}
+
+.pageTitle {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  font-family: verdana;
+  font-size: 11pt;
+  font-weight: bold;
+  color: #444;
+}
+
+.sectionLabel {
+  margin-top: 8px;
+  margin-bottom: 2px;
+  font-family: monospace;
+  font-size: 10pt;
+  font-weight: bold;
+  color: #444;
+}
+
+.tableInfo {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  font-family: monospace;
+  font-size: 9pt;
+  font-weight: bold;
+  color: #444;
+}
+
+.queryInfo {
+  margin-top: 4px;
+  margin-bottom: 2px;
+  font-family: monospace;
+  font-size: 9pt;
+  color: #444;
+}
+
+.resultInfo {
+  margin-top: 2px;
+  font-family: monospace;
+  font-size: 9pt;
+  color: #444;
+  margin-bottom: 4px;
+}
+
+.resultTitle {
+  margin-top: 2px;
+  font-family: monospace;
+  font-size: 10pt;
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 4px;
+}
+
+.warningSpan {
+  margin-top: 2px;
+  font-family: monospace;
+  font-size: 10pt;
+  font-weight: bold;
+  color: salmon;
+}
+
+.summaryInfo {
+  margin-top: 2px;
+  font-family: monospace;
+  font-size: 10pt;
+  color: #000;
+  margin-bottom: 4px;
+}
+
+.fileInfo {
+  margin-top: 8px;
+  font-family: monospace;
+  font-size: 9pt;
+}
+
+.parametersInfo {
+  margin-top: 8px;
+  font-family: monospace;
+  font-size: 9pt;
+}
+
+.queryInput input {
+  width: 300px;
+}
+
+.gray {
+   color: #aaaaaa;
+}
+
+
+div#watermark2 {
+  background: url('http://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Gnome-security-medium.svg/1000px-Gnome-security-medium.svg.png') center center no-repeat;
+}
+
+
+body {
+  font: 13px Helvetica, arial, freesans, clean, sans-serif;
+  line-height: 1.4;
+  color: #333;
+}
+
+div#watermark {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  width: 70%;
+  height: 100%;
+  opacity: 0.2;
+  z-index: 99999;
+  background: url('http://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Gnome-document-properties.svg/500px-Gnome-document-properties.svg.png') center center no-repeat;
+  pointer-events: none;
+}    
+
+div#header {
+  display: block;
+  background: -moz-linear-gradient(#FAFAFA, #EAEAEA);
+  background: -webkit-linear-gradient(#FAFAFA, #EAEAEA);
+  background: linear-gradient(#FAFAFA, #EAEAEA);
+  border-bottom: 1px solid #CACACA;
+  width: 100%;
+  height: 36px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4),0 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+ul li {
+    display: inline-block;
+    width: 100px;
+    min-height: 100px; 
+    vertical-align: top; /*helps with variable length content*/
+}

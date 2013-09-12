@@ -1,0 +1,100 @@
+<div class="row">
+    <div class="span8">
+        <ul class="nav nav-tabs nav-stacked">
+            <li><a id="event-cancel"><i class="icon-remove"></i>&nbsp; Cancel</a>
+            <li><a id="event-add-invitee"><i class="icon-plus-sign"></i>&nbsp; Invite</a>
+            <li><a id="event-save"><i class="icon-ok"></i>&nbsp; Save</a>
+        </ul>
+    </div>
+</div>
+<div class="row hide" id="event-invitees-div">
+    <div class="span8">
+        <h4>Invitees</h4>
+        <table class="table table-striped">
+            <tbody id="event-invitees-tbody">
+            </tbody>
+        </table>    
+    </div>
+</div>
+<form class="form-horizontal" id="event-form">
+    <fieldset>
+        <div class="control-group" id="event-name-div">
+            <label class="control-label" for="name">Event name</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge" name="name" placeholder="Event name" id="event-name-input"/>
+                <p class="help-block"></p>
+            </div>
+        </div>
+        <div class="control-group" id="event-description-div">
+            <label class="control-label" for="description">Description</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge" name="description" placeholder="Description" id="event-description-input"/>
+                <p class="help-block"></p>
+            </div>
+        </div>
+        <div class="control-group" id="event-host-div">
+            <label class="control-label" for="host">Host</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge" name="host" placeholder="Host" id="event-host-input"/>
+                <p class="help-block"></p>
+            </div>
+        </div>
+        <div class="control-group" id="event-time-div">
+            <label class="control-label" for="time">Time</label>
+            <div class="controls">
+                <input type="time" class="input-xlarge" name="time" placeholder="Time" id="event-time-input"/>
+                <p class="help-block"></p>
+            </div>
+        </div>
+        <div class="control-group" id="event-duration-div">
+            <label class="control-label" for="duration">Duration</label>
+            <div class="controls">
+                <input type="text" pattern="\d*[hmd]" class="input-xlarge" name="duration" placeholder="Duration" id="event-duration-input"/>
+                <p class="help-block"></p>
+            </div>
+        </div>
+        <div class="control-group" id="event-date-div">
+            <label class="control-label" for="date">Date</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge validate[groupRequired[date]]" name="date" placeholder="Date" id="event-date-input"/>
+                <p class="help-block"></p>
+            </div>
+        </div>
+        <div class="control-group" id="event-repeat-div">
+            <label class="control-label" for="repeat">Repeat</label>
+            <div class="controls">
+                <select type="text" class="input-xlarge" name="repeat" placeholder="Repeat" id="event-repeat-input">
+                    <option>Once</option>
+                    <option>Weekly</option>
+                    <option>Monthly</option>
+                    <option>Annual</option>
+                </select>
+                <p class="help-block"></p>
+            </div>
+        </div>
+        <div class="control-group" id="event-day-div">
+            <label class="control-label" for="day">Day</label>
+            <div class="controls">
+                <select type="text" class="input-xlarge validate[groupRequired[date]]" name="day" placeholder="Day" id="event-day-input">
+                    <option></option>
+                    <option>Monday</option>
+                    <option>Tuesday</option>
+                    <option>Wednesday</option>
+                    <option>Thursday</option>
+                    <option>Friday</option>
+                    <option>Saturday</option>
+                    <option>Sunday</option>
+                </select>
+                <p class="help-block"></p>
+            </div>
+        </div>
+        <div class="control-group" id="event-reminder-div">
+            <label class="control-label" for="reminder">Reminder</label>
+            <div class="controls">
+                <input type="text" pattern="\d*[hmd]" class="input-xlarge" name="reminder" placeholder="Reminder" id="event-reminder-input"/>
+                <p class="help-block"></p>
+            </div>
+        </div>
+    </fieldset>
+    <input type="hidden" name="id" id="event-id-input"/>
+</form>

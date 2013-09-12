@@ -1,0 +1,29 @@
+<div class="hero-unit croc-info hide" id="croc-loggedin-info">
+    <h1 id="croc-loggedin-title">Welcome</h1>
+    <div id="croc-loggedin-info-start">
+        <h2>Getting started</h2>
+    </div>
+    <div id="croc-loggedin-info-otp" class="hide">
+        <h2>OTP</h2>
+        <p>Your OTP secret is <b><tt><span id="croc-totp-text"/></tt></b>.
+        <p>Scan this QR code into your Google Authenticator app.</p>
+        <p id="croc-loggedin-qr-container">
+            <img id="croc-loggedin-qr-img"/>
+        </p>
+        <p>This QR code contains the URL <tt><a id="croc-totp-url"></a></tt>.</p>
+    </div>
+    <div id="croc-loggedin-info-cert" class="hide">
+        <h2>Browser cert</h2>
+        <form method="post" action="/genKey" id="croc-genkey-form">
+            <table>
+                <tr valign="top">
+                    <td><input id="croc-genkey-password-input" type="password" name="password" placeholder="Enter a key password"/></td>
+                    <td><button type="submit" class="btn">Generate P12 key</button></td>
+                </tr>
+            </table>
+        </form>                        
+        <p><i>(Be assured that we store your public certificate only on the server. Alternatively submit a CSR via the Account menu.)</i></p>
+        <p><a id="croc-secureUrl-anchor"></a></p>
+    </div>
+    <p><a href="#" class="croc-edit-org-clickable">Edit your organisation</a></p>
+</div>

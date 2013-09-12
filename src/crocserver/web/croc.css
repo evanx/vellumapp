@@ -1,0 +1,78 @@
+
+form.croc-large input {
+    font-size: 20px;
+    height: auto;
+    margin-bottom: 15px;
+    padding: 7px 9px;
+}
+
+form.croc div {
+    float: left;    
+    padding-right: 1em;
+} 
+
+form.croc label {
+    margin: 0em;
+} 
+
+table.croc {
+  float: left;
+  margin-left: 2ex;
+  border: solid 1px;
+  background-color: #e0ecef;
+  border: 2px solid #a7c6df;
+  margin: 2ex 0 2ex 2ex;
+  border-collapse: collapse;
+  border-spacing: 0;
+  -moz-box-shadow: 3px 3px 5px #dfdfdf;
+}
+
+table.croc thead tr {
+  font-family: monospace;
+  font-size: 09pt;
+  background-color: #fff;  
+}
+
+table.croc thead th {
+  /*width: 250px;*/
+  background-color: #e0ecef;
+  border-bottom: solid 1px;
+  border: 1px solid #a7c6df;
+  padding: 0.5ex;
+  font-size: 10pt;
+}
+
+table.croc thead th.sub {
+  font-size: 8pt;
+  font-weight: normal;
+}
+
+table.croc tbody tr {
+  vertical-align: top;
+  background-color: #fff;  
+}
+
+table.croc tbody td {
+  padding-right: 8px;
+  padding-left: 8px;
+  font-family: monospace;
+  font-size: 9pt;
+  border: 1px solid #a7c6df;
+}
+
+.croc tr.row0 {
+  background-color: #ffffff;
+}
+
+.croc tr.row1 {
+  background-color: #e0ecef;
+}
+
+.croc td.int8Cell, td.numericCell, td.int4Cell, td.float8Cell {
+  text-align: right;
+}
+
+.croc td.rowLabel {
+  text-align: right;
+  font-weight: bold;
+}

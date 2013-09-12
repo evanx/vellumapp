@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="span2">
+        <ul class="nav nav-tabs nav-stacked">
+            <li><a class="home-clickable"><i class="icon-home"></i>&nbsp; Home</a>
+            <li id="contacts-cancel-link" class="disabled"><a class="contacts-cancel-clickable"><i class="icon-remove"></i>&nbsp; Cancel</a>
+            <li id="contacts-ok-link" class="disabled"><a class="contacts-ok-clickable"><i class="icon-ok"></i>&nbsp; OK</a>
+            <li id="contacts-reduce-link" class="disabled"><a class="contacts-reduce-clickable"><i class="icon-minus-sign"></i>&nbsp; Show selected</a>
+            <li id="contacts-expand-link" class="disabled"><a class="contacts-expand-clickable"><i class="icon-plus-sign"></i>&nbsp; Show all</a>
+            <!--
+            <li><a class="contacts-search-clickable"><i class="icon-search"></i>&nbsp; Search</a>
+            <li><a class="contacts-clear-clickable"><i class="icon-remove"></i>&nbsp; Clear search</a>
+            -->
+        </ul>
+    </div>
+</div>
+<form id="contacts-search-form">
+    <table>
+        <tr style='vertical-align: top'>
+            <td><input type="search" id="contacts-search-input" style="width: 100px;"/>
+            <td><button class="btn contacts-search-clickable"><i class="icon-search"></i></button>
+            <td><button class="btn contacts-clear-clickable"><i class="icon-remove"></i></button>
+             <!--
+            <td><button class="btn contacts-reduce-clickable"><i class="icon-minus-sign"></i></button>
+            <td><button class="btn contacts-expand-clickable"><i class="icon-plus-sign"></i></button>
+            -->
+    </table>
+</form>
+<table class="table table-striped">
+    <tbody id="contacts-tbody">
+    </tbody>
+</table>    
+<!--
+<p>
+    <a class="btn contacts-reduce-clickable"><i class="icon-minus-sign"></i>&nbsp;All</a>
+    <a class="btn contacts-ok-clickable"><i class="icon-ok"></i>&nbsp;Selected</a>
+    <a class="btn contacts-edit-clickable"><i class="icon-edit"></i>&nbsp; Edit</a>
+    <a class="btn contacts-new-clickable"><i class="icon-file"></i>&nbsp; New</a>
+</p>
+-->

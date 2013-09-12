@@ -1,0 +1,126 @@
+
+/*
+label.valid {
+  width: 24px;
+  height: 24px;
+  background: url(assets/ico/kudos/Done.png) center center no-repeat;
+  display: inline-block;
+  text-indent: -9999px;
+}
+
+label.error {
+  font-weight: bold;
+  color: red;
+  padding: 2px 8px;
+  margin-top: 2px;
+}
+*/
+
+span.chats-contact {
+    font-weight: bold;    
+}
+
+span.chats-time {
+    font-style: italic;
+    padding-left: 4px;
+    font-size: 80%;
+}
+
+span.chats-lastMessage {
+    font-style: italic;
+    color: #aaaaaa;
+}
+
+span.chat-contact {
+    font-weight: bold;    
+}
+
+span.chat-time {
+    font-size: 80%;
+}
+
+span.chat-lastMessage {
+}
+
+textarea.banta-message-input {
+    width: 100%;
+    font-family: 'Ubuntu Mono';
+}
+
+span.events-name {
+    font-style: italic;
+}
+
+span.events-time {
+    font-weight: normal;
+}
+
+span.events-day {
+    font-weight: bold;
+}
+
+span.events-date {
+    font-size: 95%;
+    font-style: italic;
+    color: #555;
+    padding-left: 4px;
+}
+
+tr.events-date-row {
+  background-color: #eee;
+  border-color: #333;
+}
+
+span.events-guests {
+    font-family: 'Ubuntu', 'Ubuntu Condensed';
+    font-size: 90%;
+    color: #777;
+}
+
+span.events-elaborate {
+    font-size: 95%;
+    font-style: normal;
+    color: #333;
+}
+
+span.events-host {
+    font-weight: bold;
+    font-style: normal;
+}
+
+span.events-venue {
+    font-weight: bold;
+    font-style: normal;
+}
+
+input.login-id-input {
+    
+}
+
+td.selected {
+    font-weight: bold;
+}
+
+.notification-row .notification-type {
+    color: #555;
+    font-style: italic;
+}
+
+.notification-row .notification-time {
+    padding-left: 4px;
+ }
+
+.notification-row .notification-date {
+    color: #555;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.notification-row .notification-venue {
+    color: #555;
+}
+
+.notification-row .notification-name {
+    font-weight: bold;   
+}
+

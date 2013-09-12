@@ -1,0 +1,28 @@
+                    <div class="hero-unit croc-info hide" id="croc-loggedin">
+                        <h1 id="croc-loggedin-title"></h1>
+                        <p>You should either submit a CSR, or for your convenience we can generate a key for you.</p>
+                        <form method="post" action="/sign" id="croc-loggedin-csr-form">
+                            <form>
+                                <fieldset>
+                                    <textarea rows="2" cols="90" style="width: 100%" id="croc-loggedin-csr-textarea" name="csr" placeholder="Paste your Certificate Signing Request into this box."></textarea>
+                                    <button type="submit" class="btn">Submit CSR</button>
+                                </fieldset>
+                            </form>
+                        </form>                        
+                        <form method="post" action="/genKey" id="croc-loggedin-genkey-form">
+                            <form>
+                                <fieldset>
+                                    <input id="croc-loggedin-genkey-password-input" type="password" name="password" placeholder="Enter a key password"/>
+                                    <button type="submit" class="btn">Generate P12 key</button>
+                                </fieldset>
+                            </form>
+                        </form>                        
+                        <p>(Be assured that we store your public certificate only on the server.)</p>
+                        <p>Your OTP secret is <tt><span id="croc-totp-text"/></tt>. (You can enter this into your T-OTP client.)</p>
+                        <p>Alternatively, scan this QR code into your Google Authenticator app.</p>
+                        <p id="croc-loggedin-qr-container">
+                            <img id="croc-loggedin-qr-img"/>
+                        </p>
+                        <p>(This QR code contains the URL <tt><span id="croc-totp-url"/></tt>.)</p>
+                        <p><a href="${secureUrl}">${secureUrl}</a></p>
+                    </div>
