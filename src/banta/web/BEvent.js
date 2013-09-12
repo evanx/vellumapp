@@ -1,6 +1,4 @@
 
-// test 
-
 function BEvent(event) {
     this.event = event;
 }
