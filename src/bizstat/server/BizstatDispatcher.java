@@ -4,6 +4,7 @@
  */
 package bizstat.server;
 
+import bizstat.entity.Network;
 import vellum.util.Systems;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
@@ -29,7 +30,8 @@ public class BizstatDispatcher implements Runnable {
     public void run() {
         for (Network network : server.networkList) {
             if (network.isEnabled()) {
-                BizstatNetworkDispatcher networkDispatcher = new BizstatNetworkDispatcher(server, network);
+                BizstatNetworkDispatcher networkDispatcher = 
+                        new BizstatNetworkDispatcher(server, network);
                 networkDispatcherMap.put(network, networkDispatcher);
                 networkDispatcher.run();
                 Systems.sleep(server.config.sleepMillis/server.networkList.size());

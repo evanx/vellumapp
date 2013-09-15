@@ -40,10 +40,5 @@ public class MantraKeyStoreManager {
     public KeyStore getKeyStore() {
         return keyStore;
     }
-    
-    public void create(char[] password) throws Exception {
-        KeyStores.createKeyStore("jks", keyStoreLocation, password);    
-    }
-    
-    
+        
 }

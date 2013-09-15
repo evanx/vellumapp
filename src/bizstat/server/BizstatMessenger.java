@@ -4,6 +4,8 @@
  */
 package bizstat.server;
 
+import bizstat.entity.Contact;
+import bizstat.entity.ServiceRecord;
 import vellum.util.Lists;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;

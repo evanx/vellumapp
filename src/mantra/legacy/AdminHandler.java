@@ -71,9 +71,10 @@ public class AdminHandler implements HttpHandler {
         }
         out.printf("<input type='password' name='keyStorePassword' width='40' placeholder='Key store password'><br>\n");
         if (!new File(keyStoreManager.getKeyStoreLocation()).exists()) {
-            logger.info("createKeyStore", httpExchangeInfo.isParameter("createKeyStore"), Strings.isEmpty(keyStorePassword));
-            if (!Strings.isEmpty(keyStorePassword) && httpExchangeInfo.isParameter("createKeyStore")) {
-                keyStoreManager.create(password.toCharArray());
+            logger.info("createKeyStore", httpExchangeInfo.isParameter("createKeyStore"), 
+                    Strings.isEmpty(keyStorePassword));
+            if (!Strings.isEmpty(keyStorePassword) && 
+                    httpExchangeInfo.isParameter("createKeyStore")) {
                 logger.info("create", new File(keyStoreManager.getKeyStoreLocation()));
             } else {
                 out.printf("<label for='createKeyStore'>Create key store</label>\n");

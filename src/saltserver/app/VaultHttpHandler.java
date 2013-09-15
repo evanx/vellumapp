@@ -6,6 +6,11 @@ package saltserver.app;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import java.io.IOException;
+import saltserver.httphandler.AdminHandler;
+import saltserver.httphandler.GetSecretHandler;
+import saltserver.httphandler.ManagerHandler;
+import saltserver.httphandler.PutSecretHandler;
+import saltserver.httphandler.ShutdownHandler;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
 

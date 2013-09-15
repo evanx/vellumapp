@@ -4,6 +4,10 @@
  */
 package bizstat.server;
 
+import bizstat.entity.BizstatService;
+import bizstat.entity.Host;
+import bizstat.entity.HostServiceKey;
+import bizstat.entity.ServiceRecord;
 import vellum.util.Lists;
 import vellum.util.Streams;
 import bizstat.enumtype.ServiceStatus;

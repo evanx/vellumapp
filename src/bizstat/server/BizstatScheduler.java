@@ -4,6 +4,10 @@
  */
 package bizstat.server;
 
+import bizstat.entity.BizstatService;
+import bizstat.entity.Host;
+import bizstat.entity.HostServiceKey;
+import bizstat.entity.Network;
 import vellum.datatype.Millis;
 import vellum.util.Calendars;
 import vellum.logr.Logr;
