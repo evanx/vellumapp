@@ -12,7 +12,7 @@ import java.util.Arrays;
 import saltserver.app.VaultApp;
 import saltserver.app.VaultStorage;
 import saltserver.storage.secret.Secret;
-import vellum.crypto.Base64;
+import vellum.crypto.util.Base64;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
 import vellum.util.Streams;
