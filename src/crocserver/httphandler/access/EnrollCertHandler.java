@@ -19,9 +19,9 @@ import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
 import java.util.Date;
 import vellum.datatype.Emails;
-import vellum.security.Certificates;
 import vellum.security.DefaultKeyStores;
-import vellum.security.GeneratedRsaKeyPair;
+import vellum.crypto.rsa.GeneratedRsaKeyPair;
+import vellum.security.Pems;
 
 /**
  *
@@ -48,7 +48,8 @@ public class EnrollCertHandler implements HttpHandler {
         httpExchangeInfo = new HttpExchangeInfo(httpExchange);
         logger.info("handle", getClass().getName(), httpExchangeInfo.getPathArgs());
         if (httpExchangeInfo.getPathArgs().length != 4) {
-            httpExchangeInfo.handleError(new CrocError(CrocExceptionType.INVALID_ARGS, httpExchangeInfo.getPath()));
+            httpExchangeInfo.handleError(new CrocError(
+                    CrocExceptionType.INVALID_ARGS, httpExchangeInfo.getPath()));
         } else {
             userName = httpExchangeInfo.getPathString(1);
             orgName = httpExchangeInfo.getPathString(2);
@@ -83,6 +84,6 @@ public class EnrollCertHandler implements HttpHandler {
         cert.setCert(keyPair.getCert());
         app.getStorage().getCertStorage().save(cert);
         httpExchangeInfo.sendResponse("application/x-pem-file",
-                Certificates.buildKeyPem(keyPair.getPrivateKey()).getBytes());
+                Pems.buildKeyPem(keyPair.getPrivateKey()).getBytes());
     }    
 }

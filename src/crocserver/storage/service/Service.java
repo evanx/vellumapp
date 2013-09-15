@@ -7,7 +7,7 @@ package crocserver.storage.service;
 import java.security.cert.X509Certificate;
 import java.util.Date;
 import vellum.entity.AbstractIdEntity;
-import vellum.security.Certificates;
+import vellum.security.Pems;
 
 /**
  *
@@ -80,7 +80,7 @@ public final class Service extends AbstractIdEntity {
     }
 
     public void setX509Cert(X509Certificate x509Cert) {
-        this.cert = Certificates.buildCertPem(x509Cert);
+        this.cert = Pems.buildCertPem(x509Cert);
         this.subject = x509Cert.getSubjectDN().getName();
     }
     

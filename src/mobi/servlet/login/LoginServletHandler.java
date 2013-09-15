@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import mobi.entity.Person;
 import mobi.session.Servlets;
 import mobi.storage.PersonConnection;
-import vellum.crypto.Base64;
+import vellum.crypto.util.Base64;
 
 /**
  *

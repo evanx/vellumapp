@@ -9,6 +9,7 @@ import java.util.Date;
 import vellum.entity.AbstractIdEntity;
 import vellum.parameter.StringMap;
 import vellum.security.Certificates;
+import vellum.security.Pems;
 
 /**
  *
@@ -202,7 +203,7 @@ public class AdminUser extends AbstractIdEntity<Long> {
     }
 
     public void setCert(X509Certificate x509Cert) {
-        this.cert = Certificates.buildCertPem(x509Cert);
+        this.cert = Pems.buildCertPem(x509Cert);
         this.subject = x509Cert.getSubjectDN().getName();
     }
     

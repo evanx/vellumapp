@@ -19,6 +19,7 @@ import sun.security.pkcs.PKCS10;
 import vellum.datatype.Patterns;
 import vellum.security.Certificates;
 import vellum.security.DefaultKeyStores;
+import vellum.security.Pems;
 
 /**
  *
@@ -88,13 +89,13 @@ public class EnrollUserHandler implements HttpHandler {
         logger.info("sign", user.getSubject(), certReqPem.length());
         if (!certReqPem.isEmpty()) {
             String alias = app.getServerKeyAlias();
-            PKCS10 certReq = Certificates.createCertReq(certReqPem);
+            PKCS10 certReq = Pems.createCertReq(certReqPem);
             X509Certificate signedCert = Certificates.signCert(
                     DefaultKeyStores.getPrivateKey(alias), DefaultKeyStores.getCert(alias),
                     certReq, new Date(), 999);
-            String signedCertPem = Certificates.buildCertPem(signedCert);
-            logger.info("subject", Certificates.getSubjectDname(signedCertPem));
-            logger.info("issuer", Certificates.getIssuerDname(signedCertPem));
+            String signedCertPem = Pems.buildCertPem(signedCert);
+            logger.info("subject", Pems.getSubjectDname(signedCertPem));
+            logger.info("issuer", Pems.getIssuerDname(signedCertPem));
             storage.getUserStorage().store(user);
             if (false) {
                 app.sendGtalkMessage(user.getEmail(), signedCert.getSubjectDN().toString());

@@ -19,7 +19,8 @@ import java.security.cert.X509Certificate;
 import java.util.Date;
 import vellum.security.Certificates;
 import vellum.security.DefaultKeyStores;
-import vellum.security.GeneratedRsaKeyPair;
+import vellum.crypto.rsa.GeneratedRsaKeyPair;
+import vellum.security.Pems;
 
 /**
  *
@@ -97,11 +98,12 @@ public class GenKeyP12CliHandler implements HttpHandler {
         }
         PKCS12KeyStore p12 = new PKCS12KeyStore();
         X509Certificate[] chain = new X509Certificate[] {keyPair.getCert(), serverCert};
-        char[] password = httpExchangeInfo.getParameterMap().getString("password", clientName).toCharArray();
+        char[] password = httpExchangeInfo.getParameterMap().
+                getString("password", clientName).toCharArray();
         p12.engineSetKeyEntry(clientName, keyPair.getPrivateKey(), password, chain);
         if (httpExchangeInfo.getQuery().toLowerCase().contains("pem")) {
             httpExchangeInfo.sendResponse("text/plain", true);
-            out.println(Certificates.buildPem(p12, clientName, password));
+            out.println(Pems.buildPem(p12, clientName, password));
             logger.info("pem");
         } else {
             httpExchangeInfo.sendResponse("application/x-pkcs12", true);

@@ -19,7 +19,7 @@ import vellum.datatype.Emails;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
 import vellum.parameter.StringMap;
-import vellum.security.GeneratedRsaKeyPair;
+import vellum.crypto.rsa.GeneratedRsaKeyPair;
 import vellum.util.Strings;
 
 /**

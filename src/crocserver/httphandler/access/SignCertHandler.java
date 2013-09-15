@@ -20,6 +20,7 @@ import java.util.Date;
 import sun.security.pkcs.PKCS10;
 import vellum.security.Certificates;
 import vellum.security.DefaultKeyStores;
+import vellum.security.Pems;
 import vellum.util.Streams;
 
 /**
@@ -77,11 +78,11 @@ public class SignCertHandler implements HttpHandler {
                 org.getRegion(), org.getLocality(), org.getCountry());
         logger.info("sign", dname, certReqPem.length());
         String alias = app.getServerKeyAlias();
-        PKCS10 certReq = Certificates.createCertReq(certReqPem);
+        PKCS10 certReq = Pems.createCertReq(certReqPem);
         X509Certificate signedCert = Certificates.signCert(
                 DefaultKeyStores.getPrivateKey(alias), DefaultKeyStores.getCert(alias),
                 certReq, new Date(), 999);
-        String signedCertPem = Certificates.buildCertPem(signedCert);
+        String signedCertPem = Pems.buildCertPem(signedCert);
         Service clientCert = storage.getServiceStorage().find(org.getId(), hostName, clientName);
         if (clientCert == null) {
             clientCert = new Service(org.getId(), hostName, clientName, userName);
@@ -92,7 +93,7 @@ public class SignCertHandler implements HttpHandler {
             clientCert.setX509Cert(signedCert);
             storage.getServiceStorage().updateCert(clientCert);
         }
-        logger.info("issuer", Certificates.getIssuerDname(signedCertPem));
+        logger.info("issuer", Pems.getIssuerDname(signedCertPem));
         httpExchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
         out.println(signedCertPem);
     }
