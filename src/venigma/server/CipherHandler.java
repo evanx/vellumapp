@@ -15,6 +15,9 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSocket;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
+import venigma.data.AdminUser;
+import venigma.data.CipherStorage;
+import venigma.data.KeyInfo;
 
 /**
  *
