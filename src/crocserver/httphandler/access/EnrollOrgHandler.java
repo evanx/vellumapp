@@ -91,5 +91,5 @@ public class EnrollOrgHandler extends CrocStorageHandler implements HttpHandler 
             storage.getOrgRoleStorage().insert(orgRole);
         }
         httpExchangeInfo.write(org.getStringMap());
-    }    
+    }
 }

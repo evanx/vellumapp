@@ -93,7 +93,7 @@ public class AdminHandler implements HttpHandler {
             if (Strings.isEmpty(httpExchangeInfo.getParameter("genKeyAlias"))) {
                 generateKey();
             }
-        } else {            
+        } else {    
         }
         out.printf("<input type='text' name='username' width='40' placeholder='Username'>\n");
         out.printf("<input type='password' name='password' width='40' placeholder='Passphrase'><br>\n");
@@ -107,7 +107,7 @@ public class AdminHandler implements HttpHandler {
                 out.printf("<span>%s</span><br>\n", key);
             }
         }
-    }    
+    }
 
     private void generateKey() {
     }

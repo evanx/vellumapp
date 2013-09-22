@@ -43,7 +43,7 @@ public class AdminUserStorage {
                 logger.info("validate", columnName);
                 if (!columnNameList.contains(columnName)) {
                     throw new SQLException(columnName);
-                }                
+                }            
                 columnNameList.remove(columnName);
             }
             if (!columnNameList.isEmpty()) {

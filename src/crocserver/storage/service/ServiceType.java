@@ -147,5 +147,5 @@ public class ServiceType extends AbstractIdEntity {
     @Override
     public String toString() {
         return Args.format(name);
-    }    
+    }
 }

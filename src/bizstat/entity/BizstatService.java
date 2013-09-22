@@ -32,7 +32,7 @@ public class BizstatService extends ServiceType implements ConfigurableEntity<Bi
 
     public BizstatService(String name) {
         super(name);
-    }    
+    }
         
     public List<ContactGroup> getContactGroupList() {
         return contactGroupList;
@@ -41,5 +41,5 @@ public class BizstatService extends ServiceType implements ConfigurableEntity<Bi
     @Override
     public void config(BizstatServer server, PropertiesStringMap properties) {
         new ServiceConfigurator(server, properties, this).configure();
-    }    
+    }
 }

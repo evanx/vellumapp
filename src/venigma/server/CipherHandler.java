@@ -216,5 +216,5 @@ public class CipherHandler {
     
     protected CipherResponse listEmptyPasswords() throws Exception {
         return new CipherResponse(CipherResponseType.OK);
-    }    
+    }
 }

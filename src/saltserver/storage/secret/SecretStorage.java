@@ -42,7 +42,7 @@ public class SecretStorage extends AbstractEntityStorage<Long, Secret> {
                 String columnName = columnNameEnum.name().toUpperCase();
                 if (!columnNameList.contains(columnName)) {
                     throw new SQLException(columnName);
-                }                
+                }            
                 columnNameList.remove(columnName);
             }
             if (!columnNameList.isEmpty()) {

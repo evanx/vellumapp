@@ -34,6 +34,6 @@ public class H2Driver extends VDriver {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-    }    
+    }
 
 }

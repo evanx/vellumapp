@@ -72,5 +72,5 @@ public class GenKeyP12Handler implements HttpHandler {
         p12.engineSetKeyEntry(user.getUserName(), keyPair.getPrivateKey(), password, chain);
         httpExchangeInfo.sendResponseFile("application/x-pkcs12", "croc-client.p12");
         p12.engineStore(httpExchangeInfo.getPrintStream(), password);
-    }    
+    }
 }

@@ -16,7 +16,7 @@ public class GiveServlet extends HttpServlet
     {
         try {
             new GiveHandler().handle(req, resp);
-        } catch (Exception e) {            
+        } catch (Exception e) {    
             throw new ServletException(e);
         }
     }

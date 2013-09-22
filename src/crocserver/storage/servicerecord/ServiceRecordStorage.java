@@ -144,7 +144,7 @@ public class ServiceRecordStorage {
         } finally {
             storage.getConnectionPool().releaseConnection(connection);
         }
-    }    
+    }
     
     
 }

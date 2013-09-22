@@ -85,5 +85,5 @@ public class EnrollCertHandler implements HttpHandler {
         app.getStorage().getCertStorage().save(cert);
         httpExchangeInfo.sendResponse("application/x-pem-file",
                 Pems.buildKeyPem(keyPair.getPrivateKey()).getBytes());
-    }    
+    }
 }

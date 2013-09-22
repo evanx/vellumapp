@@ -24,5 +24,5 @@ public class LocaleResourceBundle {
             map.put(type, bundle);
         }
         return bundle;
-    }    
+    }
 }

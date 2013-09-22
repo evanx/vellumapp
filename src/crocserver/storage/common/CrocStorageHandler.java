@@ -25,5 +25,5 @@ public class CrocStorageHandler {
         storage = app.getStorage();
         userStorage = storage.getUserStorage();
         orgRoleStorage = storage.getOrgRoleStorage();
-    }    
+    }
 }

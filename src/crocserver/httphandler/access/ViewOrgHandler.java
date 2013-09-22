@@ -39,5 +39,5 @@ public class ViewOrgHandler extends AbstractPageHandler {
        p.trhd("Updated", org.getUpdated());
        p.tbodyClose();
        p.tableDivClose();
-    }    
+    }
 }

@@ -16,7 +16,7 @@ public class LogoutServlet extends HttpServlet
     {
         try {
             new LogoutHandler().handle(req, resp);
-        } catch (Exception e) {            
+        } catch (Exception e) {    
             throw new ServletException(e);
         }
     }

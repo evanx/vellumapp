@@ -35,7 +35,7 @@ public class BizstatStorage {
         this.connectionPool = connectionPool;
     }
     
-    public void init() throws Exception {        
+    public void init() throws Exception {
     }
     
     public ServiceRecordStorage getServiceRecordStorage() {

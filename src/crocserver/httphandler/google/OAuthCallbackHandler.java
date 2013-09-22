@@ -110,5 +110,5 @@ public class OAuthCallbackHandler implements HttpHandler {
         p.textarea("csr", 10, 80, null);
         p.formClose();
         p.divClose();
-    }    
+    }
 }

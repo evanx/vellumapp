@@ -127,7 +127,7 @@ public class MantraApp {
         
     public MantraPasswordManager getPasswordManager() {
         return passwordManager;
-    }    
+    }
 
     public static void main(String[] args) throws Exception {
         try {

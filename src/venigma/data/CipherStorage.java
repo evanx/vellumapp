@@ -61,7 +61,7 @@ public class CipherStorage {
         } catch (SQLException e) {
             throw new VStorageRuntimeException(VStorageExceptionType.CONNECTION_ERROR, e);
         }
-    }    
+    }
 
     public void releaseConnection(Connection connection) {
         RowSets.close(connection);

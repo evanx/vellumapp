@@ -127,5 +127,5 @@ public final class Service extends AbstractIdEntity {
     @Override
     public String toString() {
         return getId().toString();
-    }    
+    }
 }

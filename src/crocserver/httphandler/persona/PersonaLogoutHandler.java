@@ -66,5 +66,5 @@ public class PersonaLogoutHandler implements HttpHandler {
         String json = JsonStrings.buildJson(cookie.toMap());
         logger.info("json", json);
         httpExchangeInfo.getPrintStream().print(json);
-    }    
+    }
 }

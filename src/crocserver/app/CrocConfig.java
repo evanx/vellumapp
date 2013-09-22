@@ -52,5 +52,5 @@ public class CrocConfig {
 
     public boolean isTesting() {
         return testing;
-    }        
+    }    
 }

@@ -73,7 +73,7 @@ public class BizstatServer implements Runnable {
         config.init();
         if (config.isH2()) {
             h2Server = Server.createTcpServer().start();    
-        }    
+        }
         if (config.getDataSourceInfo() != null && config.getDataSourceInfo().isEnabled()) {
             ConnectionPool connectionPool = new SimpleConnectionPool(config.getDataSourceInfo());
             storage = new BizstatStorage(new BizstatTypeCache(this), connectionPool);

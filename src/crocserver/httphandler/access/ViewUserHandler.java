@@ -39,5 +39,5 @@ public class ViewUserHandler extends AbstractPageHandler {
        p.trhd("Cert subject", user.getSubject());
        p.tbodyClose();
        p.tableDivClose();
-    }    
+    }
 }

@@ -32,7 +32,7 @@ public class BizstatStorageJsonPrinter {
 
     public void print(PrintStream stream) {
         this.stream = stream;
-        for (Class entityType : storage.entityTypeMap.keySet()) {            
+        for (Class entityType : storage.entityTypeMap.keySet()) {    
             EntityMap entityMap = storage.entityTypeMap.get(entityType);
             print(entityType, entityMap);
         }

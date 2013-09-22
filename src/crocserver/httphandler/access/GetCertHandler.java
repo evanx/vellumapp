@@ -67,5 +67,5 @@ public class GetCertHandler implements HttpHandler {
                 user.getUserName(), cert.getOrgId(), AdminUserRole.SUPER);
         httpExchangeInfo.sendResponse("application/x-pem-file", 
                 cert.getCert().getBytes());
-    }    
+    }
 }

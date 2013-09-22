@@ -89,7 +89,7 @@ public class MonitorHandler {
         int versionNumber = rowSet.getInt(1);
         ResultSet resultSet = databaseMetaData.getCatalogs();
         String catalog = null;
-        while (resultSet.next()) {            
+        while (resultSet.next()) {    
             catalog = resultSet.getString(1);
             if (catalog.startsWith("giftme")) {
                 printCatalog(catalog);
@@ -148,7 +148,7 @@ public class MonitorHandler {
         tablePrinter.tableClose();
     }
     
-    private void createSchema() throws Exception {        
+    private void createSchema() throws Exception {
         String sqlScriptName = "create.sql";
         InputStream stream = getClass().getResourceAsStream(sqlScriptName);
         printer.println(getClass().getName() + " " + sqlScriptName);

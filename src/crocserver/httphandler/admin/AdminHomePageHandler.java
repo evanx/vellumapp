@@ -113,5 +113,5 @@ public class AdminHomePageHandler extends AbstractPageHandler {
        }
        p.tbodyClose();
        p.tableDivClose();
-    }    
+    }
 }

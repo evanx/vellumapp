@@ -45,14 +45,14 @@ public class VenigmaSchemaStorage {
         int versionNumber = rowSet.getInt(1);
         ResultSet resultSet = databaseMetaData.getCatalogs();
         String catalog = null;
-        while (resultSet.next()) {            
+        while (resultSet.next()) {    
             catalog = resultSet.getString(1);
             logger.info(catalog);
         }
         return versionNumber >= MIN_VERSION_NUMBER;
     }
     
-    private void createSchema() throws Exception {        
+    private void createSchema() throws Exception {
         String sqlScriptName = "create.sql";
         InputStream stream = getClass().getResourceAsStream(sqlScriptName);
         logger.info(getClass().getName() + " " + sqlScriptName);

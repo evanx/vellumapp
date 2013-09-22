@@ -110,7 +110,7 @@ public class GenKeyP12CliHandler implements HttpHandler {
             p12.engineStore(out, "1234".toCharArray());
             logger.info("pkcs12");
         }
-    }    
+    }
     
     private void handle(Exception e) throws IOException {
         logger.warn(e, "p12");
@@ -118,5 +118,5 @@ public class GenKeyP12CliHandler implements HttpHandler {
         e.printStackTrace(out);
         e.printStackTrace(System.err);
         out.printf("ERROR %s\n", e.getMessage());
-    }    
+    }
 }

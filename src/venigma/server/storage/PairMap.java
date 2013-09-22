@@ -83,5 +83,5 @@ public class PairMap<T extends EntityPair> {
         if (!map.containsKey(entityPair.getIdPair())) {
             throw VStorageExceptionType.PAIR_NOT_FOUND.newException();
         }
-    }    
+    }
 }

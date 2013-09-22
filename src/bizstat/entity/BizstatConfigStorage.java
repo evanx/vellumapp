@@ -65,7 +65,7 @@ public class BizstatConfigStorage implements Storage, ConfigMapInitialisable {
     
     @Override
     public <E> E find(Class<E> entityType, Comparable id) {
-        if (id == null) {            
+        if (id == null) {    
             throw new StorageRuntimeException(StorageExceptionType.NULL_ID);
         }
         E entity = (E) getMap(entityType).get(id);

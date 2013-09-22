@@ -56,7 +56,7 @@ public class SchemaMigrator {
     }
     
     
-    private void createSchema() throws Exception {        
+    private void createSchema() throws Exception {
         String sqlScriptName = "create.sql";
         InputStream stream = getClass().getResourceAsStream(sqlScriptName);
         printer.println(getClass().getName() + " " + sqlScriptName);

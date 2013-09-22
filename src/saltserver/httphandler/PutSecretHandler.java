@@ -13,7 +13,7 @@ import saltserver.app.VaultApp;
 import saltserver.app.VaultStorage;
 import saltserver.storage.secret.Secret;
 import vellum.crypto.util.Base64;
-import vellum.api.Encrypted;
+import vellum.crypto.api.Encrypted;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
 import vellum.parameter.StringMap;

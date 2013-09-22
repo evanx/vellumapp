@@ -24,7 +24,7 @@ public class IdEntityMap<T extends IdEntity> {
     public IdEntityMap() {
     }
     
-    public void init(List<T> entityList) {        
+    public void init(List<T> entityList) {
         this.list.addAll(entityList);
         for (T entity : entityList) {
             map.put(entity.getId(), entity);

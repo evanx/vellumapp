@@ -53,7 +53,7 @@ public class CipherConnection {
     public CipherResponse sendCipherRequest(CipherRequest request) throws IOException {
         logger.info("send", request);
         return (CipherResponse) sendSingleRequest(request, CipherResponse.class);
-    }    
+    }
     
     public Object sendSingleRequest(Object request, Class responseClass) throws IOException {
         try {

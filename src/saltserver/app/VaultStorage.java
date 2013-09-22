@@ -32,7 +32,7 @@ public class VaultStorage {
         this.connectionPool = connectionPool;
     }
     
-    public void init() throws Exception {        
+    public void init() throws Exception {
         new VaultSchema(this).verifySchema();
         getSecretStorage().validate();
     }

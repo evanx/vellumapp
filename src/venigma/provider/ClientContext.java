@@ -36,7 +36,7 @@ public class ClientContext {
     SecureRandom secureRandom;
     boolean configured = false; 
     
-    public ClientContext() {        
+    public ClientContext() {
     }
 
     public void config(ClientConfig properties, char[] keyStorePassword, char[] keyPassword, char[] trustStorePassword) throws Exception {
@@ -84,7 +84,7 @@ public class ClientContext {
 
     public SSLContext getSSLContext() {
         return sslContext;
-    }    
+    }
     
     public char[] getKeyStorePassword() {
         return keyStorePassword;

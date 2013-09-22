@@ -58,5 +58,5 @@ public class JxMaps {
     
     public static JxMap parse(String json) {
         return parse(new JsonParser().parse(json).getAsJsonObject());
-    }    
+    }
 }

@@ -199,7 +199,7 @@ public class VPreparedStatement implements PreparedStatement {
     }
 
     @Override
-    public ResultSet executeQuery(String sql) throws SQLException {        
+    public ResultSet executeQuery(String sql) throws SQLException {
         return handler.executeQuery(sql);
     }
 

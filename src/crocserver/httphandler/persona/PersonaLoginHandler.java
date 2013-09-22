@@ -102,5 +102,5 @@ public class PersonaLoginHandler implements HttpHandler {
         String json = JsonStrings.buildJson(responseMap);
         logger.info(json);
         httpExchangeInfo.getPrintStream().println(json);
-    }    
+    }
 }

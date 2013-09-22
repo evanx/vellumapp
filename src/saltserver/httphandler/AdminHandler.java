@@ -84,5 +84,5 @@ public class AdminHandler implements HttpHandler {
                 out.printf("<span>%s</span><br>\n", key);
             }
         }
-    }    
+    }
 }

@@ -20,7 +20,7 @@ public class BizstatHttpHandler implements HttpHandler {
     
     public BizstatHttpHandler(BizstatServer context) {
         this.context = context;
-    }    
+    }
 
     @Override
     public void handle(HttpExchange he) throws IOException {

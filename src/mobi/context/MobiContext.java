@@ -26,7 +26,7 @@ public class MobiContext implements ServletContextListener {
     String smtpHost;
     String mailLogoUrl;
     
-    public MobiContext() {        
+    public MobiContext() {
     }
 
     public void init(String dataSource) throws Exception {

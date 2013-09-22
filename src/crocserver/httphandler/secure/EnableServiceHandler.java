@@ -79,6 +79,6 @@ public class EnableServiceHandler implements HttpHandler {
         Service clientCert = storage.getServiceStorage().get(org.getId(), hostName, serviceName);
         httpExchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
         out.println(clientCert.getCert());
-    }    
+    }
     
 }

@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public class JxMap extends HashMap<String, Object> {
     
-    public JxMap() {        
+    public JxMap() {
     }
 
     public Collection getCollection(String key) {

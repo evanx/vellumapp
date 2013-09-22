@@ -42,5 +42,5 @@ public class ViewServiceRecordHandler extends AbstractPageHandler {
        p.tbodyClose();
        p.tableDivClose();
        p.pre(serviceRecord.getOutText());
-    }    
+    }
 }

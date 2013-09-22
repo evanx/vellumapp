@@ -42,6 +42,6 @@ public class FileChecker {
     @Override
     public String toString() {
         return Args.format(file.getAbsolutePath(), lastModified);
-    }    
+    }
     
 }

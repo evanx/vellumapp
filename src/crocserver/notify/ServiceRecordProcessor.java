@@ -62,7 +62,7 @@ public class ServiceRecordProcessor {
             } else if (!Strings.equals(previousRecord.getOutText(), newRecord.getOutText())) {
                 notify = true;
                 logger.info("output changed", previousRecord.getOutText().length(), newRecord.getOutText().length());
-            }    
+            }
         } else if (notifyType == NotifyType.NOT_OK) {
             if (newRecord.getServiceStatus() == ServiceStatus.WARNING || 
                     newRecord.getServiceStatus() == ServiceStatus.CRITICAL) {
@@ -81,7 +81,7 @@ public class ServiceRecordProcessor {
             newRecord.setNotify(notify);
             app.sendAdminGtalkMessage(MessageFormat.format("CHANGED @{0} {1} {2}/view/serviceRecord/{3}",
                     newRecord.getCertName(), newRecord.getServiceName(), app.getSecureUrl(), newRecord.getId()));
-        }        
+        }    
     }
 
     public boolean isNotify() {

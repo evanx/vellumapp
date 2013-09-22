@@ -45,12 +45,12 @@ public class CipherServer extends Thread implements Closeable {
             } catch (Exception e) {
                 logger.warn(e, null);
             }
-        }              
+        }          
         Streams.close(serverSocket);
     }  
     
     @Override
-    public void close() throws IOException {        
+    public void close() throws IOException {
         accepting = false;
         Streams.close(serverSocket);
     }

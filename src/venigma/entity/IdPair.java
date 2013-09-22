@@ -43,5 +43,5 @@ public class IdPair implements Comparable<IdPair> {
     @Override
     public String toString() {
         return id.toString() + "-" + otherId.toString();
-    }    
+    }
 }

@@ -103,5 +103,5 @@ public final class Cert extends AbstractIdEntity {
     @Override
     public String toString() {
         return subject;
-    }    
+    }
 }

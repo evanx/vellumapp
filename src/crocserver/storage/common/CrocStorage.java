@@ -43,7 +43,7 @@ public class CrocStorage {
         this.connectionPool = connectionPool;
     }
     
-    public void init() throws Exception {        
+    public void init() throws Exception {
         new CrocSchema(this).verifySchema();
         new SchemaPrinter().handle(connectionPool, System.out, "PUBLIC");
         getUserStorage().validate();

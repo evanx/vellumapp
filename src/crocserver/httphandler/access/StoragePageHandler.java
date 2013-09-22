@@ -85,7 +85,7 @@ public class StoragePageHandler extends AbstractPageHandler {
         out.println("time " + queryDatabaseTime());
         out.println("</pre>");
         ResultSet resultSet = databaseMetaData.getCatalogs();
-        while (resultSet.next()) {            
+        while (resultSet.next()) {    
             String catalog = resultSet.getString(1);
             out.printf("<h2>%s</h2>\n", catalog);
             printColumns(catalog);
@@ -152,5 +152,5 @@ public class StoragePageHandler extends AbstractPageHandler {
         }
         tablePrinter.tbodyClose();
         tablePrinter.tableDivClose();
-    }    
+    }
 }

@@ -35,7 +35,7 @@ public class CrocHttpServer {
     public CrocHttpServer(CrocApp app, HttpServerConfig config) {
         this.app = app;;
         httpServer = new VellumHttpServer(config);
-    }    
+    }
     
     public void start() throws Exception {
         httpServer.start(new SecureHttpHandler(app));

@@ -127,7 +127,7 @@ public class VaultApp {
 
     public VaultPasswordManager getPasswordManager() {
         return passwordManager;
-    }    
+    }
         
     public static void main(String[] args) throws Exception {
         try {

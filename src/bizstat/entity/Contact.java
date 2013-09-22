@@ -122,5 +122,5 @@ public class Contact extends AbstractIdEntity {
     @Override
     public String toString() {
         return Args.format(name, im, contactGroup);
-    }    
+    }
 }
