@@ -23,6 +23,26 @@ public class JxMap extends HashMap<String, Object> {
     public Map getMap(String key) {
         return (Map) super.get(key);
     }
+
+    public String getString(String key) throws JxMapException {
+        Object value = super.get(key);
+        if (value == null) {
+            throw new JxMapException(key);
+        }
+        return value.toString();
+    }
+
+    public char[] getChars(String key) throws JxMapException {
+        return getString(key).toCharArray();
+    }
+    
+    public String getString(String key, String defaultValue) {
+        Object value = super.get(key);
+        if (value == null) {
+            return defaultValue;
+        }
+        return value.toString();
+    }
     
     public int getInt(String key, int defaultValue) {
         return Convertors.coerceInt(super.get(key), defaultValue);
@@ -36,4 +56,5 @@ public class JxMap extends HashMap<String, Object> {
     public String toString() {
         return new Gson().toJson(this);
     }
+
 }

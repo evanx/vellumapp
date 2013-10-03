@@ -34,7 +34,7 @@ public class JxMapTest {
             System.out.printf("%s = (%s) %s\n", entry.getKey(), entry.getValue().getClass(), entry.getValue());
             if (entry.getValue() instanceof List) {
                 for (Object value : (List) entry.getValue()) {
-                    System.out.printf("  (%s) %s\n", value.getClass(), value);            
+                    System.out.printf("  (%s) %s\n", value.getClass(), value);
                 }
             }
         }

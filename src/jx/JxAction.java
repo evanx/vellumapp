@@ -13,6 +13,4 @@ public class JxAction {
     public JxMap getRequestMap() {
         return requestMap;
     }
-
-    
 }
