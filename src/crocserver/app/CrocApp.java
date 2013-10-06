@@ -57,7 +57,7 @@ import vellum.httpserver.VellumHttpServer;
 import vellum.httpserver.VellumHttpsServer;
 import vellum.parameter.StringMap;
 import vellum.security.DefaultKeyStores;
-import common.crypto.GeneratedRsaKeyPair;
+import vellum.crypto.rsa.SignGenRsaPair;
 import vellum.util.DefaultDateFormats;
 
 /**
@@ -270,8 +270,8 @@ public class CrocApp {
         return config.serverKeyAlias;
     }
 
-    public GeneratedRsaKeyPair generateSignedKeyPair(String subject) throws Exception {
-        GeneratedRsaKeyPair keyPair = new GeneratedRsaKeyPair();
+    public SignGenRsaPair generateSignedKeyPair(String subject) throws Exception {
+        SignGenRsaPair keyPair = new SignGenRsaPair();
         keyPair.generate(subject, new Date(), 999);
         keyPair.sign(DefaultKeyStores.getPrivateKey(config.serverKeyAlias), serverCert);
         return keyPair;

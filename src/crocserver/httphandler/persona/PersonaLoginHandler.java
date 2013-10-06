@@ -19,7 +19,7 @@ import vellum.datatype.Emails;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
 import vellum.parameter.StringMap;
-import common.crypto.GeneratedRsaKeyPair;
+import vellum.crypto.rsa.SignGenRsaPair;
 import vellum.util.Strings;
 
 /**
@@ -74,9 +74,9 @@ public class PersonaLoginHandler implements HttpHandler {
             user.setEnabled(true);
             user.setSecret(CrocSecurity.createSecret());
             if (true) {
-                GeneratedRsaKeyPair keyPair = app.generateSignedKeyPair(user.formatSubject());
-                app.getStorage().getCertStorage().save(keyPair.getCert());
-                user.setCert(keyPair.getCert());
+                SignGenRsaPair keyPair = app.generateSignedKeyPair(user.formatSubject());
+                app.getStorage().getCertStorage().save(keyPair.getCertificate());
+                user.setCert(keyPair.getCertificate());
             }
         }
         user.setLoginTime(new Date());

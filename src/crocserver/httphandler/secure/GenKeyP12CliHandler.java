@@ -19,7 +19,7 @@ import java.security.cert.X509Certificate;
 import java.util.Date;
 import vellum.security.Certificates;
 import vellum.security.DefaultKeyStores;
-import common.crypto.GeneratedRsaKeyPair;
+import vellum.crypto.rsa.SignGenRsaPair;
 import vellum.security.Pems;
 
 /**
@@ -79,7 +79,7 @@ public class GenKeyP12CliHandler implements HttpHandler {
         String dname = Certificates.formatDname(clientName, hostName, orgName, 
                 org.getRegion(), org.getLocality(), org.getCountry());
         logger.info("generate", dname);
-        GeneratedRsaKeyPair keyPair = new GeneratedRsaKeyPair();
+        SignGenRsaPair keyPair = new SignGenRsaPair();
         keyPair.generate(dname, new Date(), 999);
         String alias = app.getServerKeyAlias();
         X509Certificate serverCert = DefaultKeyStores.getCert(alias);
@@ -90,14 +90,14 @@ public class GenKeyP12CliHandler implements HttpHandler {
         } else {
             clientCert.setUpdatedBy(userName);    
         }
-        clientCert.setX509Cert(keyPair.getCert());
+        clientCert.setX509Cert(keyPair.getCertificate());
         if (clientCert.isStored()) {
             storage.getServiceStorage().updateCert(clientCert);    
         } else {
             storage.getServiceStorage().insert(clientCert);
         }
         PKCS12KeyStore p12 = new PKCS12KeyStore();
-        X509Certificate[] chain = new X509Certificate[] {keyPair.getCert(), serverCert};
+        X509Certificate[] chain = new X509Certificate[] {keyPair.getCertificate(), serverCert};
         char[] password = httpExchangeInfo.getParameterMap().
                 getString("password", clientName).toCharArray();
         p12.engineSetKeyEntry(clientName, keyPair.getPrivateKey(), password, chain);

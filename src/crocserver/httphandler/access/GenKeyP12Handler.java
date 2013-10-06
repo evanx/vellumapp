@@ -18,7 +18,7 @@ import java.security.cert.X509Certificate;
 import java.util.Date;
 import vellum.exception.EnumException;
 import vellum.security.DefaultKeyStores;
-import common.crypto.GeneratedRsaKeyPair;
+import vellum.crypto.rsa.SignGenRsaPair;
 
 /**
  *
@@ -59,16 +59,16 @@ public class GenKeyP12Handler implements HttpHandler {
         if (password.length < 8) {
             throw new EnumException(CrocExceptionType.PASSWORD_TOO_SHORT);
         }
-        GeneratedRsaKeyPair keyPair = new GeneratedRsaKeyPair();
+        SignGenRsaPair keyPair = new SignGenRsaPair();
         keyPair.generate(user.formatSubject(), new Date(), 999);
         String alias = app.getServerKeyAlias();
         X509Certificate serverCert = app.getServerCert();
         keyPair.sign(DefaultKeyStores.getPrivateKey(alias), serverCert);
-        user.setCert(keyPair.getCert());
+        user.setCert(keyPair.getCertificate());
         storage.getUserStorage().updateCert(user);
-        storage.getCertStorage().save(keyPair.getCert());
+        storage.getCertStorage().save(keyPair.getCertificate());
         PKCS12KeyStore p12 = new PKCS12KeyStore();
-        X509Certificate[] chain = new X509Certificate[] {keyPair.getCert(), serverCert};
+        X509Certificate[] chain = new X509Certificate[] {keyPair.getCertificate(), serverCert};
         p12.engineSetKeyEntry(user.getUserName(), keyPair.getPrivateKey(), password, chain);
         httpExchangeInfo.sendResponseFile("application/x-pkcs12", "croc-client.p12");
         p12.engineStore(httpExchangeInfo.getPrintStream(), password);

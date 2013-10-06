@@ -17,7 +17,7 @@ import crocserver.storage.service.Service;
 import java.util.Date;
 import vellum.security.DefaultKeyStores;
 import vellum.security.KeyStores;
-import common.crypto.GeneratedRsaKeyPair;
+import vellum.crypto.rsa.SignGenRsaPair;
 
 /**
  *

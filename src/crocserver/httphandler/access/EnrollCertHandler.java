@@ -20,7 +20,7 @@ import vellum.logr.LogrFactory;
 import java.util.Date;
 import vellum.datatype.Emails;
 import vellum.security.DefaultKeyStores;
-import common.crypto.GeneratedRsaKeyPair;
+import vellum.crypto.rsa.SignGenRsaPair;
 import vellum.security.Pems;
 
 /**
@@ -68,7 +68,7 @@ public class EnrollCertHandler implements HttpHandler {
         Org org = app.getStorage().getOrgStorage().get(orgName);
         app.getStorage().getOrgRoleStorage().verifyRole(user, org, AdminUserRole.SUPER);
         logger.info("handle", user.getUserName(), org.getOrgName());
-        GeneratedRsaKeyPair keyPair = new GeneratedRsaKeyPair();
+        SignGenRsaPair keyPair = new SignGenRsaPair();
         if (!Emails.matchesEmail(certName)) {
             throw new CrocException(CrocExceptionType.CERT_NAME_NOT_EMAIL_FORMAT, certName);
         }
@@ -81,7 +81,7 @@ public class EnrollCertHandler implements HttpHandler {
             cert = new Cert();
             cert.setOrgId(org.getId());
         }
-        cert.setCert(keyPair.getCert());
+        cert.setCert(keyPair.getCertificate());
         app.getStorage().getCertStorage().save(cert);
         httpExchangeInfo.sendResponse("application/x-pem-file",
                 Pems.buildKeyPem(keyPair.getPrivateKey()).getBytes());
