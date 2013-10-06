@@ -27,7 +27,7 @@ public class registerAdminUser implements JellyHandler {
         this.action = action;
         init();
         app.getStorage().put("jelly", "AdminUser", email, action.getRequestMap());
-    }    
+    }
     
     
 }

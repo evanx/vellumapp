@@ -153,5 +153,5 @@ public class BizstatConfig extends AbstractConfig implements Initialisable {
 
     public HttpServerConfig getHttpServerConfig() {
         return httpServerConfig;
-    }     
+    } 
 }

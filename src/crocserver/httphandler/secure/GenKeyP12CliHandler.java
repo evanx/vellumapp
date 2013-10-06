@@ -19,7 +19,7 @@ import java.security.cert.X509Certificate;
 import java.util.Date;
 import vellum.security.Certificates;
 import vellum.security.DefaultKeyStores;
-import vellum.crypto.rsa.GeneratedRsaKeyPair;
+import common.crypto.GeneratedRsaKeyPair;
 import vellum.security.Pems;
 
 /**

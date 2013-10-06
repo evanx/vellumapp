@@ -42,7 +42,7 @@ public class AccessHomeHandler extends AbstractPageHandler {
             logger.info("qrUrl", qrUrl);
             h.img(qrUrl);
             h.pre(qrUrl);
-        }    
+        }
         printCerts("certs", app.getStorage().getServiceStorage().getList());
     }
     

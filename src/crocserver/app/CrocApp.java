@@ -57,7 +57,7 @@ import vellum.httpserver.VellumHttpServer;
 import vellum.httpserver.VellumHttpsServer;
 import vellum.parameter.StringMap;
 import vellum.security.DefaultKeyStores;
-import vellum.crypto.rsa.GeneratedRsaKeyPair;
+import common.crypto.GeneratedRsaKeyPair;
 import vellum.util.DefaultDateFormats;
 
 /**

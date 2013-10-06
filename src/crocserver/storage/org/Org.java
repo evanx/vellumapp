@@ -159,7 +159,7 @@ public final class Org extends AbstractIdEntity<Long> {
     public void validate() throws ValidationException {
         if (!Patterns.matchesUrl(url)) {
             throw new ValidationException(ValidationExceptionType.INVALID_URL, url);
-        }    
+        }
     }
 
     public String toJson() {

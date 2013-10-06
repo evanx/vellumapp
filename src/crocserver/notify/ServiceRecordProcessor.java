@@ -81,7 +81,7 @@ public class ServiceRecordProcessor {
             newRecord.setNotify(notify);
             app.sendAdminGtalkMessage(MessageFormat.format("CHANGED @{0} {1} {2}/view/serviceRecord/{3}",
                     newRecord.getCertName(), newRecord.getServiceName(), app.getSecureUrl(), newRecord.getId()));
-        }    
+        }
     }
 
     public boolean isNotify() {

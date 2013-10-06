@@ -17,5 +17,5 @@ public class JellyApp {
 
     public Storage getStorage() {
         return storage;
-    }        
+    }    
 }

@@ -20,7 +20,7 @@ import vellum.logr.LogrFactory;
 import java.util.Date;
 import vellum.datatype.Emails;
 import vellum.security.DefaultKeyStores;
-import vellum.crypto.rsa.GeneratedRsaKeyPair;
+import common.crypto.GeneratedRsaKeyPair;
 import vellum.security.Pems;
 
 /**

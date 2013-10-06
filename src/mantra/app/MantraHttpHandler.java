@@ -30,7 +30,7 @@ public class MantraHttpHandler implements HttpHandler {
             handler.handle(httpExchange);
         } else {
             httpExchange.close();
-        }    
+        }
     }
     
     public HttpHandler getHandler(HttpExchange httpExchange) throws IOException {

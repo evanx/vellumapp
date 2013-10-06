@@ -37,7 +37,7 @@ public class ServiceConfigurator {
         service.setHost(server.getConfigStorage().get(Host.class, properties.getString("host", null)));
         for (String contactGroupName : properties.splitCsv("contactGroups")) {    
             service.contactGroupList.add(server.getConfigStorage().find(ContactGroup.class, contactGroupName));
-        }     
+        } 
         service.setNotifyType(properties.getEnum("notifyType", NotifyType.class, NotifyType.STATUS_CHANGED));
         service.setScheduleTime(properties.getTime("scheduleTime", null));
         if (service.getScheduleTime() != null) {

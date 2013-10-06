@@ -18,7 +18,7 @@ import java.security.cert.X509Certificate;
 import java.util.Date;
 import vellum.exception.EnumException;
 import vellum.security.DefaultKeyStores;
-import vellum.crypto.rsa.GeneratedRsaKeyPair;
+import common.crypto.GeneratedRsaKeyPair;
 
 /**
  *
