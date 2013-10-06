@@ -16,9 +16,9 @@ import vellum.logr.LogrFactory;
 import crocserver.storage.common.CrocStorage;
 import java.security.cert.X509Certificate;
 import java.util.Date;
+import vellum.crypto.rsa.GenRsaPair;
 import vellum.exception.EnumException;
 import vellum.security.DefaultKeyStores;
-import vellum.crypto.rsa.SignGenRsaPair;
 
 /**
  *
@@ -59,7 +59,7 @@ public class GenKeyP12Handler implements HttpHandler {
         if (password.length < 8) {
             throw new EnumException(CrocExceptionType.PASSWORD_TOO_SHORT);
         }
-        SignGenRsaPair keyPair = new SignGenRsaPair();
+        GenRsaPair keyPair = new GenRsaPair();
         keyPair.generate(user.formatSubject(), new Date(), 999);
         String alias = app.getServerKeyAlias();
         X509Certificate serverCert = app.getServerCert();

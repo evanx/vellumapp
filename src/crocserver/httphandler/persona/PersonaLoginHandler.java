@@ -11,15 +11,14 @@ import crocserver.app.CrocCookie;
 import crocserver.app.CrocSecurity;
 import vellum.util.JsonStrings;
 import vellum.httpserver.HttpExchangeInfo;
-import crocserver.storage.adminuser.AdminUserRole;
 import crocserver.storage.adminuser.AdminUser;
 import java.io.IOException;
 import java.util.Date;
+import vellum.crypto.rsa.GenRsaPair;
 import vellum.datatype.Emails;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
 import vellum.parameter.StringMap;
-import vellum.crypto.rsa.SignGenRsaPair;
 import vellum.util.Strings;
 
 /**
@@ -74,7 +73,7 @@ public class PersonaLoginHandler implements HttpHandler {
             user.setEnabled(true);
             user.setSecret(CrocSecurity.createSecret());
             if (true) {
-                SignGenRsaPair keyPair = app.generateSignedKeyPair(user.formatSubject());
+                GenRsaPair keyPair = app.generateSignedKeyPair(user.formatSubject());
                 app.getStorage().getCertStorage().save(keyPair.getCertificate());
                 user.setCert(keyPair.getCertificate());
             }

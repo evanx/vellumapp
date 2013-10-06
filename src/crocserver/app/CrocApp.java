@@ -52,12 +52,12 @@ import crocserver.storage.common.CrocStorage;
 import java.security.Security;
 import java.security.cert.X509Certificate;
 import java.util.Date;
+import vellum.crypto.rsa.GenRsaPair;
 import vellum.exception.EnumException;
 import vellum.httpserver.VellumHttpServer;
 import vellum.httpserver.VellumHttpsServer;
 import vellum.parameter.StringMap;
 import vellum.security.DefaultKeyStores;
-import vellum.crypto.rsa.SignGenRsaPair;
 import vellum.util.DefaultDateFormats;
 
 /**
@@ -270,8 +270,8 @@ public class CrocApp {
         return config.serverKeyAlias;
     }
 
-    public SignGenRsaPair generateSignedKeyPair(String subject) throws Exception {
-        SignGenRsaPair keyPair = new SignGenRsaPair();
+    public GenRsaPair generateSignedKeyPair(String subject) throws Exception {
+        GenRsaPair keyPair = new GenRsaPair();
         keyPair.generate(subject, new Date(), 999);
         keyPair.sign(DefaultKeyStores.getPrivateKey(config.serverKeyAlias), serverCert);
         return keyPair;
