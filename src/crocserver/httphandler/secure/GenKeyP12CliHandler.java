@@ -17,6 +17,7 @@ import crocserver.storage.org.Org;
 import crocserver.storage.service.Service;
 import java.security.cert.X509Certificate;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 import vellum.crypto.rsa.GenRsaPair;
 import vellum.security.Certificates;
 import vellum.security.DefaultKeyStores;
@@ -80,7 +81,7 @@ public class GenKeyP12CliHandler implements HttpHandler {
                 org.getRegion(), org.getLocality(), org.getCountry());
         logger.info("generate", dname);
         GenRsaPair keyPair = new GenRsaPair();
-        keyPair.generate(dname, new Date(), 999);
+        keyPair.generate(dname, new Date(), 999, TimeUnit.DAYS);
         String alias = app.getServerKeyAlias();
         X509Certificate serverCert = DefaultKeyStores.getCert(alias);
         keyPair.sign(DefaultKeyStores.getPrivateKey(alias), serverCert);
