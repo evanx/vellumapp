@@ -18,6 +18,7 @@ import java.io.IOException;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 import vellum.crypto.rsa.GenRsaPair;
 import vellum.datatype.Emails;
 import vellum.security.DefaultKeyStores;
@@ -73,7 +74,7 @@ public class EnrollCertHandler implements HttpHandler {
             throw new CrocException(CrocExceptionType.CERT_NAME_NOT_EMAIL_FORMAT, certName);
         }
         String dname = org.formatDname(certName, userName);
-        keyPair.generate(dname, new Date(), 999);
+        keyPair.generate(dname, new Date(), 999, TimeUnit.DAYS);
         String alias = app.getServerKeyAlias();
         keyPair.sign(DefaultKeyStores.getPrivateKey(alias), DefaultKeyStores.getCert(alias));
         Cert cert = app.getStorage().getCertStorage().findName(certName);

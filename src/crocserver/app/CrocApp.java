@@ -52,6 +52,7 @@ import crocserver.storage.common.CrocStorage;
 import java.security.Security;
 import java.security.cert.X509Certificate;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 import vellum.crypto.rsa.GenRsaPair;
 import vellum.exception.EnumException;
 import vellum.httpserver.VellumHttpServer;
@@ -272,7 +273,7 @@ public class CrocApp {
 
     public GenRsaPair generateSignedKeyPair(String subject) throws Exception {
         GenRsaPair keyPair = new GenRsaPair();
-        keyPair.generate(subject, new Date(), 999);
+        keyPair.generate(subject, new Date(), 999, TimeUnit.DAYS);
         keyPair.sign(DefaultKeyStores.getPrivateKey(config.serverKeyAlias), serverCert);
         return keyPair;
     }
