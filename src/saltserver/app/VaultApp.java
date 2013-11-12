@@ -4,6 +4,7 @@
  */
 package saltserver.app;
 
+import dualcontrol.ExtendedProperties;
 import vellum.httpserver.HttpServerConfig;
 import java.io.File;
 import java.io.FileInputStream;
@@ -11,7 +12,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import org.h2.tools.Server;
 import saltserver.crypto.AESCipher;
-import vellum.config.ConfigProperties;
+import vellum.config.ConfigMap;
 import vellum.config.ConfigParser;
 import vellum.config.ConfigProperties;
 import vellum.logr.Logr;
@@ -31,11 +32,11 @@ public class VaultApp {
 
     Logr logger = LogrFactory.getLogger(getClass());
     VaultStorage storage;
-    DataSourceConfig dataSourceConfig;
+    ConfigMap configMap;
     ConfigProperties configProperties;
+    DataSourceConfig dataSourceConfig;
     Thread serverThread;
     String confFileName;
-    ConfigProperties configMap;
     Server h2Server;
     VellumHttpsServer httpsServer;
     AESCipher cipher; 
@@ -53,10 +54,11 @@ public class VaultApp {
         storage.init();
         String httpsServerConfigName = configProperties.getString("httpsServer");
         if (httpsServerConfigName != null) {
-            HttpServerConfig httpsServerConfig = new HttpServerConfig(
+            ExtendedProperties props = new ExtendedProperties(
                     configMap.find("HttpsServer", httpsServerConfigName).getProperties());
+            HttpServerConfig httpsServerConfig = new HttpServerConfig(props);
             if (httpsServerConfig.isEnabled()) {
-                httpsServer = new VellumHttpsServer(httpsServerConfig);
+                httpsServer = new VellumHttpsServer(props);
                 httpsServer.init(DefaultKeyStores.createSSLContext());
             }
         }
