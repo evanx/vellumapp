@@ -43,7 +43,7 @@ public class KeyInfo extends AbstractIdEntity {
     
     @Override
     public Comparable getId() {
-        return ComparableTuple.newInstance(keyAlias, keyRevisionNumber);
+        return ComparableTuple.create(keyAlias, keyRevisionNumber);
     }
 
     public void setIv(byte[] iv) {
