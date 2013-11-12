@@ -13,7 +13,7 @@ import crocserver.storage.adminuser.AdminUser;
 import crocserver.storage.adminuser.AdminUserRole;
 import crocserver.storage.clientcert.Cert;
 import crocserver.storage.org.Org;
-import vellum.httpserver.HttpExchangeInfo;
+import vellum.httpserver.Httpx;
 import java.io.IOException;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
@@ -32,7 +32,7 @@ public class EnrollCertHandler implements HttpHandler {
     Logr logger = LogrFactory.getLogger(getClass());
     CrocApp app;
     HttpExchange httpExchange;
-    HttpExchangeInfo httpExchangeInfo;
+    Httpx httpExchangeInfo;
 
     String userName;
     String orgName;
@@ -46,7 +46,7 @@ public class EnrollCertHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
         this.httpExchange = httpExchange;
-        httpExchangeInfo = new HttpExchangeInfo(httpExchange);
+        httpExchangeInfo = new Httpx(httpExchange);
         logger.info("handle", getClass().getName(), httpExchangeInfo.getPathArgs());
         if (httpExchangeInfo.getPathArgs().length != 4) {
             httpExchangeInfo.handleError(new CrocError(

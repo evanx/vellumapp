@@ -8,7 +8,7 @@ import java.security.KeyStore;
 import java.util.Collections;
 import mantra.app.MantraApp;
 import mantra.app.MantraKeyStoreManager;
-import vellum.httpserver.HttpExchangeInfo;
+import vellum.httpserver.Httpx;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
 import vellum.util.Strings;
@@ -21,7 +21,7 @@ public class AdminHandler implements HttpHandler {
 
     Logr logger = LogrFactory.getLogger(getClass());
     HttpExchange httpExchange;
-    HttpExchangeInfo httpExchangeInfo;
+    Httpx httpExchangeInfo;
     MantraPageHandler handler;
     MantraApp app;
     PrintStream out;
@@ -36,7 +36,7 @@ public class AdminHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange httpExchange) {
         this.httpExchange = httpExchange;
-        httpExchangeInfo = new HttpExchangeInfo(httpExchange);
+        httpExchangeInfo = new Httpx(httpExchange);
         out = httpExchangeInfo.getPrintStream();
         handler = new MantraPageHandler(httpExchange);
         logger.info("handle", getClass().getSimpleName(), httpExchange.getRequestMethod(), httpExchangeInfo.getPath());

@@ -9,9 +9,9 @@ import java.net.URL;
 import java.net.URLConnection;
 import org.h2.tools.Server;
 import saltserver.crypto.AESCipher;
-import vellum.config.ConfigMap;
+import vellum.config.ConfigProperties;
 import vellum.config.ConfigParser;
-import vellum.config.PropertiesStringMap;
+import vellum.config.ConfigProperties;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
 import vellum.logr.LogrLevel;
@@ -31,10 +31,10 @@ public class MantraApp {
     Logr logger = LogrFactory.getLogger(getClass());
     MantraStorage storage;
     DataSourceConfig dataSourceConfig;
-    PropertiesStringMap configProperties;
+    ConfigProperties configProperties;
     Thread serverThread;
     String confFileName;
-    ConfigMap configMap;
+    ConfigProperties configMap;
     Server h2Server;
     VellumHttpsServer httpsServer;
     AESCipher cipher; 
@@ -77,7 +77,7 @@ public class MantraApp {
     public void start() throws Exception {
         if (httpsServer != null) {
             httpsServer.start();
-            httpsServer.startContext("/", new MantraHttpHandler(this));
+            httpsServer.createContext("/", new MantraHttpHandler(this));
             logger.info("HTTPS server started");
         }
     }

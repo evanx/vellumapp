@@ -6,7 +6,7 @@ package saltserver.httphandler;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
-import vellum.httpserver.HttpExchangeInfo;
+import vellum.httpserver.Httpx;
 import java.io.IOException;
 import java.util.Arrays;
 import saltserver.app.VaultApp;
@@ -26,7 +26,7 @@ public class GetSecretHandler implements HttpHandler {
     VaultApp app;
     VaultStorage storage;
     HttpExchange httpExchange;
-    HttpExchangeInfo httpExchangeInfo;
+    Httpx httpExchangeInfo;
     
     public GetSecretHandler(VaultApp app) {
         super();
@@ -40,7 +40,7 @@ public class GetSecretHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
         this.httpExchange = httpExchange;
-        httpExchangeInfo = new HttpExchangeInfo(httpExchange);
+        httpExchangeInfo = new Httpx(httpExchange);
         logger.info("handle", getClass().getSimpleName());
         if (httpExchangeInfo.getPathArgs().length < 3) {
             httpExchangeInfo.handleError(SaltServerError.INVALID_ARGS);

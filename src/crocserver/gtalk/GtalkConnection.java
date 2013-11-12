@@ -23,7 +23,7 @@ package crocserver.gtalk;
 import org.jivesoftware.smack.*;
 import org.jivesoftware.smack.packet.Message;
 import org.jivesoftware.smack.packet.Presence;
-import vellum.config.PropertiesStringMap;
+import vellum.config.ConfigProperties;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
 
@@ -33,14 +33,14 @@ import vellum.logr.LogrFactory;
  */
 public class GtalkConnection implements MessageListener {
     Logr logger = LogrFactory.getLogger(GtalkConnection.class);
-    PropertiesStringMap properties;
+    ConfigProperties properties;
         
     String username;
     String password;
     
     XMPPConnection connection;    
     
-    public GtalkConnection(PropertiesStringMap properties) {
+    public GtalkConnection(ConfigProperties properties) {
         username = properties.getString("gtalkUsername", System.getProperty("gtalk.username"));
         password = properties.getString("gtalkPassword", System.getProperty("gtalk.password"));
         logger.info("gtalkUsername", username);

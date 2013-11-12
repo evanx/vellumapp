@@ -6,7 +6,7 @@ package crocserver.httphandler.secure;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import crocserver.app.CrocApp;
-import vellum.httpserver.HttpExchangeInfo;
+import vellum.httpserver.Httpx;
 import java.io.IOException;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
@@ -22,7 +22,7 @@ public class ShutdownHandler implements HttpHandler {
     CrocApp app;
     CrocStorage storage;
     HttpExchange httpExchange;
-    HttpExchangeInfo httpExchangeInfo;
+    Httpx httpExchangeInfo;
 
     public ShutdownHandler(CrocApp app) {
         super();
@@ -33,7 +33,7 @@ public class ShutdownHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
         this.httpExchange = httpExchange;
-        httpExchangeInfo = new HttpExchangeInfo(httpExchange);
+        httpExchangeInfo = new Httpx(httpExchange);
         String remoteHostHame = httpExchange.getRemoteAddress().getHostName();
         logger.info("handle", getClass().getSimpleName(), httpExchangeInfo.getPath(), remoteHostHame);
         if (!remoteHostHame.equals("127.0.0.1")) {

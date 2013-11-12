@@ -9,7 +9,7 @@ import bizstat.enumtype.MetricType;
 import bizstat.server.BizstatServer;
 import java.util.HashMap;
 import java.util.Map;
-import vellum.config.PropertiesStringMap;
+import vellum.config.ConfigProperties;
 import vellum.entity.AbstractIdEntity;
 import vellum.entity.ConfigurableEntity;
 
@@ -98,7 +98,7 @@ public class MetricInfo extends AbstractIdEntity implements ConfigurableEntity<B
     }
             
     @Override
-    public void config(BizstatServer server, PropertiesStringMap properties) {
+    public void config(BizstatServer server, ConfigProperties properties) {
         String serviceName = properties.getString("service", name);
         service = server.getConfigStorage().find(BizstatService.class, serviceName);
         valueMap = StatusChangeType.newValueMap(properties.splitCsv("values"));

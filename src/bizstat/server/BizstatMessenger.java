@@ -11,7 +11,7 @@ import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
 import vellum.util.Streams;
 import java.util.*;
-import vellum.config.PropertiesStringMap;
+import vellum.config.ConfigProperties;
 
 /**
  *
@@ -97,7 +97,7 @@ public class BizstatMessenger {
         }
     }
 
-    private void put(String prefix, PropertiesStringMap propertiesMap) {
+    private void put(String prefix, ConfigProperties propertiesMap) {
         for (String key : propertiesMap.keySet()) {
             environment.put(prefix + key, propertiesMap.get(key));
         }

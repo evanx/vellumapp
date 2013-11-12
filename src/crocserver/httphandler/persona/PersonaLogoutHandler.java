@@ -10,7 +10,7 @@ import crocserver.app.CrocApp;
 import crocserver.app.CrocCookie;
 import crocserver.app.CrocCookieMeta;
 import vellum.util.JsonStrings;
-import vellum.httpserver.HttpExchangeInfo;
+import vellum.httpserver.Httpx;
 import crocserver.storage.adminuser.AdminUser;
 import java.io.IOException;
 import java.util.Date;
@@ -27,7 +27,7 @@ public class PersonaLogoutHandler implements HttpHandler {
     Logr logger = LogrFactory.getLogger(getClass());
     CrocApp app;
     HttpExchange httpExchange;
-    HttpExchangeInfo httpExchangeInfo;
+    Httpx httpExchangeInfo;
     CrocCookie cookie;
 
     public PersonaLogoutHandler(CrocApp app) {
@@ -38,7 +38,7 @@ public class PersonaLogoutHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
         this.httpExchange = httpExchange;
-        httpExchangeInfo = new HttpExchangeInfo(httpExchange);
+        httpExchangeInfo = new Httpx(httpExchange);
         logger.info("handle", getClass().getSimpleName(), httpExchangeInfo.getPath());
         try {
             cookie = new CrocCookie(httpExchangeInfo.getCookieMap());

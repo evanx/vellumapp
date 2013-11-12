@@ -11,10 +11,10 @@ import java.io.FileInputStream;
 import java.util.Collection;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-import vellum.config.ConfigEntry;
 import vellum.config.ConfigMap;
 import vellum.config.ConfigParser;
-import vellum.config.PropertiesStringMap;
+import vellum.config.ConfigProperties;
+import vellum.config.ConfigEntry;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
 import vellum.logr.LogrLevel;
@@ -32,7 +32,7 @@ public class BizstatStarter implements Runnable, DirWatcherListener {
     
     Logr logger = LogrFactory.getLogger(BizstatStarter.class);
     ConfigMap configMap;
-    PropertiesStringMap configProperties;
+    ConfigProperties configProperties;
     BizstatServer server;
     Thread serverThread;
     
@@ -97,8 +97,10 @@ public class BizstatStarter implements Runnable, DirWatcherListener {
     }
     
     private void initConfigMap() throws Exception {
-        configMap = ConfigParser.parse(new FileInputStream(new File(confDirName, MAIN_CONFIG_FILE)));
-        ConfigMap contactsConfigMap = ConfigParser.parse(new FileInputStream(new File(confDirName, CONTACTS_CONFIG_FILE)));
+        configMap = ConfigParser.parse(new FileInputStream(
+                new File(confDirName, MAIN_CONFIG_FILE)));
+        ConfigMap contactsConfigMap = ConfigParser.parse(new FileInputStream(
+                new File(confDirName, CONTACTS_CONFIG_FILE)));
         configMap.putAll(contactsConfigMap);
         configProperties = configMap.find("Config", "default").getProperties();
         String logLevelName = configProperties.get("logLevel");

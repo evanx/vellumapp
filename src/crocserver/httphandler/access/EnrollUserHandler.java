@@ -6,7 +6,7 @@ package crocserver.httphandler.access;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import crocserver.app.CrocApp;
-import vellum.httpserver.HttpExchangeInfo;
+import vellum.httpserver.Httpx;
 import crocserver.storage.adminuser.AdminUser;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -31,7 +31,7 @@ public class EnrollUserHandler implements HttpHandler {
     CrocApp app;
     CrocStorage storage;
     HttpExchange httpExchange;
-    HttpExchangeInfo httpExchangeInfo;
+    Httpx httpExchangeInfo;
     PrintStream out;
     String certReqPem;
     String userName;
@@ -45,7 +45,7 @@ public class EnrollUserHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
         this.httpExchange = httpExchange;
-        httpExchangeInfo = new HttpExchangeInfo(httpExchange);
+        httpExchangeInfo = new Httpx(httpExchange);
         httpExchange.getResponseHeaders().set("Content-type", "text/plain");
         logger.info("handle", getClass().getName(), httpExchangeInfo.getPath(), 
                 httpExchangeInfo.getRequestBody(), httpExchangeInfo.getParameterMap());

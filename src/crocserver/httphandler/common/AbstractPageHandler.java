@@ -9,7 +9,7 @@ import vellum.logr.LogrFactory;
 import vellum.printer.PrintStreamAdapter;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
-import vellum.httpserver.HttpExchangeInfo;
+import vellum.httpserver.Httpx;
 import vellum.printer.Printer;
 import vellum.util.Streams;
 import vellum.util.Strings;
@@ -28,7 +28,7 @@ public abstract class AbstractPageHandler implements HttpHandler {
 
     protected Logr logger = LogrFactory.getLogger(getClass());
     protected HttpExchange httpExchange;
-    protected HttpExchangeInfo httpExchangeInfo;
+    protected Httpx httpExchangeInfo;
     protected String urlQuery;
     protected String path;
     protected String[] pathArgs;
@@ -47,7 +47,7 @@ public abstract class AbstractPageHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
         this.httpExchange = httpExchange;
-        httpExchangeInfo = new HttpExchangeInfo(httpExchange);
+        httpExchangeInfo = new Httpx(httpExchange);
         path = httpExchangeInfo.getPath();
         pathArgs = httpExchangeInfo.getPathArgs();
         httpExchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);     

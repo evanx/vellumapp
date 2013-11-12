@@ -8,7 +8,7 @@ import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.ssl.internal.pkcs12.PKCS12KeyStore;
 import crocserver.app.CrocApp;
 import crocserver.app.CrocExceptionType;
-import vellum.httpserver.HttpExchangeInfo;
+import vellum.httpserver.Httpx;
 import crocserver.storage.adminuser.AdminUser;
 import java.io.IOException;
 import vellum.logr.Logr;
@@ -30,7 +30,7 @@ public class GenKeyP12Handler implements HttpHandler {
     CrocApp app;
     CrocStorage storage;
     HttpExchange httpExchange;
-    HttpExchangeInfo httpExchangeInfo;
+    Httpx httpExchangeInfo;
     
     public GenKeyP12Handler(CrocApp app) {
         super();
@@ -41,7 +41,7 @@ public class GenKeyP12Handler implements HttpHandler {
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
         this.httpExchange = httpExchange;
-        httpExchangeInfo = new HttpExchangeInfo(httpExchange);
+        httpExchangeInfo = new Httpx(httpExchange);
         logger.info("handle", getClass().getSimpleName(), httpExchangeInfo.getParameterMap(), httpExchangeInfo.getCookieMap());
         try {
             handle();

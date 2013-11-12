@@ -5,7 +5,7 @@
 package bizstat.entity;
 
 import bizstat.server.BizstatServer;
-import vellum.config.PropertiesStringMap;
+import vellum.config.ConfigProperties;
 
 /**
  *
@@ -13,7 +13,7 @@ import vellum.config.PropertiesStringMap;
  */
 public class ContactConfigurator {
     
-    public void config(Contact contact, BizstatServer server, PropertiesStringMap properties) {
+    public void config(Contact contact, BizstatServer server, ConfigProperties properties) {
         contact.fullName = properties.getString("fullName", null);
         contact.sms = properties.getString("sms", null);
         contact.email = properties.getString("email", null);

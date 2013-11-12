@@ -7,7 +7,7 @@ package crocserver.httphandler.facebook;
 import java.net.URL;
 import java.net.URLEncoder;
 import javax.net.ssl.HttpsURLConnection;
-import vellum.config.PropertiesStringMap;
+import vellum.config.ConfigProperties;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
 import vellum.security.DefaultKeyStores;
@@ -26,7 +26,7 @@ public class FacebookApi {
     String redirectUrl;
     String apiKey;
 
-    public FacebookApi(String serverUrl, String redirectUrl, PropertiesStringMap props) {
+    public FacebookApi(String serverUrl, String redirectUrl, ConfigProperties props) {
         this.serverUrl = serverUrl;
         this.redirectUrl = redirectUrl;
         clientId = props.get("clientId");

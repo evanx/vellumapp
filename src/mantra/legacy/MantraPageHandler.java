@@ -10,7 +10,7 @@ import java.io.PrintStream;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import vellum.html.HtmlPrinter;
-import vellum.httpserver.HttpExchangeInfo;
+import vellum.httpserver.Httpx;
 import vellum.util.Streams;
 import vellum.util.Types;
 
@@ -23,12 +23,12 @@ public class MantraPageHandler {
     private static int COLUMN_WIDTH_LIMIT = 32;
 
     HttpExchange httpExchange;
-    HttpExchangeInfo httpExchangeInfo;
+    Httpx httpExchangeInfo;
     PrintStream out;
         
     public MantraPageHandler(HttpExchange httpExchange) {
         this.httpExchange = httpExchange;
-        this.httpExchangeInfo = new HttpExchangeInfo(httpExchange);
+        this.httpExchangeInfo = new Httpx(httpExchange);
         this.out = httpExchangeInfo.getPrintStream();
     }
     

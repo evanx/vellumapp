@@ -4,16 +4,16 @@
  */
 package bizstat.server;
 
-import vellum.config.PropertiesStringMap;
+import vellum.config.ConfigProperties;
 
 /**
  *
  * @author evan.summers
  */
 public class AbstractConfig {
-    protected PropertiesStringMap properties;
+    protected ConfigProperties properties;
 
-    public AbstractConfig(PropertiesStringMap properties) {
+    public AbstractConfig(ConfigProperties properties) {
         this.properties = properties;
     }
         

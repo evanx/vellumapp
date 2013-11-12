@@ -12,7 +12,7 @@ import crocserver.app.CrocApp;
 import crocserver.exception.CrocError;
 import crocserver.exception.CrocException;
 import crocserver.exception.CrocExceptionType;
-import vellum.httpserver.HttpExchangeInfo;
+import vellum.httpserver.Httpx;
 import crocserver.notify.ServiceRecordProcessor;
 import crocserver.storage.clientcert.Cert;
 import java.io.IOException;
@@ -32,7 +32,7 @@ public class PostHandler implements HttpHandler {
     CrocApp app;
     CrocStorage storage;
     HttpExchange httpExchange;
-    HttpExchangeInfo httpExchangeInfo;
+    Httpx httpExchangeInfo;
     String certName;
     String serviceName;
     String serviceText;
@@ -50,7 +50,7 @@ public class PostHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
         this.httpExchange = httpExchange;
-        httpExchangeInfo = new HttpExchangeInfo(httpExchange);
+        httpExchangeInfo = new Httpx(httpExchange);
         httpExchange.getResponseHeaders().set("Content-type", "text/plain");
         serviceText = Streams.readString(httpExchange.getRequestBody());
         if (httpExchangeInfo.getPathLength() < 3) {

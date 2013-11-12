@@ -10,17 +10,17 @@ import bizstat.server.BizstatServer;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import vellum.config.ConfigEntry;
 import vellum.config.ConfigMap;
+import vellum.config.ConfigEntry;
 import vellum.entity.*;
-import vellum.lifecycle.ConfigMapInitialisable;
+import vellum.lifecycle.ConfigDocumentInitialisable;
 import vellum.storage.StorageRuntimeException;
 
 /**
  *
  * @author evan.summers
  */
-public class BizstatConfigStorage implements Storage, ConfigMapInitialisable {
+public class BizstatConfigStorage implements Storage, ConfigDocumentInitialisable {
     static BizstatStorageMeta meta = new BizstatStorageMeta();
     
     Logr logger = LogrFactory.getLogger(BizstatConfigStorage.class);
@@ -76,22 +76,22 @@ public class BizstatConfigStorage implements Storage, ConfigMapInitialisable {
     }
     
     @Override
-    public void init(ConfigMap configMap) throws Exception {
-        logger.info("init size", configMap.getEntryList().size());
+    public void init(ConfigMap configDocument) throws Exception {
+        logger.info("init size", configDocument.getEntryList().size());
         Map<ConfigEntry, ConfigurableEntity> map = new HashMap();
-        for (ConfigEntry entry : configMap.getEntryList()) {
-            Class type = meta.getTypeMap().get(entry.getType());
+        for (ConfigEntry section : configDocument.getEntryList()) {
+            Class type = meta.getTypeMap().get(section.getType());
             if (type != null) {
                 logger.trace("init", type);
                 ConfigurableEntity configEntity = (ConfigurableEntity) type.newInstance();
-                configEntity.setName(entry.getName());    
+                configEntity.setName(section.getName());    
                 put(configEntity);
-                map.put(entry, configEntity);
+                map.put(section, configEntity);
             }
         }
-        for (ConfigEntry entry : map.keySet()) { 
-                ConfigurableEntity configEntity = map.get(entry);
-                configEntity.config(server, entry.getProperties());
+        for (ConfigEntry section : map.keySet()) { 
+                ConfigurableEntity configEntity = map.get(section);
+                configEntity.config(server, section.getProperties());
         }
     }
     

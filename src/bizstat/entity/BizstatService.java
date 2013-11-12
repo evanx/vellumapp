@@ -4,16 +4,12 @@
  */
 package bizstat.entity;
 
-import bizstat.enumtype.NotifyType;
-import bizstat.enumtype.StatusChangeType;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
-import vellum.util.Args;
 import bizstat.server.BizstatServer;
-import crocserver.storage.org.Org;
 import crocserver.storage.service.ServiceType;
 import java.util.*;
-import vellum.config.PropertiesStringMap;
+import vellum.config.ConfigProperties;
 import vellum.entity.ConfigurableEntity;
 import vellum.type.UniqueList;
 
@@ -39,7 +35,7 @@ public class BizstatService extends ServiceType implements ConfigurableEntity<Bi
     }
 
     @Override
-    public void config(BizstatServer server, PropertiesStringMap properties) {
+    public void config(BizstatServer server, ConfigProperties properties) {
         new ServiceConfigurator(server, properties, this).configure();
     }
 }

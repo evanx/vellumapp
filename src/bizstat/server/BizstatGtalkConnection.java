@@ -8,7 +8,7 @@ import bizstat.entity.Contact;
 import org.jivesoftware.smack.*;
 import org.jivesoftware.smack.packet.Message;
 import org.jivesoftware.smack.packet.Presence;
-import vellum.config.PropertiesStringMap;
+import vellum.config.ConfigProperties;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
 
@@ -20,7 +20,7 @@ public class BizstatGtalkConnection implements MessageListener {
     Logr logger = LogrFactory.getLogger(BizstatGtalkConnection.class);
     BizstatServer server;
     BizstatConfig config;
-    PropertiesStringMap properties;
+    ConfigProperties properties;
         
     String username;
     String password;

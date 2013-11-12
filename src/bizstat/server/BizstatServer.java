@@ -28,7 +28,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import org.h2.tools.Server;
 import vellum.config.ConfigMap;
-import vellum.config.PropertiesStringMap;
+import vellum.config.ConfigProperties;
 import vellum.exception.Exceptions;
 import vellum.storage.ConnectionPool;
 import vellum.storage.SimpleConnectionPool;
@@ -41,7 +41,7 @@ public class BizstatServer implements Runnable {
 
     Logr logger = LogrFactory.getLogger(BizstatServer.class);
     ConfigMap configMap;
-    PropertiesStringMap configProperties;
+    ConfigProperties configProperties;
     BizstatConfig config;
     BizstatConfigStorage configStorage;
     BizstatStorage storage;
@@ -66,7 +66,8 @@ public class BizstatServer implements Runnable {
         org.setId(1);
     }
 
-    public void init(ConfigMap configMap, PropertiesStringMap configProperties) throws Exception {
+    public void init(ConfigMap configMap, ConfigProperties configProperties) 
+            throws Exception {
         this.configMap = configMap;
         this.configProperties = configProperties;
         config = new BizstatConfig(this);
@@ -204,7 +205,7 @@ public class BizstatServer implements Runnable {
         return configMap;
     }
 
-    public PropertiesStringMap getConfigProperties() {
+    public ConfigProperties getConfigProperties() {
         return configProperties;
     }
 

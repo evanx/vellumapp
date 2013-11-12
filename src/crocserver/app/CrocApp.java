@@ -26,7 +26,6 @@ import crocserver.httphandler.access.AccessHttpHandler;
 import crocserver.httphandler.access.WebHandler;
 import crocserver.httphandler.insecure.InsecureHttpHandler;
 import crocserver.httphandler.secure.SecureHttpHandler;
-import vellum.httpserver.HttpExchangeInfo;
 import vellum.httpserver.HttpServerConfig;
 import crocserver.storage.adminuser.AdminUser;
 import java.io.File;
@@ -36,9 +35,8 @@ import java.io.PrintWriter;
 import java.net.URL;
 import java.net.URLConnection;
 import org.h2.tools.Server;
-import vellum.config.ConfigMap;
 import vellum.config.ConfigParser;
-import vellum.config.PropertiesStringMap;
+import vellum.config.ConfigProperties;
 import vellum.datatype.SimpleEntityCache;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
@@ -49,12 +47,15 @@ import vellum.util.Streams;
 import vellum.util.Threads;
 import crocserver.storage.schema.CrocSchema;
 import crocserver.storage.common.CrocStorage;
+import dualcontrol.ExtendedProperties;
 import java.security.Security;
 import java.security.cert.X509Certificate;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
+import vellum.config.ConfigMap;
 import vellum.crypto.rsa.GenRsaPair;
 import vellum.exception.EnumException;
+import vellum.httpserver.Httpx;
 import vellum.httpserver.VellumHttpServer;
 import vellum.httpserver.VellumHttpsServer;
 import vellum.parameter.StringMap;
@@ -71,9 +72,9 @@ public class CrocApp {
     CrocConfig config;
     CrocStorage storage;
     DataSourceConfig dataSourceConfig;
-    PropertiesStringMap configProperties;
-    Thread serverThread;
     ConfigMap configMap;
+    ConfigProperties configProperties;
+    Thread serverThread;
     Server h2Server;
     VellumHttpServer httpServer;
     VellumHttpsServer publicHttpsServer;
@@ -120,32 +121,35 @@ public class CrocApp {
                 System.setProperty("java.protocol.handler.pkgs", "com.sun.net.ssl.internal.www.protocol");
                 Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
             }
-            HttpServerConfig httpsServerConfig = new HttpServerConfig(
+            ExtendedProperties props = new ExtendedProperties(
                     configMap.find("HttpsServer", publicHttpsServerConfigName).getProperties());
+            HttpServerConfig httpsServerConfig = new HttpServerConfig(props);
             if (httpsServerConfig.isEnabled()) {
-                publicHttpsServer = new VellumHttpsServer(httpsServerConfig);
+                publicHttpsServer = new VellumHttpsServer(props);
                 publicHttpsServer.init(DefaultKeyStores.createSSLContext());
             }
         }
         String privateHttpsServerConfigName = configProperties.findString("privateHttpsServer");
         if (privateHttpsServerConfigName != null) {
-            HttpServerConfig httpsServerConfig = new HttpServerConfig(
+            ExtendedProperties props = new ExtendedProperties(
                     configMap.find("HttpsServer", privateHttpsServerConfigName).getProperties());
+            HttpServerConfig httpsServerConfig = new HttpServerConfig(props);
             if (httpsServerConfig.isEnabled()) {
-                privateHttpsServer = new VellumHttpsServer(httpsServerConfig);
+                privateHttpsServer = new VellumHttpsServer(props);
                 privateHttpsServer.init(DefaultKeyStores.createSSLContext(trustManager));
             }
         }
         String gtalkConfigName = configProperties.getString("gtalk");
         if (gtalkConfigName != null) {
-            PropertiesStringMap gtalkProps = configMap.find("Gtalk", gtalkConfigName).getProperties();
+            ConfigProperties gtalkProps = configMap.find("Gtalk", gtalkConfigName).getProperties();
             if (gtalkProps.getBoolean("enabled", false)) {
                 gtalkConnection = new GtalkConnection(gtalkProps);
             }
         }
         secureUrl = configProperties.getString("secureUrl");
         serverUrl = configProperties.getString("serverUrl");
-        googleApi = new GoogleApi(serverUrl, serverUrl + "/oauth", configMap.get("GoogleApi", "default").getProperties());
+        googleApi = new GoogleApi(serverUrl, serverUrl + "/oauth", 
+                configMap.get("GoogleApi", "default").getProperties());
         logger.info("googleApi", googleApi);
         webHandler.init();
     }
@@ -190,17 +194,17 @@ public class CrocApp {
     public void start() throws Exception {
         if (httpServer != null) {
             httpServer.start();
-            httpServer.startContext("/", new InsecureHttpHandler(this));
+            httpServer.createContext("/", new InsecureHttpHandler(this));
             logger.info("HTTP server started");
         }
         if (publicHttpsServer != null) {
             publicHttpsServer.start();
-            publicHttpsServer.startContext("/", new AccessHttpHandler(this));
+            publicHttpsServer.createContext("/", new AccessHttpHandler(this));
             logger.info("public HTTPS secure server started");
         }
         if (privateHttpsServer != null) {
             privateHttpsServer.start();
-            privateHttpsServer.startContext("/", new SecureHttpHandler(this));
+            privateHttpsServer.createContext("/", new SecureHttpHandler(this));
             logger.info("private HTTPS secure server started");
         }
         if (gtalkConnection != null) {
@@ -317,7 +321,7 @@ public class CrocApp {
         return homePage;
     }
 
-    public AdminUser getUser(HttpExchangeInfo httpExchangeInfo, boolean auth) throws Exception {
+    public AdminUser getUser(Httpx httpExchangeInfo, boolean auth) throws Exception {
         if (true) {
             if (httpExchangeInfo.getPathLength() > 1) {
                 String email = httpExchangeInfo.getPathString(1);
@@ -349,7 +353,7 @@ public class CrocApp {
         }
     }
 
-    public GoogleUserInfo getGoogleUserInfo(HttpExchangeInfo httpExchangeInfo) throws Exception {
+    public GoogleUserInfo getGoogleUserInfo(Httpx httpExchangeInfo) throws Exception {
         StringMap cookieMap = httpExchangeInfo.getCookieMap();
         String accessToken = cookieMap.get("accessToken");
         return googleApi.getUserInfo(accessToken);

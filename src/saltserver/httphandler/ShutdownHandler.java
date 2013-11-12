@@ -5,7 +5,7 @@ package saltserver.httphandler;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
-import vellum.httpserver.HttpExchangeInfo;
+import vellum.httpserver.Httpx;
 import java.io.IOException;
 import saltserver.app.VaultApp;
 import saltserver.app.VaultStorage;
@@ -22,7 +22,7 @@ public class ShutdownHandler implements HttpHandler {
     VaultApp app;
     VaultStorage storage;
     HttpExchange httpExchange;
-    HttpExchangeInfo httpExchangeInfo;
+    Httpx httpExchangeInfo;
 
     public ShutdownHandler(VaultApp app) {
         super();
@@ -33,7 +33,7 @@ public class ShutdownHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
         this.httpExchange = httpExchange;
-        httpExchangeInfo = new HttpExchangeInfo(httpExchange);
+        httpExchangeInfo = new Httpx(httpExchange);
         logger.info("handle", getClass().getSimpleName(), httpExchangeInfo.getPath());
         try {
             httpExchangeInfo.sendResponse("text/plain", true);

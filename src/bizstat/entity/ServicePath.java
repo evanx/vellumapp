@@ -10,7 +10,7 @@ import vellum.util.Args;
 import bizstat.server.BizstatServer;
 import vellum.type.UniqueList;
 import java.util.List;
-import vellum.config.PropertiesStringMap;
+import vellum.config.ConfigProperties;
 import vellum.entity.AbstractIdEntity;
 import vellum.entity.ConfigurableEntity;
 
@@ -64,7 +64,7 @@ public class ServicePath extends AbstractIdEntity implements ConfigurableEntity<
     }
 
     @Override
-    public void config(BizstatServer server, PropertiesStringMap properties) {
+    public void config(BizstatServer server, ConfigProperties properties) {
         label = properties.getString("label", null);
         enabled = properties.getBoolean("enabled", true);
         network = server.getConfigStorage().find(Network.class, properties.getString("network"));

@@ -16,7 +16,7 @@ import java.io.PrintStream;
 import java.sql.*;
 import saltserver.app.VaultApp;
 import saltserver.app.VaultPageHandler;
-import vellum.httpserver.HttpExchangeInfo;
+import vellum.httpserver.Httpx;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
 import vellum.storage.ConnectionEntry;
@@ -28,7 +28,7 @@ import vellum.storage.ConnectionEntry;
 public class ManagerHandler implements HttpHandler {
     
     Logr logger = LogrFactory.getLogger(getClass());
-    HttpExchangeInfo httpExchangeInfo;
+    Httpx httpExchangeInfo;
     VaultPageHandler handler;
     PrintStream out;
     ConnectionPool connectionPool;
@@ -45,7 +45,7 @@ public class ManagerHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange httpExchange) {
         handler = new VaultPageHandler(httpExchange);
-        httpExchangeInfo = new HttpExchangeInfo(httpExchange);
+        httpExchangeInfo = new Httpx(httpExchange);
         out = httpExchangeInfo.getPrintStream();
         logger.info("handle", getClass().getSimpleName(), httpExchangeInfo.getPath());
         try {

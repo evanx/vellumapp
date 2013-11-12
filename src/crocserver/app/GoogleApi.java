@@ -24,7 +24,7 @@ import vellum.util.JsonStrings;
 import java.net.URL;
 import java.net.URLEncoder;
 import javax.net.ssl.HttpsURLConnection;
-import vellum.config.PropertiesStringMap;
+import vellum.config.ConfigProperties;
 import vellum.exception.EnumException;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
@@ -47,7 +47,7 @@ public class GoogleApi {
     String redirectUrl;
     String apiKey;
 
-    public GoogleApi(String serverUrl, String redirectUrl, PropertiesStringMap props) {
+    public GoogleApi(String serverUrl, String redirectUrl, ConfigProperties props) {
         this.serverUrl = serverUrl;
         this.redirectUrl = redirectUrl;
         clientId = props.get("clientId");

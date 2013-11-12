@@ -8,7 +8,7 @@ import com.sun.net.httpserver.HttpHandler;
 import crocserver.app.CrocApp;
 import crocserver.app.CrocSecurity;
 import crocserver.app.GoogleUserInfo;
-import vellum.httpserver.HttpExchangeInfo;
+import vellum.httpserver.Httpx;
 import crocserver.storage.adminuser.AdminUserRole;
 import crocserver.storage.adminuser.AdminUser;
 import java.io.IOException;
@@ -27,7 +27,7 @@ public class OAuthCallbackHandler implements HttpHandler {
     Logr logger = LogrFactory.getLogger(getClass());
     CrocApp app;
     HttpExchange httpExchange;
-    HttpExchangeInfo httpExchangeInfo;
+    Httpx httpExchangeInfo;
     PrintStream out;
 
     public OAuthCallbackHandler(CrocApp app) {
@@ -43,7 +43,7 @@ public class OAuthCallbackHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
         this.httpExchange = httpExchange;
-        httpExchangeInfo = new HttpExchangeInfo(httpExchange);
+        httpExchangeInfo = new Httpx(httpExchange);
         logger.info("handle", getClass().getSimpleName(), httpExchangeInfo.getPath(), httpExchangeInfo.getParameterMap());
         if (httpExchangeInfo.getPath().length() == 0) {
             httpExchange.close();

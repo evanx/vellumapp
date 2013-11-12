@@ -6,7 +6,7 @@ package crocserver.httphandler.access;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import crocserver.app.CrocApp;
-import vellum.httpserver.HttpExchangeInfo;
+import vellum.httpserver.Httpx;
 import crocserver.storage.adminuser.AdminUser;
 import crocserver.storage.adminuser.AdminUserRole;
 import crocserver.storage.common.CrocStorageHandler;
@@ -27,7 +27,7 @@ import vellum.datatype.Patterns;
 public class EnrollOrgHandler extends CrocStorageHandler implements HttpHandler {
     Logr logger = LogrFactory.getLogger(getClass());
     HttpExchange httpExchange;
-    HttpExchangeInfo httpExchangeInfo;
+    Httpx httpExchangeInfo;
     PrintStream out;
 
     public EnrollOrgHandler(CrocApp app) {
@@ -40,7 +40,7 @@ public class EnrollOrgHandler extends CrocStorageHandler implements HttpHandler 
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
         this.httpExchange = httpExchange;
-        httpExchangeInfo = new HttpExchangeInfo(httpExchange);
+        httpExchangeInfo = new Httpx(httpExchange);
         logger.info("handle", getClass().getSimpleName(), httpExchangeInfo.getParameterMap(), httpExchangeInfo.getCookieMap());
         if (httpExchangeInfo.getPathLength() < 2) {
             httpExchangeInfo.handleError(httpExchangeInfo.getPath());

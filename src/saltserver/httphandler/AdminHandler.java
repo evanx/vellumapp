@@ -11,7 +11,7 @@ import saltserver.app.VaultPageHandler;
 import saltserver.storage.adminuser.AdminRole;
 import saltserver.storage.adminuser.AdminUser;
 import sun.security.x509.X500Name;
-import vellum.httpserver.HttpExchangeInfo;
+import vellum.httpserver.Httpx;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
 import vellum.storage.StorageException;
@@ -24,7 +24,7 @@ import vellum.storage.StorageExceptionType;
 public class AdminHandler implements HttpHandler {
     Logr logger = LogrFactory.getLogger(getClass());
     HttpExchange httpExchange;
-    HttpExchangeInfo httpExchangeInfo;
+    Httpx httpExchangeInfo;
     VaultPageHandler handler;
     VaultApp app;
     PrintStream out;
@@ -37,7 +37,7 @@ public class AdminHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange httpExchange) {
         this.httpExchange = httpExchange;
-        httpExchangeInfo = new HttpExchangeInfo(httpExchange);
+        httpExchangeInfo = new Httpx(httpExchange);
         out = httpExchangeInfo.getPrintStream();
         handler = new VaultPageHandler(httpExchange);
         logger.info("handle", getClass().getSimpleName(), httpExchangeInfo.getPath());
