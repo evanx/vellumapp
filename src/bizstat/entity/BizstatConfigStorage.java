@@ -13,14 +13,14 @@ import java.util.Map;
 import vellum.config.ConfigMap;
 import vellum.config.ConfigEntry;
 import vellum.entity.*;
-import vellum.lifecycle.ConfigDocumentInitialisable;
+import vellum.lifecycle.ConfigMapInitialisable;
 import vellum.storage.StorageRuntimeException;
 
 /**
  *
  * @author evan.summers
  */
-public class BizstatConfigStorage implements Storage, ConfigDocumentInitialisable {
+public class BizstatConfigStorage implements Storage, ConfigMapInitialisable {
     static BizstatStorageMeta meta = new BizstatStorageMeta();
     
     Logr logger = LogrFactory.getLogger(BizstatConfigStorage.class);
