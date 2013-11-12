@@ -4,12 +4,13 @@
  */
 package mantra.app;
 
+import dualcontrol.ExtendedProperties;
 import vellum.httpserver.HttpServerConfig;
 import java.net.URL;
 import java.net.URLConnection;
 import org.h2.tools.Server;
 import saltserver.crypto.AESCipher;
-import vellum.config.ConfigProperties;
+import vellum.config.ConfigMap;
 import vellum.config.ConfigParser;
 import vellum.config.ConfigProperties;
 import vellum.logr.Logr;
@@ -31,10 +32,10 @@ public class MantraApp {
     Logr logger = LogrFactory.getLogger(getClass());
     MantraStorage storage;
     DataSourceConfig dataSourceConfig;
+    ConfigMap configMap;
     ConfigProperties configProperties;
     Thread serverThread;
     String confFileName;
-    ConfigProperties configMap;
     Server h2Server;
     VellumHttpsServer httpsServer;
     AESCipher cipher; 
@@ -54,10 +55,11 @@ public class MantraApp {
         storage.init();
         String httpsServerConfigName = configProperties.getString("httpsServer");
         if (httpsServerConfigName != null) {
-            HttpServerConfig httpsServerConfig = new HttpServerConfig(
+            ExtendedProperties props = new ExtendedProperties(
                     configMap.find("HttpsServer", httpsServerConfigName).getProperties());
+            HttpServerConfig httpsServerConfig = new HttpServerConfig(props);
             if (httpsServerConfig.isEnabled()) {
-                httpsServer = new VellumHttpsServer(httpsServerConfig);
+                httpsServer = new VellumHttpsServer(props);
                 httpsServer.init(DefaultKeyStores.createSSLContext());
             }
         }
