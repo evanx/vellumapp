@@ -5,7 +5,6 @@ package crocserver.httphandler.secure;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
-import com.sun.net.ssl.internal.pkcs12.PKCS12KeyStore;
 import crocserver.app.CrocApp;
 import vellum.httpserver.Httpx;
 import java.io.IOException;
@@ -18,6 +17,7 @@ import crocserver.storage.service.Service;
 import java.security.cert.X509Certificate;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
+import sun.security.pkcs12.PKCS12KeyStore;
 import vellum.crypto.rsa.GenRsaPair;
 import vellum.security.Certificates;
 import vellum.security.DefaultKeyStores;
