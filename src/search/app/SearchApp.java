@@ -20,6 +20,7 @@
  */
 package search.app;
 
+import search.util.ShutdownHttpHandler;
 import search.util.JsonConfigParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

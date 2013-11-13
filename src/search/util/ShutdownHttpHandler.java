@@ -1,7 +1,7 @@
 /*
  * Source https://code.google.com/p/vellum by @evanxsummers
  */
-package search.app;
+package search.util;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;

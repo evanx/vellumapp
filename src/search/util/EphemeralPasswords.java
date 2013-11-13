@@ -20,31 +20,21 @@
  */
 package search.util;
 
-import java.security.KeyStore;
-import java.util.Arrays;
-import javax.net.ssl.SSLContext;
-import localca.SSLContexts;
-import vellum.crypto.rsa.RsaKeyStores;
+import java.security.SecureRandom;
 
 /**
- *
+ * @TODO implement long to char array conversion securely without converting to String
  * 
  * @author evan.summers
  */
-public class EphemeralSSLContexts {
+public class EphemeralPasswords {
 
-    public EphemeralSSLContexts() {
+    public EphemeralPasswords() {
     }
     
-    public SSLContext create(String commonName) throws Exception {
-        char[] keyPassword = new EphemeralPasswords().create();
-        try {
-            KeyStore keyStore = RsaKeyStores.createKeyStore("JKS",
-                    commonName, keyPassword, 365);
-            return SSLContexts.create(keyStore, keyPassword,
-                    new OpenTrustManager());
-        } finally {
-            Arrays.fill(keyPassword, (char) 0);
-        }
+    public char[] create() throws Exception {
+        return Long.toString(new SecureRandom().nextLong() & 
+                System.currentTimeMillis()).toCharArray();
+        
     }
 }
