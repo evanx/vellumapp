@@ -20,14 +20,15 @@
  */
 package search.app;
 
+import com.sun.net.httpserver.HttpExchange;
+import com.sun.net.httpserver.HttpHandler;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.InetAddress;
 import search.util.JsonConfigParser;
-import java.security.KeyStore;
-import java.security.SecureRandom;
-import javax.net.ssl.SSLContext;
-import localca.SSLContexts;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import vellum.crypto.rsa.RsaKeyStores;
+import search.util.EphemeralSSLContexts;
 import vellum.httpserver.VellumHttpsServer;
 
 /**
@@ -47,13 +48,7 @@ public class SearchApp {
         properties.init(config.getProperties());
         storage.init();
         httpsServer = new VellumHttpsServer(config.getProperties("httpsServer"));
-        char[] keyPassword = Long.toString(new SecureRandom().nextLong() & 
-                System.currentTimeMillis()).toCharArray();
-        KeyStore keyStore = RsaKeyStores.createKeyStore("JKS", 
-                getClass().getSimpleName(), keyPassword, 365);
-        SSLContext sslContext = SSLContexts.create(keyStore, keyPassword, 
-                new SearchTrustManager(this));
-        httpsServer.init(sslContext);        
+        httpsServer.init(new EphemeralSSLContexts().create(getClass().getSimpleName()));
         logger.info("initialized");
     }
 
@@ -61,14 +56,28 @@ public class SearchApp {
         if (httpsServer != null) {
             httpsServer.start();
             httpsServer.createContext("/", new SearchHttpHandler(this));
+            httpsServer.createContext("/stop", new HttpHandler() {
+
+                @Override
+                public void handle(HttpExchange he) throws IOException {
+                    if (he.getRemoteAddress().getAddress().equals(
+                            InetAddress.getLocalHost())) {
+                        shutdown();
+                        he.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
+                    } else {
+                        he.sendResponseHeaders(HttpURLConnection.HTTP_INTERNAL_ERROR, 0);
+                    }
+                    he.close();
+                }
+            });
             logger.info("HTTPS server started");
         }
         logger.info("started");
     }
     
-    public void stop() throws Exception {
+    public void shutdown() throws IOException {
         if (httpsServer != null) {
-            httpsServer.stop();
+            httpsServer.shutdown();
         }
     }
 

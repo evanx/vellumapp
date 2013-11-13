@@ -100,7 +100,7 @@ public class VaultApp {
 
     public void stop() throws Exception {
         if (httpsServer != null) {
-            httpsServer.stop();
+            httpsServer.shutdown();
         }
         if (h2Server != null) {
             h2Server.stop();

@@ -247,13 +247,13 @@ public class CrocApp {
 
     public void stop() throws Exception {
         if (httpServer != null) {
-            httpServer.stop();
+            httpServer.shutdown();
         }
         if (publicHttpsServer != null) {
-            publicHttpsServer.stop();
+            publicHttpsServer.shutdown();
         }
         if (privateHttpsServer != null) {
-            privateHttpsServer.stop();
+            privateHttpsServer.shutdown();
         }
         if (h2Server != null) {
             h2Server.stop();

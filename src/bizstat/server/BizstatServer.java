@@ -138,7 +138,7 @@ public class BizstatServer implements Runnable {
             gtalk.close();
         }
         if (httpServer != null) {
-            httpServer.stop();
+            httpServer.shutdown();
         }
         logger.info("stopped");
     }

@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import vellum.util.Streams;
 
 /**
  *
@@ -34,6 +33,5 @@ public class SearchHttpHandler implements HttpHandler {
             httpExchange.sendResponseHeaders(HttpURLConnection.HTTP_INTERNAL_ERROR, 0);            
         }
         httpExchange.close();
-    }
-    
+    }    
 }

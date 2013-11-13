@@ -18,25 +18,25 @@
        specific language governing permissions and limitations
        under the License.  
  */
-package search.app;
+package search.util;
 
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import javax.net.ssl.X509TrustManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import search.app.SearchApp;
+import search.app.SearchHttpHandler;
 
 /**
  *
  * @author evan.summers
  */
-public class SearchTrustManager implements X509TrustManager {
+public class OpenTrustManager implements X509TrustManager {
 
     Logger logger = LoggerFactory.getLogger(SearchHttpHandler.class);
-    SearchApp app;
 
-    public SearchTrustManager(SearchApp app) {
-        this.app = app;
+    public OpenTrustManager() {
     }
 
     @Override

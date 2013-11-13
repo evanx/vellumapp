@@ -42,6 +42,6 @@ public class CrocHttpServer {
     }
     
     public boolean stop() {
-        return httpServer.stop();
+        return httpServer.shutdown();
     }
 }
