@@ -20,22 +20,18 @@
  */
 package search.app;
 
-import com.sun.net.httpserver.HttpExchange;
-import com.sun.net.httpserver.HttpHandler;
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.InetAddress;
 import search.util.JsonConfigParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import search.util.EphemeralSSLContexts;
 import vellum.httpserver.VellumHttpsServer;
+import vellum.lifecycle.Shutdownable;
 
 /**
  *
  * @author evan.summers
  */
-public class SearchApp {
+public class SearchApp implements Shutdownable {
 
     Logger logger = LoggerFactory.getLogger(getClass());
     JsonConfigParser config = new JsonConfigParser();
@@ -56,29 +52,18 @@ public class SearchApp {
         if (httpsServer != null) {
             httpsServer.start();
             httpsServer.createContext("/", new SearchHttpHandler(this));
-            httpsServer.createContext("/stop", new HttpHandler() {
-
-                @Override
-                public void handle(HttpExchange he) throws IOException {
-                    if (he.getRemoteAddress().getAddress().equals(
-                            InetAddress.getLocalHost())) {
-                        shutdown();
-                        he.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
-                    } else {
-                        he.sendResponseHeaders(HttpURLConnection.HTTP_INTERNAL_ERROR, 0);
-                    }
-                    he.close();
-                }
-            });
+            httpsServer.createContext("/shutdown", new ShutdownHttpHandler(this));
             logger.info("HTTPS server started");
         }
         logger.info("started");
     }
     
-    public void shutdown() throws IOException {
+    @Override
+    public boolean shutdown() {
         if (httpsServer != null) {
-            httpsServer.shutdown();
+            return httpsServer.shutdown();
         }
+        return true;
     }
 
     public SearchStorage getStorage() {
