@@ -20,6 +20,7 @@
  */
 package search.app;
 
+import search.util.JsonConfigParser;
 import java.security.KeyStore;
 import java.security.SecureRandom;
 import javax.net.ssl.SSLContext;
