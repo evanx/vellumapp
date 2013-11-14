@@ -29,7 +29,7 @@ public class FacebookApi {
     public FacebookApi(String serverUrl, String redirectUrl, ConfigProperties props) {
         this.serverUrl = serverUrl;
         this.redirectUrl = redirectUrl;
-        clientId = props.get("clientId");
+        clientId = props.getString("clientId");
     }
 
     public String sendVerify(String assertion) throws Exception {

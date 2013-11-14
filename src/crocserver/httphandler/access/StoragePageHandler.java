@@ -146,7 +146,8 @@ public class StoragePageHandler extends AbstractPageHandler {
         while (resultSet.next()) {      
             tablePrinter.tr();
             for (int i = 1; i <= resultSetMetaData.getColumnCount() && i < COLUMN_LIMIT; i++) {
-                tablePrinter.td(resultSetMetaData.getColumnClassName(i), trim(resultSet.getObject(i)));
+                tablePrinter.td(resultSetMetaData.getColumnClassName(i), 
+                        trim(resultSet.getObject(i)));
             }
             tablePrinter.trClose();
         }

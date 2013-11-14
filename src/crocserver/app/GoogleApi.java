@@ -50,7 +50,7 @@ public class GoogleApi {
     public GoogleApi(String serverUrl, String redirectUrl, ConfigProperties props) {
         this.serverUrl = serverUrl;
         this.redirectUrl = redirectUrl;
-        clientId = props.get("clientId");
+        clientId = props.getString("clientId");
     }
 
     public void init() throws Exception {

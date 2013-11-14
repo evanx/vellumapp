@@ -70,7 +70,7 @@ public class VaultApp {
         logger.info("conf", confFileName, confFile);
         configMap = ConfigParser.parse(new FileInputStream(confFile));
         configProperties = configMap.find("Config", "default").getProperties();
-        String logLevelName = configProperties.get("logLevel");
+        String logLevelName = configProperties.getString("logLevel");
         if (logLevelName != null) {
             LogrFactory.setDefaultLevel(LogrLevel.valueOf(logLevelName));
         }

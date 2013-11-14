@@ -48,7 +48,8 @@ public class CrocSchema {
             logger.info("databaseProductVersion " + databaseMetaData.getDatabaseProductVersion());
             logger.info("url " + databaseMetaData.getURL());
             logger.info("userName " + databaseMetaData.getUserName());
-            RowSet rowSet = RowSets.getRowSet(connection, "select * from schema_revision order by update_time desc");
+            RowSet rowSet = RowSets.getRowSet(connection, 
+                    "select * from schema_revision order by update_time desc");
             rowSet.first();
             int versionNumber = rowSet.getInt(1);
             ResultSet resultSet = databaseMetaData.getCatalogs();
@@ -88,7 +89,8 @@ public class CrocSchema {
                     }
                 }
             }
-            String insertSchemaVersion = "insert into schema_revision (revision_number) values (?)";
+            String insertSchemaVersion = 
+                    "insert into schema_revision (revision_number) values (?)";
             PreparedStatement preparedStatement = connection.prepareStatement(insertSchemaVersion);
             preparedStatement.setInt(1, CURRENT_VERSION_NUMBER);
             preparedStatement.execute();

@@ -73,7 +73,8 @@ public class OrgStorage extends AbstractEntityStorage<Long, Org> {
     public boolean exists(String email) throws SQLException {
         ConnectionEntry connection = storage.getConnectionPool().takeEntry();
         try {
-            PreparedStatement statement = connection.prepareStatement(sqlMap.get(OrgQuery.exists.name()));
+            PreparedStatement statement = connection.prepareStatement(
+                    sqlMap.get(OrgQuery.exists.name()));
             statement.setString(1, email);
             ResultSet resultSet = statement.executeQuery();
             boolean exists = resultSet.next();
@@ -160,7 +161,8 @@ public class OrgStorage extends AbstractEntityStorage<Long, Org> {
         ConnectionEntry connection = storage.getConnectionPool().takeEntry();
         try {
             List<Org> list = new ArrayList();
-            PreparedStatement statement = connection.prepareStatement(sqlMap.get(OrgQuery.list.name()));
+            PreparedStatement statement = connection.prepareStatement(
+                    sqlMap.get(OrgQuery.list.name()));
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 list.add(get(resultSet));

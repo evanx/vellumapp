@@ -103,7 +103,7 @@ public class BizstatStarter implements Runnable, DirWatcherListener {
                 new File(confDirName, CONTACTS_CONFIG_FILE)));
         configMap.putAll(contactsConfigMap);
         configProperties = configMap.find("Config", "default").getProperties();
-        String logLevelName = configProperties.get("logLevel");
+        String logLevelName = configProperties.getString("logLevel");
         if (logLevelName != null) {
             LogrFactory.setDefaultLevel(LogrLevel.valueOf(logLevelName));
         }

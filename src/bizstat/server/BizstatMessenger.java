@@ -98,7 +98,7 @@ public class BizstatMessenger {
     }
 
     private void put(String prefix, ConfigProperties propertiesMap) {
-        for (String key : propertiesMap.keySet()) {
+        for (Object key : propertiesMap.keySet()) {
             environment.put(prefix + key, propertiesMap.get(key));
         }
     }

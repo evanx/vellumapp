@@ -102,7 +102,8 @@ public class CrocApp {
         }
         dataSourceConfig = new DataSourceConfig(configMap.get("DataSource",
                 configProperties.getString("dataSource")).getProperties());
-        storage = new CrocStorage(new SimpleEntityCache(), new SimpleConnectionPool(dataSourceConfig));
+        storage = new CrocStorage(new SimpleEntityCache(), 
+                new SimpleConnectionPool(dataSourceConfig));
         storage.init();
         trustManager = new CrocTrustManager(this);
         trustManager.init();
@@ -181,7 +182,7 @@ public class CrocApp {
         logger.info("conf", config.confFileName, confFile);
         configMap = ConfigParser.parse(new FileInputStream(confFile));
         configProperties = configMap.find("Config", "default").getProperties();
-        String logLevelName = configProperties.get("logLevel");
+        String logLevelName = configProperties.getString("logLevel");
         if (logLevelName != null) {
             LogrFactory.setDefaultLevel(LogrLevel.valueOf(logLevelName));
         }

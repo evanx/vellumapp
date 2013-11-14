@@ -70,7 +70,7 @@ public class MantraApp {
     private void initConfig() throws Exception {
         configMap = ConfigParser.parseConfFile(System.getProperty("mantra.conf"));
         configProperties = configMap.find("Config", "default").getProperties();
-        String logLevelName = configProperties.get("logLevel");
+        String logLevelName = configProperties.getString("logLevel");
         if (logLevelName != null) {
             LogrFactory.setDefaultLevel(LogrLevel.valueOf(logLevelName));
         }

@@ -41,7 +41,7 @@ public class CrocHttpServer {
         httpServer.start(new SecureHttpHandler(app));
     }
     
-    public boolean stop() {
-        return httpServer.shutdown();
+    public void shutdown() {
+        httpServer.shutdown();
     }
 }
