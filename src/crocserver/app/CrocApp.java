@@ -26,7 +26,7 @@ import crocserver.httphandler.access.AccessHttpHandler;
 import crocserver.httphandler.access.WebHandler;
 import crocserver.httphandler.insecure.InsecureHttpHandler;
 import crocserver.httphandler.secure.SecureHttpHandler;
-import vellum.httpserver.HttpServerConfig;
+import vellum.httpserver.HttpsServerConfig;
 import crocserver.storage.adminuser.AdminUser;
 import java.io.File;
 import java.io.FileInputStream;
@@ -110,7 +110,7 @@ public class CrocApp {
         new CrocSchema(storage).verifySchema();
         String httpServerConfigName = configProperties.findString("httpServer");
         if (httpServerConfigName != null) {
-            HttpServerConfig httpServerConfig = new HttpServerConfig(
+            HttpsServerConfig httpServerConfig = new HttpsServerConfig(
                     configMap.find("HttpServer", httpServerConfigName).getProperties());
             if (httpServerConfig.isEnabled()) {
                 httpServer = new VellumHttpServer(httpServerConfig);
@@ -124,7 +124,7 @@ public class CrocApp {
             }
             ExtendedProperties props = new ExtendedProperties(
                     configMap.find("HttpsServer", publicHttpsServerConfigName).getProperties());
-            HttpServerConfig httpsServerConfig = new HttpServerConfig(props);
+            HttpsServerConfig httpsServerConfig = new HttpsServerConfig(props);
             if (httpsServerConfig.isEnabled()) {
                 publicHttpsServer = new VellumHttpsServer(props);
                 publicHttpsServer.init(DefaultKeyStores.createSSLContext());
@@ -134,7 +134,7 @@ public class CrocApp {
         if (privateHttpsServerConfigName != null) {
             ExtendedProperties props = new ExtendedProperties(
                     configMap.find("HttpsServer", privateHttpsServerConfigName).getProperties());
-            HttpServerConfig httpsServerConfig = new HttpServerConfig(props);
+            HttpsServerConfig httpsServerConfig = new HttpsServerConfig(props);
             if (httpsServerConfig.isEnabled()) {
                 privateHttpsServer = new VellumHttpsServer(props);
                 privateHttpsServer.init(DefaultKeyStores.createSSLContext(trustManager));

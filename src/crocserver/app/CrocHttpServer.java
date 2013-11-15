@@ -21,7 +21,7 @@
 package crocserver.app;
 
 import crocserver.httphandler.secure.SecureHttpHandler;
-import vellum.httpserver.HttpServerConfig;
+import vellum.httpserver.HttpsServerConfig;
 import vellum.httpserver.VellumHttpServer;
 
 /**
@@ -32,7 +32,7 @@ public class CrocHttpServer {
     VellumHttpServer httpServer;
     CrocApp app;
     
-    public CrocHttpServer(CrocApp app, HttpServerConfig config) {
+    public CrocHttpServer(CrocApp app, HttpsServerConfig config) {
         this.app = app;;
         httpServer = new VellumHttpServer(config);
     }

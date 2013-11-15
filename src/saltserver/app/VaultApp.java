@@ -5,7 +5,7 @@
 package saltserver.app;
 
 import dualcontrol.ExtendedProperties;
-import vellum.httpserver.HttpServerConfig;
+import vellum.httpserver.HttpsServerConfig;
 import java.io.File;
 import java.io.FileInputStream;
 import java.net.URL;
@@ -56,7 +56,7 @@ public class VaultApp {
         if (httpsServerConfigName != null) {
             ExtendedProperties props = new ExtendedProperties(
                     configMap.find("HttpsServer", httpsServerConfigName).getProperties());
-            HttpServerConfig httpsServerConfig = new HttpServerConfig(props);
+            HttpsServerConfig httpsServerConfig = new HttpsServerConfig(props);
             if (httpsServerConfig.isEnabled()) {
                 httpsServer = new VellumHttpsServer(props);
                 httpsServer.init(DefaultKeyStores.createSSLContext());
