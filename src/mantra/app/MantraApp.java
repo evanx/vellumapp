@@ -59,8 +59,9 @@ public class MantraApp {
                     configMap.find("HttpsServer", httpsServerConfigName).getProperties());
             HttpsServerConfig httpsServerConfig = new HttpsServerConfig(props);
             if (httpsServerConfig.isEnabled()) {
-                httpsServer = new VellumHttpsServer(props);
-                httpsServer.init(DefaultKeyStores.createSSLContext());
+                httpsServer = new VellumHttpsServer();
+                httpsServer.init(props);
+                httpsServer.createContext("/", new MantraHttpHandler(this));
             }
         }
         keyAlias = configProperties.getString("keyAlias");
@@ -77,11 +78,6 @@ public class MantraApp {
     }
 
     public void start() throws Exception {
-        if (httpsServer != null) {
-            httpsServer.start();
-            httpsServer.createContext("/", new MantraHttpHandler(this));
-            logger.info("HTTPS server started");
-        }
     }
 
     public void sendShutdown() {

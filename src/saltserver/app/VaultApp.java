@@ -58,8 +58,9 @@ public class VaultApp {
                     configMap.find("HttpsServer", httpsServerConfigName).getProperties());
             HttpsServerConfig httpsServerConfig = new HttpsServerConfig(props);
             if (httpsServerConfig.isEnabled()) {
-                httpsServer = new VellumHttpsServer(props);
-                httpsServer.init(DefaultKeyStores.createSSLContext());
+                httpsServer = new VellumHttpsServer();
+                httpsServer.init(props);
+                httpsServer.createContext("/", new VaultHttpHandler(this));
             }
         }
     }
@@ -75,15 +76,6 @@ public class VaultApp {
             LogrFactory.setDefaultLevel(LogrLevel.valueOf(logLevelName));
         }
     }
-
-    public void start() throws Exception {
-        if (httpsServer != null) {
-            httpsServer.start();
-            httpsServer.createContext("/", new VaultHttpHandler(this));
-            logger.info("HTTPS server started");
-        }
-    }
-
     public void sendShutdown() {
         String shutdownUrl = configProperties.getString("shutdownUrl");
         logger.info("sendShutdown", shutdownUrl);
@@ -135,7 +127,6 @@ public class VaultApp {
         try {
             VaultApp app = new VaultApp();
             app.init();
-            app.start();
         } catch (Exception e) {
             e.printStackTrace(System.err);
         }

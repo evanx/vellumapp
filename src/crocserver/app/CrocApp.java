@@ -114,20 +114,18 @@ public class CrocApp {
                     configMap.find("HttpServer", httpServerConfigName).getProperties());
             if (httpServerConfig.isEnabled()) {
                 httpServer = new VellumHttpServer(httpServerConfig);
+                httpServer.createContext("/", new InsecureHttpHandler(this));
             }
         }
         String publicHttpsServerConfigName = configProperties.getString("publicHttpsServer");
         if (publicHttpsServerConfigName != null) {
-            if (false) {
-                System.setProperty("java.protocol.handler.pkgs", "com.sun.net.ssl.internal.www.protocol");
-                Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
-            }
             ExtendedProperties props = new ExtendedProperties(
                     configMap.find("HttpsServer", publicHttpsServerConfigName).getProperties());
             HttpsServerConfig httpsServerConfig = new HttpsServerConfig(props);
             if (httpsServerConfig.isEnabled()) {
-                publicHttpsServer = new VellumHttpsServer(props);
-                publicHttpsServer.init(DefaultKeyStores.createSSLContext());
+                publicHttpsServer = new VellumHttpsServer();
+                publicHttpsServer.init(props);
+                publicHttpsServer.createContext("/", new AccessHttpHandler(this));
             }
         }
         String privateHttpsServerConfigName = configProperties.findString("privateHttpsServer");
@@ -136,8 +134,9 @@ public class CrocApp {
                     configMap.find("HttpsServer", privateHttpsServerConfigName).getProperties());
             HttpsServerConfig httpsServerConfig = new HttpsServerConfig(props);
             if (httpsServerConfig.isEnabled()) {
-                privateHttpsServer = new VellumHttpsServer(props);
-                privateHttpsServer.init(DefaultKeyStores.createSSLContext(trustManager));
+                privateHttpsServer = new VellumHttpsServer();
+                privateHttpsServer.init(props);
+                privateHttpsServer.createContext("/", new SecureHttpHandler(this));
             }
         }
         String gtalkConfigName = configProperties.getString("gtalk");
@@ -145,6 +144,7 @@ public class CrocApp {
             ConfigProperties gtalkProps = configMap.find("Gtalk", gtalkConfigName).getProperties();
             if (gtalkProps.getBoolean("enabled", false)) {
                 gtalkConnection = new GtalkConnection(gtalkProps);
+                gtalkConnection.open();
             }
         }
         secureUrl = configProperties.getString("secureUrl");
@@ -193,24 +193,6 @@ public class CrocApp {
     }
         
     public void start() throws Exception {
-        if (httpServer != null) {
-            httpServer.start();
-            httpServer.createContext("/", new InsecureHttpHandler(this));
-            logger.info("HTTP server started");
-        }
-        if (publicHttpsServer != null) {
-            publicHttpsServer.start();
-            publicHttpsServer.createContext("/", new AccessHttpHandler(this));
-            logger.info("public HTTPS secure server started");
-        }
-        if (privateHttpsServer != null) {
-            privateHttpsServer.start();
-            privateHttpsServer.createContext("/", new SecureHttpHandler(this));
-            logger.info("private HTTPS secure server started");
-        }
-        if (gtalkConnection != null) {
-            gtalkConnection.open();
-        }
         if (configProperties.getBoolean("testPost", false)) {
             try {
                 testPost();
