@@ -39,11 +39,11 @@ import venigma.server.VCipher;
  */
 public class TestVenigma implements Runnable {
 
-    Logr logger = LogrFactory.getLogger(getClass());    
-    TestProperties properties = new TestProperties();    
+    Logr logger = LogrFactory.getLogger(getClass());
+    TestProperties properties = new TestProperties();
     SecureRandom sr = new SecureRandom();
     ClientConfig providerConfig = new ClientConfig();
-    ClientContext providerContext = VProvider.providerContext;    
+    ClientContext providerContext = VProvider.providerContext;
     VProvider provider = new VProvider();
     ClientConfig client0Config = new ClientConfig();
     ClientContext client0Context = new ClientContext();

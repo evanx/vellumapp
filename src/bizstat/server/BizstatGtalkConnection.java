@@ -25,7 +25,7 @@ public class BizstatGtalkConnection implements MessageListener {
     String username;
     String password;
     
-    XMPPConnection connection;    
+    XMPPConnection connection;
     
     public BizstatGtalkConnection(BizstatServer server) {
         this.server = server;

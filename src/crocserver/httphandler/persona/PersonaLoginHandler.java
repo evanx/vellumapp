@@ -59,7 +59,7 @@ public class PersonaLoginHandler implements HttpHandler {
         httpExchange.close();
     }
     
-    PersonaUserInfo userInfo;    
+    PersonaUserInfo userInfo;
     
     private void handle() throws Exception {
         userInfo = new PersonaApi(app.getServerUrl()).getUserInfo(assertion);

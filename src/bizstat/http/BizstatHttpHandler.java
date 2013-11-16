@@ -25,7 +25,7 @@ public class BizstatHttpHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange he) throws IOException {
         logger.info("he", he.getRequestURI().toString());
-        new BizstatHomePageHandler(context).handle(he);    
+        new BizstatHomePageHandler(context).handle(he);
     }
     
 }

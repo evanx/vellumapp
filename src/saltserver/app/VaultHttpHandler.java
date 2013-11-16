@@ -53,7 +53,7 @@ public class VaultHttpHandler implements HttpHandler {
         if (path.startsWith("/getSecret/")) {
             return new GetSecretHandler(app);
         } else if (path.startsWith("/putSecret/")) {
-            return new PutSecretHandler(app);    
+            return new PutSecretHandler(app);
         } else if (path.equals("/admin")) {
             return new AdminHandler(app);
         }

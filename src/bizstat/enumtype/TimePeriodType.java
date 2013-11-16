@@ -11,6 +11,6 @@ package bizstat.enumtype;
 public enum TimePeriodType {
     OFFICE_HOURS,
     SUPPORT_HOURS,
-    ALL_HOURS;    
+    ALL_HOURS;
     
 }

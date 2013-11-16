@@ -78,7 +78,7 @@ public class AdminUserStorage {
             if (user.getRole() != null) {
                 statement.setString(++index, user.getRole().name());
             } else {
-                statement.setString(++index, null);    
+                statement.setString(++index, null);
             }
             int updateCount = statement.executeUpdate();
             connection.setOk(true);

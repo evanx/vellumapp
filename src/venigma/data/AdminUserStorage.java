@@ -57,7 +57,7 @@ public class AdminUserStorage {
         statement.setString(3, adminUser.getRole().name());
         int updateCount = statement.executeUpdate();
         if (updateCount != 1) {
-            throw new SQLException();    
+            throw new SQLException();
         }
     }
 
@@ -66,7 +66,7 @@ public class AdminUserStorage {
         statement.setString(1, AdminUser.getUsername());
         int updateCount = statement.executeUpdate();
         if (updateCount != 1) {
-            throw new SQLException();    
+            throw new SQLException();
         }
     }
     

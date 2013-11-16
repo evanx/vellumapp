@@ -39,7 +39,7 @@ public class DirWatcherTask implements Runnable {
         }
         this.listener = listener;
         if (fileCheckerMap.isEmpty()) {
-            throw new IllegalArgumentException(directory.getAbsolutePath());    
+            throw new IllegalArgumentException(directory.getAbsolutePath());
         }
     }
 

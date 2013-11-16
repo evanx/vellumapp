@@ -56,7 +56,7 @@ public class ClientContext {
     private void init() throws IOException {
         CipherConnection connection = new CipherConnection(this);
         connection.open();
-        connection.close();      
+        connection.close();
     }
     
     private void initKeyManagers() throws Exception {

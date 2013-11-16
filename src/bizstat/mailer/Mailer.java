@@ -38,7 +38,7 @@ public class Mailer {
     public void sendEmail(String recipient, String subject, String htmlContent) throws Exception {
         Properties props = new Properties();
         props.put("mail.smtp.host", host);
-        props.put("mail.smtp.port", port);    
+        props.put("mail.smtp.port", port);
         props.put("mail.smtp.localhost", localhost);
         props.put("mail.smtp.auth", "true");
         Authenticator auth = new Authenticator() {

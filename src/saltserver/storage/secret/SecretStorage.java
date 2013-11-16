@@ -79,7 +79,7 @@ public class SecretStorage extends AbstractEntityStorage<Long, Secret> {
             }
             ResultSet resultSet = statement.getGeneratedKeys();
             if (!resultSet.next()) {
-                throw new SQLException();    
+                throw new SQLException();
             }
             long id = resultSet.getLong(1);
             secret.setId(id);

@@ -55,7 +55,7 @@ public class ServiceRecord extends AbstractLongIdEntity implements Timestamped {
         } else if (text.contains("WARNING")) {
             serviceStatus = ServiceStatus.WARNING;
         } else {
-            serviceStatus = ServiceStatus.UNKNOWN;    
+            serviceStatus = ServiceStatus.UNKNOWN;
         }
     }
     

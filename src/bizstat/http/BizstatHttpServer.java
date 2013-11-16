@@ -15,7 +15,7 @@ import vellum.httpserver.VellumHttpServer;
 public class BizstatHttpServer extends VellumHttpServer {
     Logr logger = LogrFactory.getLogger(BizstatHttpServer.class);
     BizstatServer context; 
-    HttpsServerConfig config;     
+    HttpsServerConfig config; 
     
     public BizstatHttpServer(BizstatServer context, HttpsServerConfig config) {
         super(config);

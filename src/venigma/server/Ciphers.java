@@ -22,7 +22,7 @@ import venigma.server.storage.VStorageExceptionType;
  * @author evan
  */
 public class Ciphers {
-    static Logr logger = LogrFactory.getLogger(Ciphers.class);    
+    static Logr logger = LogrFactory.getLogger(Ciphers.class);
 
     public static Key loadKey(String keyStoreFile, String keyAlias, char[] storePass, char[] keyPass) throws Exception {
         File file = new File(keyStoreFile);

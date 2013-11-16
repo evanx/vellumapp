@@ -34,7 +34,7 @@ import vellum.util.SystemProperties;
  */
 public class CrocConfig {
     boolean testing = SystemProperties.getBoolean(
-            "croc.testing");    
+            "croc.testing");
     String confFileName = SystemProperties.getString(
             "croc.conf", "conf/croc.conf");
     String serverKeyAlias = SystemProperties.getString(

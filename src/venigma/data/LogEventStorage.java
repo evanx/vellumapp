@@ -33,7 +33,7 @@ public class LogEventStorage {
         statement.setTimestamp(2, new Timestamp(logEvent.getTimestamp().getTime()));
         int updateCount = statement.executeUpdate();
         if (updateCount != 1) {
-            throw new SQLException();    
+            throw new SQLException();
         }
         ResultSet generatedKeys = statement.getGeneratedKeys();
         if (!generatedKeys.next()) {

@@ -38,7 +38,7 @@ public class GtalkConnection implements MessageListener {
     String username;
     String password;
     
-    XMPPConnection connection;    
+    XMPPConnection connection;
     
     public GtalkConnection(ConfigProperties properties) {
         username = properties.getString("gtalkUsername", System.getProperty("gtalk.username"));

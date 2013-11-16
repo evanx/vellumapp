@@ -89,11 +89,11 @@ public class GenKeyP12CliHandler implements HttpHandler {
         if (clientCert == null) {
             clientCert = new Service(org.getId(), hostName, clientName, userName);
         } else {
-            clientCert.setUpdatedBy(userName);    
+            clientCert.setUpdatedBy(userName);
         }
         clientCert.setX509Cert(keyPair.getCertificate());
         if (clientCert.isStored()) {
-            storage.getServiceStorage().updateCert(clientCert);    
+            storage.getServiceStorage().updateCert(clientCert);
         } else {
             storage.getServiceStorage().insert(clientCert);
         }

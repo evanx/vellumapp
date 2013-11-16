@@ -64,7 +64,7 @@ public class GoogleLoginHandler implements HttpHandler {
         httpExchange.close();
     }
     
-    GoogleUserInfo userInfo;    
+    GoogleUserInfo userInfo;
     
     private void handle() throws Exception {
         userInfo = app.getGoogleApi().getUserInfo(accessToken);

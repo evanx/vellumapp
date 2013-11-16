@@ -84,7 +84,7 @@ public class BizstatConfigStorage implements Storage, ConfigMapInitialisable {
             if (type != null) {
                 logger.trace("init", type);
                 ConfigurableEntity configEntity = (ConfigurableEntity) type.newInstance();
-                configEntity.setName(section.getName());    
+                configEntity.setName(section.getName());
                 put(configEntity);
                 map.put(section, configEntity);
             }

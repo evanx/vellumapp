@@ -62,7 +62,7 @@ public class EditOrgHandler implements HttpHandler {
             org.update(bean);
             org.validate();
             logger.info("update", org);
-            app.getStorage().getOrgStorage().update(org);    
+            app.getStorage().getOrgStorage().update(org);
         }
         httpExchangeInfo.write(org.getStringMap());
     }

@@ -30,7 +30,7 @@ public class Host extends AbstractIdEntity implements ConfigurableEntity<Bizstat
     long orgId;
     Org org;
     
-    transient Network network;    
+    transient Network network;
     transient List<BizstatService> serviceList = new UniqueList();
     transient List<ContactGroup> contactGroupList = new UniqueList();
 

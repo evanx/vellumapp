@@ -39,7 +39,7 @@ public class BizstatStarter implements Runnable, DirWatcherListener {
     String confDirName = "conf/";
     File confDir;
     
-    DirWatcherTask watcher = new DirWatcherTask();    
+    DirWatcherTask watcher = new DirWatcherTask();
         
     public BizstatStarter() {
     }
@@ -77,8 +77,8 @@ public class BizstatStarter implements Runnable, DirWatcherListener {
             BizstatServer newServer = new BizstatServer();
             newServer.init(configMap, configProperties);
             logger.info("stop");
-            server.setStopped(true);    
-            serverThread.join();    
+            server.setStopped(true);
+            serverThread.join();
             server.shutdown(true);
             server = newServer;
             server.start();

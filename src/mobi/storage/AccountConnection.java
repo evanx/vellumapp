@@ -48,7 +48,7 @@ public class AccountConnection {
         statement.setString(1, account.getDescription());
         int updateCount = statement.executeUpdate();
         if (updateCount != 1) {
-            throw new SQLException();    
+            throw new SQLException();
         }
         ResultSet generatedKeys = statement.getGeneratedKeys();
         if (!generatedKeys.next()) {

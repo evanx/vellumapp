@@ -77,7 +77,7 @@ public class CipherHandler {
         subject = getSubject();
         responseType = context.requestAuth.auth(request, subject);
         if (responseType != CipherResponseType.OK) {
-            reply(new CipherResponse(responseType));    
+            reply(new CipherResponse(responseType));
             return;
         }
         if (request.requestType == CipherRequestType.PING) {
@@ -188,10 +188,10 @@ public class CipherHandler {
     protected CipherResponse generateKey() throws Exception {
         logger.info("generateKey", request.getKeyInfo());
         if (request.getKeySize() == 0) {
-            return new CipherResponse(CipherResponseType.ERROR_NO_KEY_SIZE);    
+            return new CipherResponse(CipherResponseType.ERROR_NO_KEY_SIZE);
         }
         if (request.getKeySize() != 128 && request.getKeySize() != 192 && request.getKeySize() != 256) {
-            return new CipherResponse(CipherResponseType.ERROR_INVALID_KEY_SIZE);    
+            return new CipherResponse(CipherResponseType.ERROR_INVALID_KEY_SIZE);
         }
         if (storage.getKeyInfoStorage().exists(request.getKeyInfo())) {
             return new CipherResponse(CipherResponseType.ERROR_KEY_ALREADY_EXISTS);

@@ -13,7 +13,7 @@ import vellum.logr.LogrFactory;
  * @author evan.summers
  */
 public class KeyToolBuilder {
-    Logr logger = LogrFactory.getLogger(getClass());    
+    Logr logger = LogrFactory.getLogger(getClass());
     SecureRandom sr = new SecureRandom();
 
     KeyToolBuilderConfig config;

@@ -47,7 +47,7 @@ public class GetSecretHandler implements HttpHandler {
         } else {
             group = httpExchangeInfo.getPathString(1);
             name = httpExchangeInfo.getPathString(2);
-            iv = Streams.readString(httpExchange.getRequestBody());    
+            iv = Streams.readString(httpExchange.getRequestBody());
             try {
                 handle();
             } catch (Exception e) {

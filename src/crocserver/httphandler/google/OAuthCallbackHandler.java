@@ -68,7 +68,7 @@ public class OAuthCallbackHandler implements HttpHandler {
         httpExchange.close();
     }
     
-    GoogleUserInfo userInfo;    
+    GoogleUserInfo userInfo;
     
     private void handle() throws Exception {
         userInfo = app.getGoogleApi().sendTokenRequest(code);

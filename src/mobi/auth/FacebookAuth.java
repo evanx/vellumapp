@@ -11,7 +11,7 @@ import mobi.config.MobiConfig;
 public class FacebookAuth {
     private static final String fbAppId = MobiConfig.getProperty("fbAppId");
     private static final String fbAppSecret = MobiConfig.getProperty("fbAppSecret");
-    private static final String clientId = MobiConfig.getProperty("fbClientId");  
+    private static final String clientId = MobiConfig.getProperty("fbClientId");
     private static final String redirectUri = "http://localhost/fbauth";
     private static final String permissions = "publish_stream,email";
 

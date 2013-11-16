@@ -17,7 +17,7 @@ import venigma.data.AdminUserStorage;
  */
 public class CipherRequestAuth {
     static Logr logger = LogrFactory.getLogger(CipherRequestAuth.class);
-    CipherContext context;    
+    CipherContext context;
     
     public CipherRequestAuth(CipherContext context) {
         this.context = context;
@@ -67,7 +67,7 @@ public class CipherRequestAuth {
                     if (adminUser.getRole() == AdminRole.SUPERVISOR) {
                         clientType = ClientType.ADMIN;
                     } else {
-                        clientType = ClientType.USER;    
+                        clientType = ClientType.USER;
                     }
                 }
             }

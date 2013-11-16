@@ -10,7 +10,7 @@ public class Convertors {
     public static int coerceInt(Object value, int defaultValue) {
         if (value == null) return defaultValue;
         if (value instanceof String) {
-            return Integer.parseInt((String) value);    
+            return Integer.parseInt((String) value);
         }
         if (value instanceof Integer) {
             return ((Integer) value).intValue();
@@ -21,7 +21,7 @@ public class Convertors {
     public static Integer coerceInteger(Object value, Integer defaultValue) {
         if (value == null) return defaultValue;
         if (value instanceof String) {
-            return new Integer((String) value);    
+            return new Integer((String) value);
         }
         if (value instanceof Integer) {
             return ((Integer) value);

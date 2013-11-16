@@ -44,7 +44,7 @@ public class CipherConnection {
         if (socket == null) {
             logger.warn("already closed");
         } else {
-            logger.info("close", socket.getRemoteSocketAddress());    
+            logger.info("close", socket.getRemoteSocketAddress());
             socket.close();
             socket = null;
         } 

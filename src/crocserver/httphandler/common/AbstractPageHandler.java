@@ -50,7 +50,7 @@ public abstract class AbstractPageHandler implements HttpHandler {
         httpExchangeInfo = new Httpx(httpExchange);
         path = httpExchangeInfo.getPath();
         pathArgs = httpExchangeInfo.getPathArgs();
-        httpExchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);     
+        httpExchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0); 
         if (httpExchangeInfo.isAgentWget()) {
             baos = new ByteArrayOutputStream();
             out = new PrintStreamAdapter(baos);
