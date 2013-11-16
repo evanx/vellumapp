@@ -124,8 +124,7 @@ public class CrocApp {
             HttpsServerConfig httpsServerConfig = new HttpsServerConfig(props);
             if (httpsServerConfig.isEnabled()) {
                 publicHttpsServer = new VellumHttpsServer();
-                publicHttpsServer.init(props);
-                publicHttpsServer.createContext("/", new AccessHttpHandler(this));
+                publicHttpsServer.start(props, new AccessHttpHandler(this));
             }
         }
         String privateHttpsServerConfigName = configProperties.findString("privateHttpsServer");
@@ -135,8 +134,7 @@ public class CrocApp {
             HttpsServerConfig httpsServerConfig = new HttpsServerConfig(props);
             if (httpsServerConfig.isEnabled()) {
                 privateHttpsServer = new VellumHttpsServer();
-                privateHttpsServer.init(props);
-                privateHttpsServer.createContext("/", new SecureHttpHandler(this));
+                privateHttpsServer.start(props, new SecureHttpHandler(this));
             }
         }
         String gtalkConfigName = configProperties.getString("gtalk");
