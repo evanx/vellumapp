@@ -124,7 +124,7 @@ public class CrocApp {
             HttpsServerConfig httpsServerConfig = new HttpsServerConfig(props);
             if (httpsServerConfig.isEnabled()) {
                 publicHttpsServer = new VellumHttpsServer();
-                publicHttpsServer.init(props, getClass().getSimpleName());
+                publicHttpsServer.init(props);
                 publicHttpsServer.createContext("/", new AccessHttpHandler(this));
             }
         }
@@ -135,7 +135,7 @@ public class CrocApp {
             HttpsServerConfig httpsServerConfig = new HttpsServerConfig(props);
             if (httpsServerConfig.isEnabled()) {
                 privateHttpsServer = new VellumHttpsServer();
-                privateHttpsServer.init(props, getClass().getSimpleName());
+                privateHttpsServer.init(props);
                 privateHttpsServer.createContext("/", new SecureHttpHandler(this));
             }
         }

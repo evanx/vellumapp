@@ -60,7 +60,7 @@ public class MantraApp {
             HttpsServerConfig httpsServerConfig = new HttpsServerConfig(props);
             if (httpsServerConfig.isEnabled()) {
                 httpsServer = new VellumHttpsServer();
-                httpsServer.init(props, getClass().getSimpleName());
+                httpsServer.init(props);
                 httpsServer.createContext("/", new MantraHttpHandler(this));
             }
         }
