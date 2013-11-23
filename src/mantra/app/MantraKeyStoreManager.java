@@ -4,6 +4,8 @@
  */
 package mantra.app;
 
+import java.io.IOException;
+import java.security.GeneralSecurityException;
 import vellum.security.KeyStores;
 import java.security.KeyStore;
 import java.security.PrivateKey;
@@ -21,7 +23,7 @@ public class MantraKeyStoreManager {
         this.keyStoreLocation = keyStoreLocation;
     }
     
-    public void loadKeyStore(char[] keyStorePassword) {
+    public void loadKeyStore(char[] keyStorePassword) throws GeneralSecurityException, IOException {
         keyStore = KeyStores.loadKeyStore("JKS", keyStoreLocation, keyStorePassword);
     }
     
