@@ -13,8 +13,8 @@ import searchapp.handler.DeleteConnectionHttpHandler;
 import searchapp.handler.InsertConnectionHttpHandler;
 import searchapp.handler.ReplaceHttpHandler;
 import searchapp.handler.UpdateConnectionHttpHandler;
-import searchapp.util.httphandler.HttpHandlerFactory;
-import searchapp.util.httphandler.ShutdownHttpHandler;
+import vellum.httphandler.HttpHandlerFactory;
+import vellum.httphandler.ShutdownHttpHandler;
 
 /**
  *
