@@ -6,7 +6,6 @@ package saltserver.crypto;
 
 import vellum.crypto.api.Encrypted;
 import java.security.*;
-import vellum.crypto.*;
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;

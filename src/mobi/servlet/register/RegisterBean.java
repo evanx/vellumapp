@@ -5,7 +5,7 @@
 package mobi.servlet.register;
 
 import java.security.GeneralSecurityException;
-import vellum.crypto.util.Base64;
+import vellum.util.Base64;
 import vellum.crypto.PasswordSalts;
 import vellum.crypto.Passwords;
 

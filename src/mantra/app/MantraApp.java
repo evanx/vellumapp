@@ -4,7 +4,8 @@
  */
 package mantra.app;
 
-import dualcontrol.ExtendedProperties;
+import ephemeral.EphemeralClientSSLContextFactory;
+import vellum.util.ExtendedProperties;
 import vellum.httpserver.HttpsServerConfig;
 import java.net.URL;
 import java.net.URLConnection;
@@ -20,7 +21,6 @@ import vellum.storage.DataSourceConfig;
 import vellum.storage.SimpleConnectionPool;
 import vellum.util.Streams;
 import vellum.httpserver.VellumHttpsServer;
-import vellum.security.DefaultKeyStores;
 import vellum.util.Systems;
 
 /**
@@ -60,7 +60,8 @@ public class MantraApp {
             HttpsServerConfig httpsServerConfig = new HttpsServerConfig(props);
             if (httpsServerConfig.isEnabled()) {
                 httpsServer = new VellumHttpsServer();
-                httpsServer.start(props, new MantraHttpHandler(this));
+                httpsServer.start(props, new EphemeralClientSSLContextFactory(),
+                        new MantraHttpHandler(this));
             }
         }
         keyAlias = configProperties.getString("keyAlias");

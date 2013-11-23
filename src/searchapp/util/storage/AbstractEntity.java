@@ -20,7 +20,7 @@
  */
 package searchapp.util.storage;
 
-import vellum.entity.*;
+import vellum.entity.Comparables;
 
 /**
  *

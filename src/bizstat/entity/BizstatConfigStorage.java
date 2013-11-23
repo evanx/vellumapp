@@ -3,6 +3,10 @@
  */
 package bizstat.entity;
 
+import vellum.entity.EntityMap;
+import vellum.entity.Matcher;
+import vellum.entity.ConfigurableEntity;
+import vellum.entity.IdEntity;
 import vellum.storage.StorageExceptionType;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
@@ -12,7 +16,6 @@ import java.util.List;
 import java.util.Map;
 import vellum.config.ConfigMap;
 import vellum.config.ConfigEntry;
-import vellum.entity.*;
 import vellum.lifecycle.ConfigMapInitialisable;
 import vellum.storage.StorageRuntimeException;
 

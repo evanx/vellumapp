@@ -20,7 +20,7 @@
  */
 package searchapp.util.json;
 
-import dualcontrol.ExtendedProperties;
+import vellum.util.ExtendedProperties;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.regex.Pattern;

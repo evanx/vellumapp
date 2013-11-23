@@ -20,6 +20,7 @@
  */
 package searchapp.app;
 
+import ephemeral.EphemeralSSLContextFactory;
 import searchapp.test.SearchAppTest;
 import searchapp.storage.SearchStorage;
 import searchapp.storage.MockSearchStorage;
@@ -43,6 +44,7 @@ public class SearchApp implements Shutdownable {
     public void init() throws Exception {
         config.init(SearchAppTest.class, "search");
         httpsServer = VellumHttpsServer.start(config.getProperties("httpsServer"),
+                new EphemeralSSLContextFactory(),
                 "/searchapp/web", "/app/", new AppHttpHandlerFactory(this));
         logger.info("HTTPS server started");
         logger.info("started");

@@ -4,7 +4,7 @@
  */
 package mantra.app;
 
-import vellum.security.*;
+import vellum.security.KeyStores;
 import java.security.KeyStore;
 import java.security.PrivateKey;
 import java.security.cert.X509Certificate;

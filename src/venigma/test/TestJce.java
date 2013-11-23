@@ -16,7 +16,7 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
-import vellum.crypto.util.Base64;
+import vellum.util.Base64;
 import vellum.util.Bytes;
 import venigma.provider.keytool.KeyToolBuilder;
 import venigma.server.Ciphers;

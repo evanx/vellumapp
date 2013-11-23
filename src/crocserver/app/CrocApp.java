@@ -47,7 +47,8 @@ import vellum.util.Streams;
 import vellum.util.Threads;
 import crocserver.storage.schema.CrocSchema;
 import crocserver.storage.common.CrocStorage;
-import dualcontrol.ExtendedProperties;
+import ephemeral.EphemeralClientSSLContextFactory;
+import vellum.util.ExtendedProperties;
 import java.security.Security;
 import java.security.cert.X509Certificate;
 import java.util.Date;
@@ -124,7 +125,8 @@ public class CrocApp {
             HttpsServerConfig httpsServerConfig = new HttpsServerConfig(props);
             if (httpsServerConfig.isEnabled()) {
                 publicHttpsServer = new VellumHttpsServer();
-                publicHttpsServer.start(props, new AccessHttpHandler(this));
+                publicHttpsServer.start(props, new EphemeralClientSSLContextFactory(),
+                    new AccessHttpHandler(this));
             }
         }
         String privateHttpsServerConfigName = configProperties.findString("privateHttpsServer");
@@ -134,7 +136,8 @@ public class CrocApp {
             HttpsServerConfig httpsServerConfig = new HttpsServerConfig(props);
             if (httpsServerConfig.isEnabled()) {
                 privateHttpsServer = new VellumHttpsServer();
-                privateHttpsServer.start(props, new SecureHttpHandler(this));
+                privateHttpsServer.start(props, new EphemeralClientSSLContextFactory(),
+                        new SecureHttpHandler(this));
             }
         }
         String gtalkConfigName = configProperties.getString("gtalk");
