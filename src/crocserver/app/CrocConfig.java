@@ -26,7 +26,7 @@
  */
 package crocserver.app;
 
-import vellum.util.SystemProperties;
+import vellum.system.SystemProperties;
 
 /**
  * 
