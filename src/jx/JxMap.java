@@ -20,6 +20,11 @@ public class JxMap extends HashMap<String, Object> {
         return (Collection) super.get(key);
     }
 
+    public JxMap add(String key, Object value) {
+        super.put(key, value);
+        return this;        
+    }
+    
     public Map getMap(String key) {
         return (Map) super.get(key);
     }
