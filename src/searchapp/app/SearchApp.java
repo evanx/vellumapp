@@ -24,7 +24,7 @@ import ephemeral.EphemeralSSLContextFactory;
 import searchapp.test.SearchAppTest;
 import searchapp.storage.SearchStorage;
 import searchapp.storage.MockSearchStorage;
-import searchapp.util.json.JsonConfig;
+import vellum.json.JsonConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import vellum.httpserver.VellumHttpsServer;
