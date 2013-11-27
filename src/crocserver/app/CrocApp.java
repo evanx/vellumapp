@@ -47,15 +47,14 @@ import vellum.util.Streams;
 import vellum.util.Threads;
 import crocserver.storage.schema.CrocSchema;
 import crocserver.storage.common.CrocStorage;
-import ephemeral.EphemeralClientSSLContextFactory;
 import vellum.util.ExtendedProperties;
-import java.security.Security;
 import java.security.cert.X509Certificate;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import vellum.config.ConfigMap;
 import vellum.crypto.rsa.GenRsaPair;
 import vellum.exception.EnumException;
+import vellum.httpserver.HttpServerProperties;
 import vellum.httpserver.Httpx;
 import vellum.httpserver.VellumHttpServer;
 import vellum.httpserver.VellumHttpsServer;
@@ -112,11 +111,11 @@ public class CrocApp {
         new CrocSchema(storage).verifySchema();
         String httpServerConfigName = configProperties.findString("httpServer");
         if (httpServerConfigName != null) {
-            HttpsServerProperties httpServerConfig = new HttpsServerProperties(
+            HttpServerProperties httpServerProperties = new HttpServerProperties(
                     configMap.find("HttpServer", httpServerConfigName).getProperties());
-            if (httpServerConfig.isEnabled()) {
+            if (httpServerProperties.isEnabled()) {
                 httpServer = new VellumHttpServer();
-                httpServer.start(httpServerConfig, new InsecureHttpHandler(this));
+                httpServer.start(httpServerProperties, new InsecureHttpHandler(this));
             }
         }
         String publicHttpsServerConfigName = configProperties.getString("publicHttpsServer");

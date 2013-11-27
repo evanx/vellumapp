@@ -5,7 +5,6 @@
 package bizstat.server;
 
 import bizstat.enumtype.StatusChangeType;
-import vellum.httpserver.HttpsServerProperties;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
 import vellum.system.Systems;
@@ -18,6 +17,7 @@ import java.util.Map;
 import vellum.config.ConfigException;
 import vellum.config.ConfigExceptionType;
 import vellum.config.ConfigProperties;
+import vellum.httpserver.HttpServerProperties;
 import vellum.lifecycle.Initialisable;
 import vellum.storage.DataSourceConfig;
 
@@ -59,13 +59,15 @@ public class BizstatConfig extends AbstractConfig implements Initialisable {
     Map<StatusChangeType, Long> notifyIntervalMap = new HashMap();
     int threadPoolSize = 10;
     DataSourceConfig dataSourceConfig;
-    HttpsServerProperties httpServerConfig;
+    HttpServerProperties httpServerConfig;
     
     public BizstatConfig(BizstatServer server) {
         super(server.configProperties);
         this.server = server;
-        notifyIntervalMap.putAll(StatusChangeType.newIntervalMap(properties.splitCsv("notifyIntervals")));
-        repeatCountMap.putAll(StatusChangeType.newIntegerMap(properties.splitCsv("repeatCounts")));
+        notifyIntervalMap.putAll(StatusChangeType.newIntervalMap(
+                properties.splitCsv("notifyIntervals")));
+        repeatCountMap.putAll(StatusChangeType.newIntegerMap(
+                properties.splitCsv("repeatCounts")));
         logger.info("interval", intervalMillis);
         logger.info("sleep", sleepMillis);
         initDataSourceConfig();
@@ -75,15 +77,17 @@ public class BizstatConfig extends AbstractConfig implements Initialisable {
     private void initHttpServerInfoConfig() {
         String httpServerName = properties.getString("httpServer");
         if (httpServerName != null) {
-            ConfigProperties props = server.configMap.find("HttpServer", httpServerName).getProperties();
-            httpServerConfig = new HttpsServerProperties(props);
+            ConfigProperties props = 
+                    server.configMap.find("HttpServer", httpServerName).getProperties();
+            httpServerConfig = new HttpServerProperties(props);
         }
     }
     
     private void initDataSourceConfig() {
         String dataSource = properties.getString("dataSource");
         if (dataSource != null) {
-            dataSourceConfig = new DataSourceConfig(server.configMap.find("DataSource", dataSource).getProperties());
+            dataSourceConfig = new DataSourceConfig(
+                    server.configMap.find("DataSource", dataSource).getProperties());
         }
     }
     
@@ -151,7 +155,7 @@ public class BizstatConfig extends AbstractConfig implements Initialisable {
         return dataSourceConfig;
     }
 
-    public HttpsServerProperties getHttpServerConfig() {
+    public HttpServerProperties getHttpServerConfig() {
         return httpServerConfig;
     } 
 }
