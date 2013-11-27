@@ -14,8 +14,8 @@ import bizstat.entity.HostServiceStatus;
 import bizstat.entity.Network;
 import bizstat.entity.ServicePath;
 import bizstat.entity.ServiceRecord;
-import bizstat.http.BizstatHttpServer;
 import bizstat.enumtype.ServiceStatus;
+import bizstat.http.BizstatHttpHandler;
 import bizstat.http.BizstatTypeCache;
 import bizstat.storage.BizstatStorage;
 import crocserver.storage.org.Org;
@@ -30,6 +30,7 @@ import org.h2.tools.Server;
 import vellum.config.ConfigMap;
 import vellum.config.ConfigProperties;
 import vellum.exception.Exceptions;
+import vellum.httpserver.VellumHttpServer;
 import vellum.storage.ConnectionPool;
 import vellum.storage.SimpleConnectionPool;
 
@@ -45,7 +46,7 @@ public class BizstatServer implements Runnable {
     BizstatConfig config;
     BizstatConfigStorage configStorage;
     BizstatStorage storage;
-    BizstatHttpServer httpServer;
+    VellumHttpServer httpServer = new VellumHttpServer();
     BizstatGtalkConnection gtalk;
     boolean stopped = false;
     List<Network> networkList = new ArrayList();
@@ -76,7 +77,8 @@ public class BizstatServer implements Runnable {
             h2Server = Server.createTcpServer().start();
         }
         if (config.getDataSourceInfo() != null && config.getDataSourceInfo().isEnabled()) {
-            ConnectionPool connectionPool = new SimpleConnectionPool(config.getDataSourceInfo());
+            ConnectionPool connectionPool = new SimpleConnectionPool(
+                    config.getDataSourceInfo());
             storage = new BizstatStorage(new BizstatTypeCache(this), connectionPool);
             storage.init();
         }
@@ -89,7 +91,8 @@ public class BizstatServer implements Runnable {
         for (String networkName : config.networks) {
             networkList.add(configStorage.find(Network.class, networkName));
         }
-        if (!configMap.getList("Gtalk").isEmpty() && configMap.get("Gtalk", "default") != null && 
+        if (!configMap.getList("Gtalk").isEmpty() && 
+                configMap.get("Gtalk", "default") != null && 
                 configMap.get("Gtalk", "default").getProperties().getBoolean("enabled")) {
             gtalk = new BizstatGtalkConnection(this);
             gtalk.connect();
@@ -104,15 +107,15 @@ public class BizstatServer implements Runnable {
     
     public void start() throws Exception {
         if (config.getHttpServerConfig() != null && config.getHttpServerConfig().isEnabled()) {
-            httpServer = new BizstatHttpServer(this, config.httpServerConfig);
-            httpServer.start();
+            httpServer.start(config.httpServerConfig, new BizstatHttpHandler(this));
         }  
     }
     
     void test() throws SQLException {
         HostServiceKey key = new HostServiceKey(hostList.get(0), serviceList.get(0));
         HostServiceStatus status = getStatus(key);
-        ServiceRecord serviceRecord = new ServiceRecord(key.getHost(), key.getService(), System.currentTimeMillis());
+        ServiceRecord serviceRecord = new ServiceRecord(key.getHost(), key.getService(), 
+                System.currentTimeMillis());
         serviceRecord.setServiceStatus(ServiceStatus.UNKNOWN);
         serviceRecord.setTimestampMillis(System.currentTimeMillis());
         serviceRecord.setExitCode(2);

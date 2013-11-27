@@ -27,8 +27,11 @@ import searchapp.storage.MockSearchStorage;
 import vellum.json.JsonConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import searchapp.util.http.DelegatingHttpHandler;
+import vellum.httphandler.WebHttpHandler;
 import vellum.httpserver.VellumHttpsServer;
 import vellum.lifecycle.Shutdownable;
+import vellum.ssl.OpenTrustManager;
 
 /**
  *
@@ -39,13 +42,13 @@ public class SearchApp implements Shutdownable {
     static Logger logger = LoggerFactory.getLogger(SearchApp.class);
     JsonConfig config = new JsonConfig();
     SearchStorage storage;
-    VellumHttpsServer httpsServer;
+    VellumHttpsServer httpsServer = new VellumHttpsServer();
 
     public void init() throws Exception {
         config.init(SearchAppTest.class, "search");
-        httpsServer = VellumHttpsServer.start(config.getProperties("httpsServer"),
-                new EphemeralSSLContextFactory(),
-                "/searchapp/web", "/app/", new AppHttpHandlerFactory(this));
+        httpsServer.start(config.getProperties("httpsServer"), new OpenTrustManager(),
+                new DelegatingHttpHandler("app", new AppHttpHandlerFactory(this), 
+                new WebHttpHandler("/searchapp/web")));
         logger.info("HTTPS server started");
         logger.info("started");
         if (config.getProperties().getBoolean("developing", true)) {

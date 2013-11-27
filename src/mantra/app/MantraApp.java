@@ -6,7 +6,7 @@ package mantra.app;
 
 import ephemeral.EphemeralClientSSLContextFactory;
 import vellum.util.ExtendedProperties;
-import vellum.httpserver.HttpsServerConfig;
+import vellum.httpserver.HttpsServerProperties;
 import java.net.URL;
 import java.net.URLConnection;
 import org.h2.tools.Server;
@@ -21,6 +21,7 @@ import vellum.storage.DataSourceConfig;
 import vellum.storage.SimpleConnectionPool;
 import vellum.util.Streams;
 import vellum.httpserver.VellumHttpsServer;
+import vellum.ssl.OpenTrustManager;
 import vellum.system.Systems;
 
 /**
@@ -57,10 +58,10 @@ public class MantraApp {
         if (httpsServerConfigName != null) {
             ExtendedProperties props = new ExtendedProperties(
                     configMap.find("HttpsServer", httpsServerConfigName).getProperties());
-            HttpsServerConfig httpsServerConfig = new HttpsServerConfig(props);
+            HttpsServerProperties httpsServerConfig = new HttpsServerProperties(props);
             if (httpsServerConfig.isEnabled()) {
                 httpsServer = new VellumHttpsServer();
-                httpsServer.start(props, new EphemeralClientSSLContextFactory(),
+                httpsServer.start(props, new OpenTrustManager(),
                         new MantraHttpHandler(this));
             }
         }

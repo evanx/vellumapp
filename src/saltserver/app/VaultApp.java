@@ -6,7 +6,7 @@ package saltserver.app;
 
 import ephemeral.EphemeralClientSSLContextFactory;
 import vellum.util.ExtendedProperties;
-import vellum.httpserver.HttpsServerConfig;
+import vellum.httpserver.HttpsServerProperties;
 import java.io.File;
 import java.io.FileInputStream;
 import java.net.URL;
@@ -23,6 +23,7 @@ import vellum.storage.DataSourceConfig;
 import vellum.storage.SimpleConnectionPool;
 import vellum.util.Streams;
 import vellum.httpserver.VellumHttpsServer;
+import vellum.ssl.OpenTrustManager;
 
 /**
  *
@@ -56,10 +57,10 @@ public class VaultApp {
         if (httpsServerConfigName != null) {
             ExtendedProperties props = new ExtendedProperties(
                     configMap.find("HttpsServer", httpsServerConfigName).getProperties());
-            HttpsServerConfig httpsServerConfig = new HttpsServerConfig(props);
+            HttpsServerProperties httpsServerConfig = new HttpsServerProperties(props);
             if (httpsServerConfig.isEnabled()) {
                 httpsServer = new VellumHttpsServer();
-                httpsServer.start(props, new EphemeralClientSSLContextFactory(),
+                httpsServer.start(props, new OpenTrustManager(), 
                         new VaultHttpHandler(this));
             }
         }

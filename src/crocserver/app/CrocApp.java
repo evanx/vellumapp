@@ -26,7 +26,7 @@ import crocserver.httphandler.access.AccessHttpHandler;
 import crocserver.httphandler.access.WebHandler;
 import crocserver.httphandler.insecure.InsecureHttpHandler;
 import crocserver.httphandler.secure.SecureHttpHandler;
-import vellum.httpserver.HttpsServerConfig;
+import vellum.httpserver.HttpsServerProperties;
 import crocserver.storage.adminuser.AdminUser;
 import java.io.File;
 import java.io.FileInputStream;
@@ -61,6 +61,7 @@ import vellum.httpserver.VellumHttpServer;
 import vellum.httpserver.VellumHttpsServer;
 import vellum.parameter.StringMap;
 import vellum.security.DefaultKeyStores;
+import vellum.ssl.OpenTrustManager;
 import vellum.util.DefaultDateFormats;
 
 /**
@@ -111,38 +112,41 @@ public class CrocApp {
         new CrocSchema(storage).verifySchema();
         String httpServerConfigName = configProperties.findString("httpServer");
         if (httpServerConfigName != null) {
-            HttpsServerConfig httpServerConfig = new HttpsServerConfig(
+            HttpsServerProperties httpServerConfig = new HttpsServerProperties(
                     configMap.find("HttpServer", httpServerConfigName).getProperties());
             if (httpServerConfig.isEnabled()) {
-                httpServer = new VellumHttpServer(httpServerConfig);
-                httpServer.createContext("/", new InsecureHttpHandler(this));
+                httpServer = new VellumHttpServer();
+                httpServer.start(httpServerConfig, new InsecureHttpHandler(this));
             }
         }
         String publicHttpsServerConfigName = configProperties.getString("publicHttpsServer");
         if (publicHttpsServerConfigName != null) {
-            ExtendedProperties props = new ExtendedProperties(
-                    configMap.find("HttpsServer", publicHttpsServerConfigName).getProperties());
-            HttpsServerConfig httpsServerConfig = new HttpsServerConfig(props);
+            ExtendedProperties props = new ExtendedProperties(configMap.find("HttpsServer",
+                    publicHttpsServerConfigName).getProperties());
+            HttpsServerProperties httpsServerConfig = new HttpsServerProperties(props);
             if (httpsServerConfig.isEnabled()) {
                 publicHttpsServer = new VellumHttpsServer();
-                publicHttpsServer.start(props, new EphemeralClientSSLContextFactory(),
-                    new AccessHttpHandler(this));
+                publicHttpsServer.start(props, new OpenTrustManager(), 
+                        new AccessHttpHandler(this));
             }
         }
-        String privateHttpsServerConfigName = configProperties.findString("privateHttpsServer");
+        String privateHttpsServerConfigName = 
+                configProperties.findString("privateHttpsServer");
         if (privateHttpsServerConfigName != null) {
             ExtendedProperties props = new ExtendedProperties(
-                    configMap.find("HttpsServer", privateHttpsServerConfigName).getProperties());
-            HttpsServerConfig httpsServerConfig = new HttpsServerConfig(props);
+                    configMap.find("HttpsServer", 
+                    privateHttpsServerConfigName).getProperties());
+            HttpsServerProperties httpsServerConfig = new HttpsServerProperties(props);
             if (httpsServerConfig.isEnabled()) {
                 privateHttpsServer = new VellumHttpsServer();
-                privateHttpsServer.start(props, new EphemeralClientSSLContextFactory(),
+                privateHttpsServer.start(props, new OpenTrustManager(),
                         new SecureHttpHandler(this));
             }
         }
         String gtalkConfigName = configProperties.getString("gtalk");
         if (gtalkConfigName != null) {
-            ConfigProperties gtalkProps = configMap.find("Gtalk", gtalkConfigName).getProperties();
+            ConfigProperties gtalkProps = 
+                    configMap.find("Gtalk", gtalkConfigName).getProperties();
             if (gtalkProps.getBoolean("enabled", false)) {
                 gtalkConnection = new GtalkConnection(gtalkProps);
                 gtalkConnection.open();

@@ -5,7 +5,7 @@
 package bizstat.server;
 
 import bizstat.enumtype.StatusChangeType;
-import vellum.httpserver.HttpsServerConfig;
+import vellum.httpserver.HttpsServerProperties;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
 import vellum.system.Systems;
@@ -59,7 +59,7 @@ public class BizstatConfig extends AbstractConfig implements Initialisable {
     Map<StatusChangeType, Long> notifyIntervalMap = new HashMap();
     int threadPoolSize = 10;
     DataSourceConfig dataSourceConfig;
-    HttpsServerConfig httpServerConfig;
+    HttpsServerProperties httpServerConfig;
     
     public BizstatConfig(BizstatServer server) {
         super(server.configProperties);
@@ -76,7 +76,7 @@ public class BizstatConfig extends AbstractConfig implements Initialisable {
         String httpServerName = properties.getString("httpServer");
         if (httpServerName != null) {
             ConfigProperties props = server.configMap.find("HttpServer", httpServerName).getProperties();
-            httpServerConfig = new HttpsServerConfig(props);
+            httpServerConfig = new HttpsServerProperties(props);
         }
     }
     
@@ -151,7 +151,7 @@ public class BizstatConfig extends AbstractConfig implements Initialisable {
         return dataSourceConfig;
     }
 
-    public HttpsServerConfig getHttpServerConfig() {
+    public HttpsServerProperties getHttpServerConfig() {
         return httpServerConfig;
     } 
 }
