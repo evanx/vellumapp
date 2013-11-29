@@ -91,7 +91,8 @@ public class Pems {
         }
     }
 
-    public static String buildCertReqPem(PKCS10 certReq) throws Exception, CertificateException {
+    public static String buildCertReqPem(PKCS10 certReq) 
+            throws Exception, CertificateException {
         StringBuilder builder = new StringBuilder();
         builder.append(BEGIN_CERT_REQ);
         builder.append('\n');
