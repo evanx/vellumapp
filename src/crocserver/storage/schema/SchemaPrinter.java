@@ -11,9 +11,9 @@ import java.sql.ResultSetMetaData;
 import javax.sql.RowSet;
 import vellum.html.HtmlPrinter;
 import vellum.printer.PrintStreamAdapter;
-import vellum.storage.ConnectionPool;
+import vellum.connection.ConnectionPool;
 import vellum.query.RowSets;
-import vellum.storage.ConnectionEntry;
+import vellum.connection.ConnectionEntry;
 
 /**
  *

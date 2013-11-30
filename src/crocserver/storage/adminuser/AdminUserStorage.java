@@ -12,7 +12,7 @@ import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
 import vellum.query.QueryMap;
 import vellum.query.RowSets;
-import vellum.storage.ConnectionEntry;
+import vellum.connection.ConnectionEntry;
 import vellum.storage.StorageException;
 import vellum.storage.StorageExceptionType;
 import vellum.util.Lists;

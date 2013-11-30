@@ -31,8 +31,8 @@ import vellum.config.ConfigMap;
 import vellum.config.ConfigProperties;
 import vellum.exception.Exceptions;
 import vellum.httpserver.VellumHttpServer;
-import vellum.storage.ConnectionPool;
-import vellum.storage.SimpleConnectionPool;
+import vellum.connection.ConnectionPool;
+import vellum.connection.SimpleConnectionPool;
 
 /**
  *

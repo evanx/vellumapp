@@ -11,7 +11,7 @@ import javax.sql.RowSet;
 import saltserver.app.VaultStorage;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
-import vellum.storage.ConnectionEntry;
+import vellum.connection.ConnectionEntry;
 
 /**
  *

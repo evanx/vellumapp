@@ -4,14 +4,14 @@
  */
 package bizstat.storage;
 
-import vellum.storage.ConnectionPool;
+import vellum.connection.ConnectionPool;
 import vellum.storage.StorageExceptionType;
-import vellum.storage.SimpleConnectionPool;
+import vellum.connection.SimpleConnectionPool;
 import vellum.storage.StorageRuntimeException;
 import bizstat.storage.servicerecord.ServiceRecordStorage;
 import crocserver.storage.common.CrocStorage;
 import vellum.datatype.EntityCache;
-import vellum.storage.DataSourceProperties;
+import vellum.connection.DataSourceProperties;
 import javax.sql.DataSource;
 import vellum.datatype.SimpleEntityCache;
 import vellum.logr.Logr;

@@ -4,9 +4,9 @@
  */
 package saltserver.app;
 
-import vellum.storage.ConnectionPool;
-import vellum.storage.SimpleConnectionPool;
-import vellum.storage.DataSourceProperties;
+import vellum.connection.ConnectionPool;
+import vellum.connection.SimpleConnectionPool;
+import vellum.connection.DataSourceProperties;
 import javax.sql.DataSource;
 import saltserver.storage.adminuser.AdminUserStorage;
 import saltserver.storage.schema.VaultSchema;

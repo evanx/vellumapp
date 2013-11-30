@@ -21,7 +21,7 @@
 package searchapp.storage;
 
 import searchapp.entity.ConnectionEntity;
-import searchapp.util.storage.Storage;
+import vellum.storage.Storage;
 
 /**
  * 

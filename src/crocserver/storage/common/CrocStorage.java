@@ -4,16 +4,16 @@
  */
 package crocserver.storage.common;
 
-import vellum.storage.ConnectionPool;
+import vellum.connection.ConnectionPool;
 import vellum.storage.StorageExceptionType;
-import vellum.storage.SimpleConnectionPool;
+import vellum.connection.SimpleConnectionPool;
 import vellum.storage.StorageRuntimeException;
 import crocserver.storage.schema.CrocSchema;
 import crocserver.storage.adminuser.AdminUserStorage;
 import crocserver.storage.clientcert.CertStorage;
 import crocserver.storage.servicerecord.ServiceRecordStorage;
 import vellum.datatype.EntityCache;
-import vellum.storage.DataSourceProperties;
+import vellum.connection.DataSourceProperties;
 import javax.sql.DataSource;
 import vellum.datatype.SimpleEntityCache;
 import vellum.logr.Logr;

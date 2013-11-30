@@ -19,7 +19,7 @@ import vellum.config.ConfigExceptionType;
 import vellum.config.ConfigProperties;
 import vellum.httpserver.HttpServerProperties;
 import vellum.lifecycle.Initialisable;
-import vellum.storage.DataSourceProperties;
+import vellum.connection.DataSourceProperties;
 
 /**
  *

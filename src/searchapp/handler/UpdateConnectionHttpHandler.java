@@ -13,7 +13,7 @@ import searchapp.app.SearchApp;
 import searchapp.entity.ConnectionEntity;
 import searchapp.util.http.EncodedMap;
 import searchapp.util.http.HttpExchangeInfo;
-import searchapp.util.storage.StorageException;
+import vellum.storage.StorageException;
 import vellum.util.Streams;
 
 /**

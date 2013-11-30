@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
-import searchapp.util.storage.AbstractEntity;
+import vellum.storage.AbstractEntity;
 import vellum.parameter.StringMap;
 
 /**

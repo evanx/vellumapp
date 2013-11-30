@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Date;
 import javax.sql.RowSet;
-import vellum.storage.ConnectionPool;
+import vellum.connection.ConnectionPool;
 import vellum.query.RowSets;
 import vellum.storage.StorageException;
 import vellum.storage.StorageExceptionType;
@@ -19,7 +19,7 @@ import saltserver.app.VaultPageHandler;
 import vellum.httpserver.Httpx;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
-import vellum.storage.ConnectionEntry;
+import vellum.connection.ConnectionEntry;
 
 /**
  *

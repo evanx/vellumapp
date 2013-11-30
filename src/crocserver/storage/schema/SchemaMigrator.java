@@ -8,9 +8,9 @@ import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.sql.RowSet;
-import vellum.storage.ConnectionPool;
+import vellum.connection.ConnectionPool;
 import vellum.query.RowSets;
-import vellum.storage.ConnectionEntry;
+import vellum.connection.ConnectionEntry;
 
 /**
  *

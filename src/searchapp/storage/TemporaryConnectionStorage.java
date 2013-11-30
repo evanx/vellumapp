@@ -23,7 +23,7 @@ package searchapp.storage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import searchapp.entity.ConnectionEntity;
-import searchapp.util.storage.TemporaryStorage;
+import vellum.storage.TemporaryStorage;
 
 /**
  * 

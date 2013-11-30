@@ -14,7 +14,7 @@ import java.util.List;
 import vellum.query.QueryMap;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
-import vellum.storage.ConnectionEntry;
+import vellum.connection.ConnectionEntry;
 import vellum.storage.StorageException;
 
 /**

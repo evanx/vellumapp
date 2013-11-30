@@ -10,13 +10,13 @@ import java.sql.Statement;
 import java.util.Date;
 import javax.sql.RowSet;
 import vellum.html.HtmlPrinter;
-import vellum.storage.ConnectionPool;
+import vellum.connection.ConnectionPool;
 import vellum.query.RowSets;
 import vellum.storage.StorageException;
 import vellum.storage.StorageExceptionType;
 import crocserver.storage.common.CrocStorage;
 import java.sql.Connection;
-import vellum.storage.ConnectionEntry;
+import vellum.connection.ConnectionEntry;
 
 /**
  *

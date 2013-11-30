@@ -4,7 +4,7 @@
  */
 package mantra.app;
 
-import vellum.storage.SimpleConnectionPool;
+import vellum.connection.SimpleConnectionPool;
 
 /**
  *

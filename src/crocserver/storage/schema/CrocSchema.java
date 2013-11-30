@@ -11,7 +11,7 @@ import java.sql.*;
 import javax.sql.RowSet;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
-import vellum.storage.ConnectionEntry;
+import vellum.connection.ConnectionEntry;
 
 /**
  *
