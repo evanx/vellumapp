@@ -6,7 +6,7 @@ package saltserver.app;
 
 import vellum.storage.ConnectionPool;
 import vellum.storage.SimpleConnectionPool;
-import vellum.storage.DataSourceConfig;
+import vellum.storage.DataSourceProperties;
 import javax.sql.DataSource;
 import saltserver.storage.adminuser.AdminUserStorage;
 import saltserver.storage.schema.VaultSchema;
@@ -24,7 +24,7 @@ public class VaultStorage {
     ConnectionPool connectionPool;
     DataSource dataSource;
     
-    public VaultStorage(DataSourceConfig dataSourceInfo) {
+    public VaultStorage(DataSourceProperties dataSourceInfo) {
         this(new SimpleConnectionPool(dataSourceInfo));
 
     }

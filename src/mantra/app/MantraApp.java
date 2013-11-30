@@ -17,7 +17,7 @@ import vellum.config.ConfigProperties;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
 import vellum.logr.LogrLevel;
-import vellum.storage.DataSourceConfig;
+import vellum.storage.DataSourceProperties;
 import vellum.storage.SimpleConnectionPool;
 import vellum.util.Streams;
 import vellum.httpserver.VellumHttpsServer;
@@ -32,7 +32,7 @@ public class MantraApp {
 
     Logr logger = LogrFactory.getLogger(getClass());
     MantraStorage storage;
-    DataSourceConfig dataSourceConfig;
+    DataSourceProperties dataSourceConfig;
     ConfigMap configMap;
     ConfigProperties configProperties;
     Thread serverThread;
@@ -50,7 +50,7 @@ public class MantraApp {
         if (configProperties.getBoolean("startH2TcpServer")) {
             h2Server = Server.createTcpServer().start();
         }
-        dataSourceConfig = new DataSourceConfig(configMap.get("DataSource",
+        dataSourceConfig = new DataSourceProperties(configMap.get("DataSource",
                 configProperties.getString("dataSource")).getProperties());
         storage = new MantraStorage(new SimpleConnectionPool(dataSourceConfig));
         storage.init();

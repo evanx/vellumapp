@@ -19,7 +19,7 @@ import vellum.config.ConfigExceptionType;
 import vellum.config.ConfigProperties;
 import vellum.httpserver.HttpServerProperties;
 import vellum.lifecycle.Initialisable;
-import vellum.storage.DataSourceConfig;
+import vellum.storage.DataSourceProperties;
 
 /**
  *
@@ -58,7 +58,7 @@ public class BizstatConfig extends AbstractConfig implements Initialisable {
     Map<StatusChangeType, Integer> repeatCountMap = new HashMap();
     Map<StatusChangeType, Long> notifyIntervalMap = new HashMap();
     int threadPoolSize = 10;
-    DataSourceConfig dataSourceConfig;
+    DataSourceProperties dataSourceConfig;
     HttpServerProperties httpServerConfig;
     
     public BizstatConfig(BizstatServer server) {
@@ -86,7 +86,7 @@ public class BizstatConfig extends AbstractConfig implements Initialisable {
     private void initDataSourceConfig() {
         String dataSource = properties.getString("dataSource");
         if (dataSource != null) {
-            dataSourceConfig = new DataSourceConfig(
+            dataSourceConfig = new DataSourceProperties(
                     server.configMap.find("DataSource", dataSource).getProperties());
         }
     }
@@ -151,7 +151,7 @@ public class BizstatConfig extends AbstractConfig implements Initialisable {
         return outputSize;
     }
 
-    public DataSourceConfig getDataSourceInfo() {
+    public DataSourceProperties getDataSourceInfo() {
         return dataSourceConfig;
     }
 

@@ -11,7 +11,7 @@ import vellum.storage.StorageRuntimeException;
 import bizstat.storage.servicerecord.ServiceRecordStorage;
 import crocserver.storage.common.CrocStorage;
 import vellum.datatype.EntityCache;
-import vellum.storage.DataSourceConfig;
+import vellum.storage.DataSourceProperties;
 import javax.sql.DataSource;
 import vellum.datatype.SimpleEntityCache;
 import vellum.logr.Logr;
@@ -28,7 +28,7 @@ public class BizstatStorage {
     DataSource dataSource;
     EntityCache<String> entityCache;
     
-    public BizstatStorage(DataSourceConfig dataSourceInfo) {
+    public BizstatStorage(DataSourceProperties dataSourceInfo) {
         this(new SimpleEntityCache(), new SimpleConnectionPool(dataSourceInfo));
 
     }

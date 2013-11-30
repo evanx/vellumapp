@@ -13,7 +13,7 @@ import crocserver.storage.adminuser.AdminUserStorage;
 import crocserver.storage.clientcert.CertStorage;
 import crocserver.storage.servicerecord.ServiceRecordStorage;
 import vellum.datatype.EntityCache;
-import vellum.storage.DataSourceConfig;
+import vellum.storage.DataSourceProperties;
 import javax.sql.DataSource;
 import vellum.datatype.SimpleEntityCache;
 import vellum.logr.Logr;
@@ -34,7 +34,7 @@ public class CrocStorage {
     DataSource dataSource;
     EntityCache<String> entityCache;
     
-    public CrocStorage(DataSourceConfig dataSourceInfo) {
+    public CrocStorage(DataSourceProperties dataSourceInfo) {
         this(new SimpleEntityCache(), new SimpleConnectionPool(dataSourceInfo));
 
     }

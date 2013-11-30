@@ -19,7 +19,7 @@ import vellum.config.ConfigProperties;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
 import vellum.logr.LogrLevel;
-import vellum.storage.DataSourceConfig;
+import vellum.storage.DataSourceProperties;
 import vellum.storage.SimpleConnectionPool;
 import vellum.util.Streams;
 import vellum.httpserver.VellumHttpsServer;
@@ -35,7 +35,7 @@ public class VaultApp {
     VaultStorage storage;
     ConfigMap configMap;
     ConfigProperties configProperties;
-    DataSourceConfig dataSourceConfig;
+    DataSourceProperties dataSourceConfig;
     Thread serverThread;
     String confFileName;
     Server h2Server;
@@ -49,7 +49,7 @@ public class VaultApp {
         if (configProperties.getBoolean("startH2TcpServer")) {
             h2Server = Server.createTcpServer().start();
         }
-        dataSourceConfig = new DataSourceConfig(configMap.get("DataSource",
+        dataSourceConfig = new DataSourceProperties(configMap.get("DataSource",
                 configProperties.getString("dataSource")).getProperties());
         storage = new VaultStorage(new SimpleConnectionPool(dataSourceConfig));
         storage.init();

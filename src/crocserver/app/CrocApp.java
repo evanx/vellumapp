@@ -41,7 +41,7 @@ import vellum.datatype.SimpleEntityCache;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
 import vellum.logr.LogrLevel;
-import vellum.storage.DataSourceConfig;
+import vellum.storage.DataSourceProperties;
 import vellum.storage.SimpleConnectionPool;
 import vellum.util.Streams;
 import vellum.util.Threads;
@@ -72,7 +72,7 @@ public class CrocApp {
     Logr logger = LogrFactory.getLogger(getClass());
     CrocConfig config;
     CrocStorage storage;
-    DataSourceConfig dataSourceConfig;
+    DataSourceProperties dataSourceConfig;
     ConfigMap configMap;
     ConfigProperties configProperties;
     Thread serverThread;
@@ -101,7 +101,7 @@ public class CrocApp {
         if (adminContactName != null) {
             adminContact = new Contact(configMap.get("Contact", adminContactName));
         }
-        dataSourceConfig = new DataSourceConfig(configMap.get("DataSource",
+        dataSourceConfig = new DataSourceProperties(configMap.get("DataSource",
                 configProperties.getString("dataSource")).getProperties());
         storage = new CrocStorage(new SimpleEntityCache(), 
                 new SimpleConnectionPool(dataSourceConfig));
