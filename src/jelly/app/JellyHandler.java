@@ -1,11 +1,11 @@
 package jelly.app;
 
-import jx.*;
+import vellum.jx.JAction;
 
 /**
  *
  * @author evan.summers
  */
 public interface JellyHandler {
-    public void handle(JellyApp app, JxAction action) throws Exception;
+    public void handle(JellyApp app, JAction action) throws Exception;
 }

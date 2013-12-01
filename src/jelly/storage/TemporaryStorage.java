@@ -2,7 +2,7 @@ package jelly.storage;
 
 import java.util.HashMap;
 import java.util.Map;
-import jx.JxMap;
+import vellum.jx.JMap;
 import vellum.logging.ArrayLogger;
 import vellum.type.ComparableTuple;
 
@@ -13,16 +13,16 @@ import vellum.type.ComparableTuple;
 public class TemporaryStorage implements Storage {
     ArrayLogger logger = ArrayLogger.getLogger(TemporaryStorage.class);
     
-    Map<Comparable, JxMap> store = new HashMap();
+    Map<Comparable, JMap> store = new HashMap();
     
     @Override
-    public void put(String database, String type, Comparable id, JxMap data) {
+    public void put(String database, String type, Comparable id, JMap data) {
         store.put(ComparableTuple.create(database, type, id), data);
     }
     
     @Override
-    public JxMap get(String database, String type, Comparable id) {
-        JxMap data = store.get(ComparableTuple.create(database, type, id));
+    public JMap get(String database, String type, Comparable id) {
+        JMap data = store.get(ComparableTuple.create(database, type, id));
         if (data == null) {
             logger.debug("get", database, type, id);
         }
@@ -30,8 +30,8 @@ public class TemporaryStorage implements Storage {
     }
 
     @Override
-    public JxMap find(String database, String type, Comparable id) throws StorageException {
-        JxMap data = store.get(ComparableTuple.create(database, type, id));
+    public JMap find(String database, String type, Comparable id) throws StorageException {
+        JMap data = store.get(ComparableTuple.create(database, type, id));
         if (data == null) {
             throw new StorageException(StorageExceptionType.NOT_FOUND, database, type, id);
         }
