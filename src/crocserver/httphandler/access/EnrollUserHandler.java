@@ -103,7 +103,7 @@ public class EnrollUserHandler implements HttpHandler {
             httpExchangeInfo.sendResponse("application/x-pem-file", signedCertPem.getBytes());
         } else {
             storage.getUserStorage().store(user);
-            httpExchangeInfo.write(user.getStringMap());
+            httpExchangeInfo.sendResponse(user.getStringMap());
         }
     }
 }

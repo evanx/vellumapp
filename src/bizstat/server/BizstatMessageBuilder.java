@@ -4,7 +4,7 @@
 package bizstat.server;
 
 import bizstat.entity.ServiceRecord;
-import vellum.util.DefaultDateFormats;
+import vellum.format.DefaultDateFormats;
 import bizstat.enumtype.ServiceStatus;
 import java.util.Date;
 import java.util.LinkedList;

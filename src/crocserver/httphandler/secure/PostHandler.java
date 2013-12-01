@@ -84,6 +84,6 @@ public class PostHandler implements HttpHandler {
             throw new CrocException(CrocExceptionType.NOT_FOUND, certName);
         }
         storage.getServiceRecordStorage().insert(cert.getOrgId(), newRecord);
-        httpExchangeInfo.write(newRecord.getStringMap());
+        httpExchangeInfo.sendResponse(newRecord.getStringMap());
     }
 }

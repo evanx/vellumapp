@@ -64,7 +64,7 @@ public class EditOrgHandler implements HttpHandler {
             logger.info("update", org);
             app.getStorage().getOrgStorage().update(org);
         }
-        httpExchangeInfo.write(org.getStringMap());
+        httpExchangeInfo.sendResponse(org.getStringMap());
     }
     
 }

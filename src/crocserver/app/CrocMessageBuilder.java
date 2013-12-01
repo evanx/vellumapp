@@ -22,7 +22,7 @@ package crocserver.app;
 
 import bizstat.enumtype.ServiceStatus;
 import crocserver.storage.servicerecord.ServiceRecord;
-import vellum.util.DefaultDateFormats;
+import vellum.format.DefaultDateFormats;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
