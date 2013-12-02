@@ -23,6 +23,7 @@ package crocserver.app;
 import java.util.Map;
 import vellum.datatype.Millis;
 import vellum.exception.EnumException;
+import vellum.jx.JMap;
 import vellum.parameter.StringMap;
 
 /**
@@ -68,8 +69,8 @@ public class CrocCookie {
         return displayName;
     }
 
-    public StringMap toMap() {
-        StringMap map = new StringMap();
+    public JMap toMap() {
+        JMap map = new JMap();
         map.put(CrocCookieMeta.email.name(), email);
         map.put(CrocCookieMeta.displayName.name(), displayName);
         map.put(CrocCookieMeta.loginMillis.name(), Long.toString(loginMillis));

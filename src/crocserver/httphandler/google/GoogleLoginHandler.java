@@ -12,7 +12,6 @@ import crocserver.app.CrocSecurity;
 import crocserver.app.GoogleUserInfo;
 import vellum.util.JsonStrings;
 import vellum.httpserver.Httpx;
-import crocserver.storage.adminuser.AdminUserRole;
 import crocserver.storage.adminuser.AdminUser;
 import java.io.IOException;
 import java.util.Date;
@@ -85,10 +84,13 @@ public class GoogleLoginHandler implements HttpHandler {
         } else {
             app.getStorage().getUserStorage().insert(user);
         }
-        String totpUrl = CrocSecurity.getTotpUrl(user.getFirstName().toLowerCase(), app.getServerName(), user.getSecret());
-        String qrUrl = CrocSecurity.getQrCodeUrl(user.getFirstName().toLowerCase(), app.getServerName(), user.getSecret());
+        String totpUrl = CrocSecurity.getTotpUrl(
+                user.getFirstName().toLowerCase(), app.getServerName(), user.getSecret());
+        String qrUrl = CrocSecurity.getQrCodeUrl(
+                user.getFirstName().toLowerCase(), app.getServerName(), user.getSecret());
         logger.info("qrUrl", qrUrl, Strings.decodeUrl(qrUrl));
-        CrocCookie cookie = new CrocCookie(user.getEmail(), user.getDisplayName(), user.getLoginTime().getTime(), accessToken);
+        CrocCookie cookie = new CrocCookie(
+                user.getEmail(), user.getDisplayName(), user.getLoginTime().getTime(), accessToken);
         cookie.createAuthCode(user.getSecret().getBytes());
         httpExchangeInfo.setCookie(cookie.toMap(), CrocCookie.MAX_AGE_MILLIS);
         httpExchangeInfo.sendResponse("text/json", true);

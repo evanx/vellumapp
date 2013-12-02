@@ -14,10 +14,10 @@ import vellum.httpserver.Httpx;
 import crocserver.storage.adminuser.AdminUser;
 import java.io.IOException;
 import java.util.Date;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import vellum.crypto.rsa.GenRsaPair;
 import vellum.datatype.Emails;
-import vellum.logr.Logr;
-import vellum.logr.LogrFactory;
 import vellum.parameter.StringMap;
 import vellum.util.Strings;
 
@@ -27,7 +27,7 @@ import vellum.util.Strings;
  */
 public class PersonaLoginHandler implements HttpHandler {
 
-    Logr logger = LogrFactory.getLogger(getClass());
+    Logger logger = LoggerFactory.getLogger(getClass());
     CrocApp app;
     HttpExchange httpExchange;
     Httpx httpExchangeInfo;
@@ -37,25 +37,22 @@ public class PersonaLoginHandler implements HttpHandler {
         this.app = app;
     }
     
-    String userId;
     String assertion;
     
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
         this.httpExchange = httpExchange;
         httpExchangeInfo = new Httpx(httpExchange);
-        logger.info("handle", getClass().getSimpleName(), httpExchangeInfo.getPath(), httpExchangeInfo.getParameterMap());
-            assertion = httpExchangeInfo.getParameter("assertion");
-            logger.info("input", userId, assertion);
-            try {
-                if (assertion != null) {
-                    handle();
-                } else {
-                    httpExchangeInfo.handleError("require assertion");
-                }
-            } catch (Exception e) {
-                httpExchangeInfo.handleError(e);
+        assertion = httpExchangeInfo.getParameter("assertion");
+        try {
+            if (assertion != null) {
+                handle();
+            } else {
+                httpExchangeInfo.handleError("require assertion");
             }
+        } catch (Exception e) {
+            httpExchangeInfo.handleError(e);
+        }
         httpExchange.close();
     }
     

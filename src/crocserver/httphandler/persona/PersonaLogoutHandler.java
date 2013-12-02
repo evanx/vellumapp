@@ -62,9 +62,6 @@ public class PersonaLogoutHandler implements HttpHandler {
         user.setLogoutTime(new Date());
         app.getStorage().getUserStorage().updateLogout(user);
         httpExchangeInfo.clearCookie(Lists.toStringList(CrocCookieMeta.values()));
-        httpExchangeInfo.sendResponse("text/json", true);
-        String json = JsonStrings.buildJson(cookie.toMap());
-        logger.info("json", json);
-        httpExchangeInfo.getPrintStream().print(json);
+        httpExchangeInfo.sendResponse(cookie.toMap());
     }
 }

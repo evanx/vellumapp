@@ -11,9 +11,9 @@ import vellum.httpserver.Httpx;
 import java.io.IOException;
 import java.io.PrintStream;
 import vellum.datatype.Millis;
+import vellum.jx.JMap;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
-import vellum.parameter.StringMap;
 
 /**
  *
@@ -39,7 +39,7 @@ public class EchoHandler implements HttpHandler {
         httpExchangeInfo = new Httpx(httpExchange);
         try {
             out = new PrintStream(httpExchange.getResponseBody());
-            StringMap cookieMap = new StringMap();
+            JMap cookieMap = new JMap();
             String cookieKey = "testCookieKey";
             cookieMap.put(cookieKey, "testValue");
             cookieMap.put("testCookieKey1", "testValue1");
@@ -50,7 +50,8 @@ public class EchoHandler implements HttpHandler {
             out.printf("cookie %s: %s\n", cookieKey, httpExchangeInfo.getCookie(cookieKey));
             Headers reqHeaders = httpExchange.getRequestHeaders();
             for (String key : reqHeaders.keySet()) {
-                out.printf("request header %s: %d: %s\n", key, reqHeaders.get(key).size(), reqHeaders.get(key).get(0));
+                out.printf("request header %s: %d: %s\n", key, 
+                        reqHeaders.get(key).size(), reqHeaders.get(key).get(0));
             }
             Headers resHeaders = httpExchange.getResponseHeaders();
             for (String key : resHeaders.keySet()) {
