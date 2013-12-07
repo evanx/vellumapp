@@ -50,9 +50,9 @@ public class AdminHandler implements HttpHandler {
 
     private void handle() throws Exception {
         handler.printPageHeader("Admin");
-        String username = httpExchangeInfo.getParameterMap().get("username");
-        String password = httpExchangeInfo.getParameterMap().get("password");
-        String keyStorePassword = httpExchangeInfo.getParameterMap().get("keyStorePassword");
+        String username = httpExchangeInfo.getParameterMap().getString("username");
+        String password = httpExchangeInfo.getParameterMap().getString("password");
+        String keyStorePassword = httpExchangeInfo.getParameterMap().getString("keyStorePassword");
         if (true) {
             if (Strings.isEmpty(password)) {
                 password = "password";
@@ -71,10 +71,8 @@ public class AdminHandler implements HttpHandler {
         }
         out.printf("<input type='password' name='keyStorePassword' width='40' placeholder='Key store password'><br>\n");
         if (!new File(keyStoreManager.getKeyStoreLocation()).exists()) {
-            logger.info("createKeyStore", httpExchangeInfo.isParameter("createKeyStore"), 
-                    Strings.isEmpty(keyStorePassword));
             if (!Strings.isEmpty(keyStorePassword) && 
-                    httpExchangeInfo.isParameter("createKeyStore")) {
+                    httpExchangeInfo.getParameterMap().containsKey("createKeyStore")) {
                 logger.info("create", new File(keyStoreManager.getKeyStoreLocation()));
             } else {
                 out.printf("<label for='createKeyStore'>Create key store</label>\n");
@@ -90,7 +88,7 @@ public class AdminHandler implements HttpHandler {
                 out.printf("<input type='checkbox' name='deleteAlias-%s'><br>\n", alias);
             }
             out.printf("<input type='text' name='genKeyAlias' width='40' placeholder='Generate key'><br>\n");
-            if (Strings.isEmpty(httpExchangeInfo.getParameter("genKeyAlias"))) {
+            if (Strings.isEmpty(httpExchangeInfo.getParameterMap().getString("genKeyAlias", null))) {
                 generateKey();
             }
         } else {    

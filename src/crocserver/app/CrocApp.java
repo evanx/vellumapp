@@ -58,10 +58,10 @@ import vellum.httpserver.HttpServerProperties;
 import vellum.httpserver.Httpx;
 import vellum.httpserver.VellumHttpServer;
 import vellum.httpserver.VellumHttpsServer;
-import vellum.parameter.StringMap;
 import vellum.security.DefaultKeyStores;
 import vellum.ssl.OpenTrustManager;
 import vellum.format.DefaultDateFormats;
+import vellum.jx.JMap;
 
 /**
  *
@@ -316,8 +316,8 @@ public class CrocApp {
                 return user;
             }
         }
-        StringMap cookieMap = httpExchangeInfo.getCookieMap();
-        String email = cookieMap.get("email");
+        JMap cookieMap = httpExchangeInfo.getCookieMap();
+        String email = cookieMap.getString("email", null);
         if (email == null) {
             throw new EnumException(CrocExceptionType.NO_COOKIE);
         } else if (email.isEmpty()) {
@@ -326,7 +326,8 @@ public class CrocApp {
             CrocCookie cookie = new CrocCookie(cookieMap);
             AdminUser user = storage.getUserStorage().get(cookie.getEmail());
             if (user.getLoginTime().getTime() != cookie.getLoginMillis()) {
-                logger.warn("getUser cookie millis", DefaultDateFormats.timeMillisFormat.format(user.getLoginTime()), 
+                logger.warn("getUser cookie millis", 
+                        DefaultDateFormats.timeMillisFormat.format(user.getLoginTime()), 
                         DefaultDateFormats.formatDateTimeSeconds(cookie.getLoginMillis())
                         );
                 if (false) {
@@ -341,8 +342,8 @@ public class CrocApp {
     }
 
     public GoogleUserInfo getGoogleUserInfo(Httpx httpExchangeInfo) throws Exception {
-        StringMap cookieMap = httpExchangeInfo.getCookieMap();
-        String accessToken = cookieMap.get("accessToken");
+        JMap cookieMap = httpExchangeInfo.getCookieMap();
+        String accessToken = cookieMap.getString("accessToken");
         return googleApi.getUserInfo(accessToken);
     }
 }

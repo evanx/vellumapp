@@ -43,7 +43,7 @@ public class PersonaLoginHandler implements HttpHandler {
     public void handle(HttpExchange httpExchange) throws IOException {
         this.httpExchange = httpExchange;
         httpExchangeInfo = new Httpx(httpExchange);
-        assertion = httpExchangeInfo.getParameter("assertion");
+        assertion = httpExchangeInfo.getParameterMap().getString("assertion", null);
         try {
             if (assertion != null) {
                 handle();

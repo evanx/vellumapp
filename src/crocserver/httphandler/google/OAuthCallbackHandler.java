@@ -44,16 +44,16 @@ public class OAuthCallbackHandler implements HttpHandler {
     public void handle(HttpExchange httpExchange) throws IOException {
         this.httpExchange = httpExchange;
         httpExchangeInfo = new Httpx(httpExchange);
-        logger.info("handle", getClass().getSimpleName(), httpExchangeInfo.getPath(), httpExchangeInfo.getParameterMap());
+        logger.info("handle", getClass().getSimpleName(), httpExchangeInfo.getPath());
         if (httpExchangeInfo.getPath().length() == 0) {
             httpExchange.close();
             return;
         }
-        state = httpExchangeInfo.getParameter("state");
-        accessToken = httpExchangeInfo.getParameter("access_token");
-        expiry = httpExchangeInfo.getInteger("expires_in");
-        code = httpExchangeInfo.getParameter("code");
-        error = httpExchangeInfo.getParameter("error");
+        state = httpExchangeInfo.getParameterMap().getString("state", null);
+        accessToken = httpExchangeInfo.getParameterMap().getString("access_token", null);
+        expiry = httpExchangeInfo.getParameterMap().getInteger("expires_in", 0);
+        code = httpExchangeInfo.getParameterMap().getString("code", null);
+        error = httpExchangeInfo.getParameterMap().getString("error", null);
         try {
             if (error != null) {
                 httpExchangeInfo.handleError(error);

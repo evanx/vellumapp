@@ -4,7 +4,6 @@ package saltserver.httphandler;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpsExchange;
-import java.io.IOException;
 import java.io.PrintStream;
 import saltserver.app.VaultApp;
 import saltserver.app.VaultPageHandler;
@@ -67,7 +66,7 @@ public class AdminHandler implements HttpHandler {
         if (!adminUser.isEnabled()) {
             throw new StorageException(StorageExceptionType.DISABLED, subject);
         }
-        String password = httpExchangeInfo.getParameterMap().get("password");
+        String password = httpExchangeInfo.getParameterMap().getString("password", null);
         if (password != null) {
             app.getPasswordManager().put(principalName, password.toCharArray());
         }

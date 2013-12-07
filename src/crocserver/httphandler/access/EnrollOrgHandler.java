@@ -61,7 +61,7 @@ public class EnrollOrgHandler extends CrocStorageHandler implements HttpHandler 
     private void handle() throws Exception {
         AdminUser user = app.getUser(httpExchangeInfo, true);
         logger.info("user", user);
-        String url = httpExchangeInfo.getParameterMap().get("url");
+        String url = httpExchangeInfo.getParameterMap().getString("url", null);
         if (url == null) {
             url = orgName;
         }
@@ -75,11 +75,11 @@ public class EnrollOrgHandler extends CrocStorageHandler implements HttpHandler 
         if (org == null) {
             org = new Org(orgName);
         }
-        org.setDisplayName(httpExchangeInfo.getParameterMap().get("displayName"));
+        org.setDisplayName(httpExchangeInfo.getParameterMap().getString("displayName", url));
         org.setUrl(url);
-        org.setRegion(httpExchangeInfo.getParameterMap().get("region"));
-        org.setLocality(httpExchangeInfo.getParameterMap().get("locality"));
-        org.setCountry(httpExchangeInfo.getParameterMap().get("country"));
+        org.setRegion(httpExchangeInfo.getParameterMap().getString("region", null));
+        org.setLocality(httpExchangeInfo.getParameterMap().getString("locality", null));
+        org.setCountry(httpExchangeInfo.getParameterMap().getString("country", null));
         if (org.isStored()) {
             storage.getOrgStorage().update(org);
         } else {
@@ -90,6 +90,6 @@ public class EnrollOrgHandler extends CrocStorageHandler implements HttpHandler 
             OrgRole orgRole = new OrgRole(user, org, AdminUserRole.SUPER);
             storage.getOrgRoleStorage().insert(orgRole);
         }
-        httpExchangeInfo.sendResponse(org.getStringMap());
+        httpExchangeInfo.sendResponse(org.getMap());
     }
 }

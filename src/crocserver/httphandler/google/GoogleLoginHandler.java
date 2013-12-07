@@ -49,7 +49,7 @@ public class GoogleLoginHandler implements HttpHandler {
             httpExchange.close();
             return;
         }
-        accessToken = httpExchangeInfo.getParameter("accessToken");
+        accessToken = httpExchangeInfo.getParameterMap().getString("accessToken", null);
         logger.info("input", userId, accessToken);
         try {
             if (accessToken != null) {

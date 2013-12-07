@@ -12,9 +12,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
-import vellum.storage.StorageException;
 import crocserver.storage.org.Org;
-import vellum.storage.StorageExceptionType;
 
 /**
  *
@@ -64,7 +62,7 @@ public class EditOrgHandler implements HttpHandler {
             logger.info("update", org);
             app.getStorage().getOrgStorage().update(org);
         }
-        httpExchangeInfo.sendResponse(org.getStringMap());
+        httpExchangeInfo.sendResponse(org.getMap());
     }
     
 }

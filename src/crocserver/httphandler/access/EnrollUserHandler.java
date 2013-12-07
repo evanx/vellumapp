@@ -67,7 +67,7 @@ public class EnrollUserHandler implements HttpHandler {
     AdminUser user;
 
     private void handle() throws Exception {
-        String email = httpExchangeInfo.getParameterMap().get("email");
+        String email = httpExchangeInfo.getParameterMap().getString("email", null);
         if (email == null) {
             email = userName;
         }
@@ -77,12 +77,12 @@ public class EnrollUserHandler implements HttpHandler {
         user = app.getStorage().getUserStorage().find(userName);
         if (user == null) {
             user = new AdminUser(userName);
-            user.setDisplayName(httpExchangeInfo.getParameterMap().get("displayName"));
+            user.setDisplayName(httpExchangeInfo.getParameterMap().getString("displayName", userName));
             user.setEmail(email);
             user.formatSubject();
-            user.setLocality(httpExchangeInfo.getParameterMap().get("locality"));
-            user.setRegion(httpExchangeInfo.getParameterMap().get("region"));
-            user.setCountry(httpExchangeInfo.getParameterMap().get("country"));
+            user.setLocality(httpExchangeInfo.getParameterMap().getString("locality", null));
+            user.setRegion(httpExchangeInfo.getParameterMap().getString("region", null));
+            user.setCountry(httpExchangeInfo.getParameterMap().getString("country", null));
             user.setLoginTime(new Date());
             user.setEnabled(true);
         }

@@ -7,7 +7,8 @@ package crocserver.storage.org;
 import java.util.Date;
 import vellum.datatype.Patterns;
 import vellum.entity.AbstractIdEntity;
-import vellum.parameter.StringMap;
+import vellum.jx.JMap;
+import vellum.jx.JMapException;
 import vellum.security.Certificates;
 import vellum.validation.ValidationException;
 import vellum.validation.ValidationExceptionType;
@@ -35,21 +36,21 @@ public final class Org extends AbstractIdEntity<Long> {
         this.orgName = orgName;
     }
       
-    public Org(StringMap map) {
+    public Org(JMap map) throws JMapException {
         update(map);
     }
 
-    public void update(Org bean) {
-        update(bean.getStringMap());
+    public void update(Org bean) throws JMapException {
+        update(bean.getMap());
     }
     
-    public void update(StringMap map) {
-        url = map.get("url");
-        orgName = map.get("orgName");
-        displayName = map.get("displayName");
-        region = map.get("region");
-        locality = map.get("locality");
-        country = map.get("country");
+    public void update(JMap map) throws JMapException {
+        url = map.getString("url");
+        orgName = map.getString("orgName", null);
+        displayName = map.getString("displayName", null);
+        region = map.getString("region", null);
+        locality = map.getString("locality", null);
+        country = map.getString("country", null);
         if (orgName == null) {
             orgName = url;
         }
@@ -58,8 +59,8 @@ public final class Org extends AbstractIdEntity<Long> {
         }
     }
     
-    public StringMap getStringMap() {
-        StringMap map = new StringMap();
+    public JMap getMap() {
+        JMap map = new JMap();
         map.put("orgId", id);
         map.put("orgName", orgName);
         map.put("displayName", displayName);
@@ -163,11 +164,11 @@ public final class Org extends AbstractIdEntity<Long> {
     }
 
     public String toJson() {
-        return getStringMap().toJson();
+        return getMap().toJson();
     }
     
     @Override
     public String toString() {
-        return getStringMap().toJson();
+        return getMap().toJson();
     }
 }
