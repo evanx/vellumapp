@@ -4,6 +4,8 @@
  */
 package vellum.entity;
 
+import vellum.type.ComparableTuple;
+
 /**
  *
  * @author evan.summers
@@ -51,5 +53,9 @@ public class Comparables {
     public static String toString(String comparable) {
         if (comparable == null) return "null";
         return comparable.toString();
+    }
+    
+    public static ComparableTuple tuple(Comparable ... values) {
+        return new ComparableTuple(values);        
     }
 }
