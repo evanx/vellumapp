@@ -112,7 +112,7 @@ public class ServiceRecord extends AbstractLongIdEntity implements Timestamped {
 
     public void setOutList(List<String> outList) {
         this.outList = outList;
-        this.outText = Strings.joinLines(outList);
+        this.outText = Strings.join(" ", outList);
     }
 
     public List<String> getOutList() {
