@@ -88,13 +88,14 @@ public abstract class AbstractPageHandler implements HttpHandler {
 
     protected abstract void handle() throws Exception;
 
-    protected void printCss() {
+    protected void printCss() throws IOException {
         String resourceName = getClass().getSimpleName() + ".css";
         printCss(AbstractPageHandler.class, resourceName);
     }
 
-    protected void printCss(Class parentClass, String resourceName) {
-        out.printf("<style>\n%s\n</style>\n", Streams.readResourceString(parentClass, resourceName));
+    protected void printCss(Class parentClass, String resourceName) throws IOException {
+        out.printf("<style>\n%s\n</style>\n", 
+                Streams.readResourceString(parentClass, resourceName));
     }
 
     protected void printPageHeader() throws IOException {
