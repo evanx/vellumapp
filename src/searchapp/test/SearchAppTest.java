@@ -101,7 +101,7 @@ public class SearchAppTest {
             print(connection.getMetaData().getColumns(
                     connection.getCatalog(), "PUBLIC", "%", "%"),
                     "(TABLE_NAME|COLUMN_NAME)");
-            logger.info("select {}", app.getStorage().getConnectionStorage().select(
+            logger.info("select {}", app.getStorage().getConnectionStorage().find(
                     connectionEntity.getConnectionName()));
             for (Match match : new SearchConnection(connectionEntity, "Evan").search()) {
                 logger.info("match: {}", match);

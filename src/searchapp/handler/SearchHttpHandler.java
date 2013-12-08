@@ -39,7 +39,7 @@ public class SearchHttpHandler implements HttpHandler {
             StringMap map = new EncodedMap().parse(data);
             String connectionName = map.get("connectionName");
             String searchString = map.get("searchString");
-            ConnectionEntity connection = app.getStorage().getConnectionStorage().select(
+            ConnectionEntity connection = app.getStorage().getConnectionStorage().find(
                     connectionName);
             if (connection == null) {
                 exchange.sendResponseHeaders(HttpURLConnection.HTTP_NOT_FOUND, 0);

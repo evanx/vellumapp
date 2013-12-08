@@ -32,7 +32,7 @@ public class ListConnectionsHttpHandler implements HttpHandler {
         try {
             exchange.getResponseHeaders().set("Content-type", "text/json");
             String json = new Gson().toJson(app.getStorage().getConnectionStorage().
-                    selectCollection("select * from connections"));
+                    selectCollection(null));
             logger.info(json);
             exchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
             exchange.getResponseBody().write(json.getBytes());
