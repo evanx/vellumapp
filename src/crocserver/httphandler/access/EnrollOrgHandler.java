@@ -66,7 +66,7 @@ public class EnrollOrgHandler extends CrocStorageHandler implements HttpHandler 
             url = orgName;
         }
         if (url != null) {
-            if (!Patterns.matchesUrl(url)) {
+            if (!Patterns.matchesDomain(url)) {
                 throw new Exception("url " + url);
             }
         }

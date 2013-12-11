@@ -158,7 +158,7 @@ public final class Org extends AbstractIdEntity<Long> {
     }
 
     public void validate() throws ValidationException {
-        if (!Patterns.matchesUrl(url)) {
+        if (!Patterns.matchesDomain(url)) {
             throw new ValidationException(ValidationExceptionType.INVALID_URL, url);
         }
     }
