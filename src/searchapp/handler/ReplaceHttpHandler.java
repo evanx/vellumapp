@@ -47,8 +47,7 @@ public class ReplaceHttpHandler implements HttpHandler {
             ConnectionEntity connection = app.getStorage().getConnectionStorage().find(
                     connectionName);
             if (connection == null) {
-                    logger.info("connections", app.getStorage().getConnectionStorage().
-                            selectCollection(null));
+                    logger.info("connections", app.getStorage().getConnectionStorage().list(null));
                 exchange.sendResponseHeaders(HttpURLConnection.HTTP_NOT_FOUND, 0);
             } else {
                 exchange.getResponseHeaders().set("Content-type", "text/json");
