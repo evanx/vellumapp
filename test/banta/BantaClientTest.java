@@ -1,5 +1,5 @@
 /*
- * Source https://code.google.com/p/vellum by @evanxsummers
+ * Source https://github.com/evanx by @evanxsummers
  * 
  */
 package banta;
@@ -25,15 +25,10 @@ public class BantaClientTest {
         URLConnection connection = new URL("http://localhost:8080/login").openConnection();
         connection.setDoOutput(true);
         OutputStream stream = connection.getOutputStream();
-        String json = readResourceString("login.json");
+        String json = Streams.readResourceString(getClass(), "login.json");
         System.out.println(json);
         stream.write(json.getBytes());
         String response = Streams.readString(connection.getInputStream());
         System.out.println(response);
     }
-    
-    private String readResourceString(String resourceName) {
-        return Streams.readResourceString(BantaClientTest.class, resourceName);
-    }
-    
 }
