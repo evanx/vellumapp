@@ -4,7 +4,7 @@
  */
 package vellum.entity;
 
-import vellum.type.ComparableTuple;
+import vellum.data.ComparableTuple;
 
 /**
  *

@@ -13,7 +13,7 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
-import vellum.type.ComparableTuple;
+import vellum.data.ComparableTuple;
 import vellum.util.Args;
 import venigma.server.storage.VStorageException;
 import venigma.server.storage.VStorageExceptionType;

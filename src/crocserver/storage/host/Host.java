@@ -11,7 +11,7 @@ import vellum.logr.LogrFactory;
 import vellum.util.Args;
 import crocserver.storage.org.Org;
 import crocserver.storage.service.ServiceType;
-import vellum.type.UniqueList;
+import vellum.data.UniqueList;
 import java.util.List;
 import vellum.entity.AbstractIdEntity;
 

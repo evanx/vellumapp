@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import vellum.jx.JMap;
 import vellum.logging.ArrayLogger;
-import vellum.type.ComparableTuple;
+import vellum.data.ComparableTuple;
 
 /**
  *

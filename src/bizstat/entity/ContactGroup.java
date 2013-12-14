@@ -8,7 +8,7 @@ import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
 import vellum.util.Args;
 import bizstat.server.BizstatServer;
-import vellum.type.UniqueList;
+import vellum.data.UniqueList;
 import vellum.entity.AbstractIdEntity;
 import java.util.List;
 import vellum.config.ConfigProperties;

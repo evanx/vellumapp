@@ -9,7 +9,7 @@ import vellum.logr.LogrFactory;
 import vellum.util.Args;
 import bizstat.server.BizstatServer;
 import crocserver.storage.org.Org;
-import vellum.type.UniqueList;
+import vellum.data.UniqueList;
 import java.util.List;
 import vellum.config.ConfigProperties;
 import vellum.entity.AbstractIdEntity;

@@ -18,7 +18,7 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
-import vellum.type.UniqueList;
+import vellum.data.UniqueList;
 import vellum.util.Strings;
 
 /**

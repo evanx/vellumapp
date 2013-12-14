@@ -11,7 +11,7 @@ import crocserver.storage.service.ServiceType;
 import java.util.*;
 import vellum.config.ConfigProperties;
 import vellum.entity.ConfigurableEntity;
-import vellum.type.UniqueList;
+import vellum.data.UniqueList;
 
 /**
  *
