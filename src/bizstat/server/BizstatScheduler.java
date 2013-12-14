@@ -8,7 +8,7 @@ import bizstat.entity.BizstatService;
 import bizstat.entity.Host;
 import bizstat.entity.HostServiceKey;
 import bizstat.entity.Network;
-import vellum.datatype.Millis;
+import vellum.data.Millis;
 import vellum.util.Calendars;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;

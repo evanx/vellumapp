@@ -21,7 +21,7 @@
 package crocserver.app;
 
 import java.util.Map;
-import vellum.datatype.Millis;
+import vellum.data.Millis;
 import vellum.exception.EnumException;
 import vellum.jx.JMap;
 import vellum.parameter.StringMap;

@@ -5,7 +5,7 @@ package crocserver.httphandler.access;
 
 import crocserver.storage.servicerecord.ServiceRecord;
 import crocserver.httphandler.common.AbstractPageHandler;
-import vellum.datatype.Millis;
+import vellum.data.Millis;
 import vellum.html.HtmlPrinter;
 import crocserver.storage.common.CrocStorage;
 

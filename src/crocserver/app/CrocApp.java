@@ -37,7 +37,7 @@ import java.net.URLConnection;
 import org.h2.tools.Server;
 import vellum.config.ConfigParser;
 import vellum.config.ConfigProperties;
-import vellum.datatype.SimpleEntityCache;
+import vellum.data.SimpleEntityCache;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
 import vellum.logr.LogrLevel;

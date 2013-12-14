@@ -8,7 +8,7 @@ import bizstat.enumtype.ServiceStatus;
 import java.util.Collection;
 import java.util.List;
 import vellum.entity.AbstractLongIdEntity;
-import vellum.datatype.Timestamped;
+import vellum.data.Timestamped;
 import vellum.parameter.StringMap;
 import vellum.util.Strings;
 

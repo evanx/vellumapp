@@ -8,7 +8,7 @@ import bizstat.enumtype.StatusChangeType;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
 import vellum.system.Systems;
-import vellum.datatype.TimePeriod;
+import vellum.data.TimePeriod;
 import java.io.File;
 import java.util.Collection;
 import java.util.Date;

@@ -18,7 +18,7 @@ import vellum.logr.LogrFactory;
 import crocserver.storage.org.Org;
 import crocserver.storage.orgrole.OrgRole;
 import java.util.List;
-import vellum.datatype.Patterns;
+import vellum.data.Patterns;
 
 /**
  *

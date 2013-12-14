@@ -11,7 +11,7 @@ import crocserver.storage.clientcert.Cert;
 import crocserver.storage.common.CrocStorage;
 import java.util.Collection;
 import java.util.Iterator;
-import vellum.datatype.Millis;
+import vellum.data.Millis;
 import vellum.html.HtmlPrinter;
 import vellum.logr.LogrFactory;
 import vellum.logr.LogrRecord;

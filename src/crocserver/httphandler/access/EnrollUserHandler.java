@@ -16,7 +16,7 @@ import crocserver.storage.common.CrocStorage;
 import java.security.cert.X509Certificate;
 import java.util.Date;
 import sun.security.pkcs.PKCS10;
-import vellum.datatype.Patterns;
+import vellum.data.Patterns;
 import vellum.security.Certificates;
 import vellum.security.DefaultKeyStores;
 import vellum.security.Pems;

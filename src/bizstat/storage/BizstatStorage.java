@@ -10,10 +10,10 @@ import vellum.connection.SimpleConnectionPool;
 import vellum.storage.StorageRuntimeException;
 import bizstat.storage.servicerecord.ServiceRecordStorage;
 import crocserver.storage.common.CrocStorage;
-import vellum.datatype.EntityCache;
+import vellum.data.EntityCache;
 import vellum.connection.DataSourceProperties;
 import javax.sql.DataSource;
-import vellum.datatype.SimpleEntityCache;
+import vellum.data.SimpleEntityCache;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
 

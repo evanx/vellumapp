@@ -8,7 +8,7 @@ import bizstat.enumtype.NotifyType;
 import bizstat.enumtype.StatusChangeType;
 import bizstat.enumtype.MetricType;
 import bizstat.server.BizstatServer;
-import vellum.datatype.Millis;
+import vellum.data.Millis;
 import java.util.Date;
 import java.util.List;
 import vellum.config.ConfigProperties;

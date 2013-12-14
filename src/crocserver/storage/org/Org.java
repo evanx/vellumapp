@@ -5,7 +5,7 @@
 package crocserver.storage.org;
 
 import java.util.Date;
-import vellum.datatype.Patterns;
+import vellum.data.Patterns;
 import vellum.entity.AbstractIdEntity;
 import vellum.jx.JMap;
 import vellum.jx.JMapException;

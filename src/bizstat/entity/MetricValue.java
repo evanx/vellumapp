@@ -4,7 +4,7 @@
  */
 package bizstat.entity;
 
-import vellum.datatype.Timestamped;
+import vellum.data.Timestamped;
 
 /**
  *

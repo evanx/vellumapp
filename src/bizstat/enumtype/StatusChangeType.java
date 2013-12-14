@@ -7,7 +7,7 @@ package bizstat.enumtype;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import vellum.datatype.Millis;
+import vellum.data.Millis;
 
 /**
  *

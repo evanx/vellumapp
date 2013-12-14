@@ -10,7 +10,7 @@ import crocserver.app.CrocApp;
 import vellum.httpserver.Httpx;
 import java.io.IOException;
 import java.io.PrintStream;
-import vellum.datatype.Millis;
+import vellum.data.Millis;
 import vellum.jx.JMap;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;

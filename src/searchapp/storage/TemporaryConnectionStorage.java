@@ -24,13 +24,13 @@ import java.util.Collection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import searchapp.entity.ConnectionEntity;
-import vellum.storage.TemporaryStorage;
+import vellum.storage.MapStorage;
 
 /**
  * 
  * @author evan.summers
  */
-public class TemporaryConnectionStorage extends TemporaryStorage<ConnectionEntity> 
+public class TemporaryConnectionStorage extends MapStorage<ConnectionEntity> 
         implements ConnectionStorage {
     static Logger logger = LoggerFactory.getLogger(TemporaryConnectionStorage.class);
 

@@ -16,7 +16,7 @@ import java.util.Iterator;
 import vellum.format.DefaultDateFormats;
 import vellum.util.Strings;
 import java.util.List;
-import vellum.datatype.Millis;
+import vellum.data.Millis;
 import vellum.html.HtmlPrinter;
 import vellum.logr.LogrFactory;
 import vellum.logr.LogrRecord;

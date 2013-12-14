@@ -11,7 +11,7 @@ import bizstat.entity.HostServiceStatus;
 import bizstat.entity.Network;
 import bizstat.entity.ServicePath;
 import bizstat.entity.ServiceRecord;
-import vellum.datatype.Millis;
+import vellum.data.Millis;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
 import bizstat.enumtype.ServiceStatus;

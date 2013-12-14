@@ -5,7 +5,7 @@
 package bizstat.http;
 
 import bizstat.server.BizstatServer;
-import vellum.datatype.EntityCache;
+import vellum.data.EntityCache;
 
 /**
  *

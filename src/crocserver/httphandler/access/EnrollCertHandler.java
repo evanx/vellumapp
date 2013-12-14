@@ -20,7 +20,7 @@ import vellum.logr.LogrFactory;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import vellum.crypto.rsa.GenRsaPair;
-import vellum.datatype.Emails;
+import vellum.data.Emails;
 import vellum.security.DefaultKeyStores;
 import vellum.security.Pems;
 
