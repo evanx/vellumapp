@@ -20,6 +20,7 @@
  */
 package searchapp.storage;
 
+import java.util.Collection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import searchapp.entity.ConnectionEntity;
@@ -32,5 +33,10 @@ import vellum.storage.TemporaryStorage;
 public class TemporaryConnectionStorage extends TemporaryStorage<ConnectionEntity> 
         implements ConnectionStorage {
     static Logger logger = LoggerFactory.getLogger(TemporaryConnectionStorage.class);
+
+    @Override
+    public Collection<ConnectionEntity> list(Comparable key) {
+        return list();
+    }
     
 }
