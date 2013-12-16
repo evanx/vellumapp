@@ -16,7 +16,6 @@ import crocserver.storage.common.CrocStorage;
 import java.security.cert.X509Certificate;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
-import sun.security.pkcs12.PKCS12KeyStore;
 import vellum.crypto.rsa.GenRsaPair;
 import vellum.exception.EnumException;
 import vellum.security.DefaultKeyStores;
@@ -42,11 +41,11 @@ public class GenKeyP12Handler implements HttpHandler {
     public void handle(HttpExchange httpExchange) throws IOException {
         this.httpExchange = httpExchange;
         httpExchangeInfo = new Httpx(httpExchange);
-        logger.info("handle", getClass().getSimpleName(), httpExchangeInfo.getParameterMap(), httpExchangeInfo.getCookieMap());
+        logger.info("handle", getClass().getSimpleName());
         try {
             handle();
         } catch (Exception e) {
-            httpExchangeInfo.handleError(e);
+            httpExchangeInfo.sendError(e);
         }
         httpExchange.close();
     }

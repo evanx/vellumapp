@@ -56,14 +56,14 @@ public class OAuthCallbackHandler implements HttpHandler {
         error = httpExchangeInfo.getParameterMap().getString("error", null);
         try {
             if (error != null) {
-                httpExchangeInfo.handleError(error);
+                httpExchangeInfo.sendError(error);
             } else if (code != null) {
                 handle();
             } else {
-                httpExchangeInfo.handleError("internal error");
+                httpExchangeInfo.sendError("internal error");
             }
         } catch (Exception e) {
-            httpExchangeInfo.handleError(e);
+            httpExchangeInfo.sendError(e);
         }
         httpExchange.close();
     }

@@ -44,14 +44,14 @@ public class GetCertHandler implements HttpHandler {
         httpExchangeInfo = new Httpx(httpExchange);
         logger.info("handle", httpExchangeInfo.getPath());
         if (httpExchangeInfo.getPathArgs().length != 3) {
-            httpExchangeInfo.handleError(new CrocError(CrocExceptionType.INVALID_ARGS, httpExchangeInfo.getPath()));
+            httpExchangeInfo.sendError(new CrocError(CrocExceptionType.INVALID_ARGS, httpExchangeInfo.getPath()));
         } else {
             userName = httpExchangeInfo.getPathString(1);
             certName = httpExchangeInfo.getPathString(2);
             try {
                 handle();
             } catch (Exception e) {
-                httpExchangeInfo.handleError(e);
+                httpExchangeInfo.sendError(e);
             }
         }
         httpExchange.close();

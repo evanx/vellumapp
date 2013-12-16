@@ -49,7 +49,7 @@ public class EnrollCertHandler implements HttpHandler {
         httpExchangeInfo = new Httpx(httpExchange);
         logger.info("handle", getClass().getName(), httpExchangeInfo.getPathArgs());
         if (httpExchangeInfo.getPathArgs().length != 4) {
-            httpExchangeInfo.handleError(new CrocError(
+            httpExchangeInfo.sendError(new CrocError(
                     CrocExceptionType.INVALID_ARGS, httpExchangeInfo.getPath()));
         } else {
             userName = httpExchangeInfo.getPathString(1);
@@ -58,7 +58,7 @@ public class EnrollCertHandler implements HttpHandler {
             try {
                 handle();
             } catch (Exception e) {
-                httpExchangeInfo.handleError(e);
+                httpExchangeInfo.sendError(e);
             }
         }
         httpExchange.close();

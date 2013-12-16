@@ -48,10 +48,10 @@ public class PersonaLoginHandler implements HttpHandler {
             if (assertion != null) {
                 handle();
             } else {
-                httpExchangeInfo.handleError("require assertion");
+                httpExchangeInfo.sendError("require assertion");
             }
         } catch (Exception e) {
-            httpExchangeInfo.handleError(e);
+            httpExchangeInfo.sendError(e);
         }
         httpExchange.close();
     }

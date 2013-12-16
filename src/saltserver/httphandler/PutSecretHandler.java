@@ -44,7 +44,7 @@ public class PutSecretHandler implements HttpHandler {
         this.httpExchange = httpExchange;
         httpExchangeInfo = new Httpx(httpExchange);
         if (httpExchangeInfo.getPathArgs().length < 3) {
-            httpExchangeInfo.handleError(SaltServerError.INVALID_ARGS);
+            httpExchangeInfo.sendError(SaltServerError.INVALID_ARGS);
         } else {
             group = httpExchangeInfo.getPathString(1);
             name = httpExchangeInfo.getPathString(2);
@@ -53,7 +53,7 @@ public class PutSecretHandler implements HttpHandler {
                 logger.info("handle", getClass().getSimpleName(), group, name);
                 handle();
             } catch (Exception e) {
-                httpExchangeInfo.handleError(e);
+                httpExchangeInfo.sendError(e);
             } finally {
                 Arrays.fill(secretBytes, Byte.MIN_VALUE);
             }

@@ -54,7 +54,7 @@ public class PostHandler implements HttpHandler {
         httpExchange.getResponseHeaders().set("Content-type", "text/plain");
         serviceText = Streams.readString(httpExchange.getRequestBody());
         if (httpExchangeInfo.getPathLength() < 3) {
-            httpExchangeInfo.handleError(new CrocError(CrocExceptionType.INVALID_ARGS, httpExchangeInfo.getPath()));
+            httpExchangeInfo.sendError(new CrocError(CrocExceptionType.INVALID_ARGS, httpExchangeInfo.getPath()));
         } else {
             certName = httpExchangeInfo.getPathString(1);
             serviceName = httpExchangeInfo.getPathString(2);
@@ -62,7 +62,7 @@ public class PostHandler implements HttpHandler {
             try {
                 handle();
             } catch (Exception e) {
-                httpExchangeInfo.handleError(e);
+                httpExchangeInfo.sendError(e);
             }
         }
         httpExchange.close();

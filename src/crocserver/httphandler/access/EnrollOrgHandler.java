@@ -43,7 +43,7 @@ public class EnrollOrgHandler extends CrocStorageHandler implements HttpHandler 
         httpExchangeInfo = new Httpx(httpExchange);
         logger.info("handle", getClass().getSimpleName(), httpExchangeInfo.getParameterMap(), httpExchangeInfo.getCookieMap());
         if (httpExchangeInfo.getPathLength() < 2) {
-            httpExchangeInfo.handleError(httpExchangeInfo.getPath());
+            httpExchangeInfo.sendError(httpExchangeInfo.getPath());
         } else {
             userName = httpExchangeInfo.getPathString(1);
         }
@@ -51,7 +51,7 @@ public class EnrollOrgHandler extends CrocStorageHandler implements HttpHandler 
         try {
             handle();
         } catch (Exception e) {
-            httpExchangeInfo.handleError(e);
+            httpExchangeInfo.sendError(e);
         }
         httpExchange.close();
     }

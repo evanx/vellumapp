@@ -63,7 +63,7 @@ public class SignCertHandler implements HttpHandler {
             try {
                 sign();
             } catch (Exception e) {
-                httpExchangeInfo.handleError(e);
+                httpExchangeInfo.sendError(e);
             }
         } else {
             httpExchange.sendResponseHeaders(HttpURLConnection.HTTP_INTERNAL_ERROR, 0);

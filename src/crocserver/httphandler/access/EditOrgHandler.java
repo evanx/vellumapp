@@ -39,7 +39,7 @@ public class EditOrgHandler implements HttpHandler {
         try {
             handle();
         } catch (Exception e) {
-            httpExchangeInfo.handleError(e);
+            httpExchangeInfo.sendError(e);
         }
         httpExchange.close();
     }

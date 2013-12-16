@@ -60,7 +60,7 @@ public class EchoHandler implements HttpHandler {
             }
         } catch (Exception e) {
             e.printStackTrace(System.out);
-            httpExchangeInfo.handleError(e);
+            httpExchangeInfo.sendError(e);
         }
         httpExchange.close();
     }

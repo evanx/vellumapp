@@ -52,13 +52,13 @@ public class EnrollUserHandler implements HttpHandler {
         certReqPem = httpExchangeInfo.getRequestBody();
         out = httpExchangeInfo.getPrintStream();
         if (httpExchangeInfo.getPathLength() < 2) {
-            httpExchangeInfo.handleError(httpExchangeInfo.getPath());
+            httpExchangeInfo.sendError(httpExchangeInfo.getPath());
         } else {
             userName = httpExchangeInfo.getPathString(1);
             try {
                 handle();
             } catch (Exception e) {
-                httpExchangeInfo.handleError(e);
+                httpExchangeInfo.sendError(e);
             }
         }
         httpExchange.close();

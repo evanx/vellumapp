@@ -43,7 +43,7 @@ public class GetSecretHandler implements HttpHandler {
         httpExchangeInfo = new Httpx(httpExchange);
         logger.info("handle", getClass().getSimpleName());
         if (httpExchangeInfo.getPathArgs().length < 3) {
-            httpExchangeInfo.handleError(SaltServerError.INVALID_ARGS);
+            httpExchangeInfo.sendError(SaltServerError.INVALID_ARGS);
         } else {
             group = httpExchangeInfo.getPathString(1);
             name = httpExchangeInfo.getPathString(2);
@@ -51,7 +51,7 @@ public class GetSecretHandler implements HttpHandler {
             try {
                 handle();
             } catch (Exception e) {
-                httpExchangeInfo.handleError(e);
+                httpExchangeInfo.sendError(e);
             }
         }
         httpExchange.close();

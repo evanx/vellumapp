@@ -55,10 +55,10 @@ public class GoogleLoginHandler implements HttpHandler {
             if (accessToken != null) {
                 handle();
             } else {
-                httpExchangeInfo.handleError("require access_token");
+                httpExchangeInfo.sendError("require access_token");
             }
         } catch (Exception e) {
-            httpExchangeInfo.handleError(e);
+            httpExchangeInfo.sendError(e);
         }
         httpExchange.close();
     }
