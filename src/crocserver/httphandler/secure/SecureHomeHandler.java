@@ -125,7 +125,7 @@ public class SecureHomeHandler extends AbstractPageHandler {
         for (ServiceRecord serviceRecord : serviceRecords) {
             h.trd(
                     String.format("<a href='/viewServiceRecord/%d'>%d</a>", serviceRecord.getId(), serviceRecord.getId()),
-                    Millis.format(serviceRecord.getTimestamp()),
+                    Millis.formatPeriod(serviceRecord.getTimestamp()),
                     serviceRecord.getCertName(),
                     serviceRecord.getServiceName(),
                     serviceRecord.getServiceStatus());
