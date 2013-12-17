@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 import vellum.config.ConfigMap;
 import vellum.config.ConfigEntry;
-import vellum.lifecycle.ConfigMapInitialisable;
+import vellum.config.ConfigMapInitialisable;
 import vellum.storage.StorageRuntimeException;
 
 /**

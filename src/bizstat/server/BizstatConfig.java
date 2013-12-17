@@ -18,14 +18,13 @@ import vellum.config.ConfigException;
 import vellum.config.ConfigExceptionType;
 import vellum.config.ConfigProperties;
 import vellum.httpserver.HttpServerProperties;
-import vellum.lifecycle.Initialisable;
 import vellum.connection.DataSourceProperties;
 
 /**
  *
  * @author evan.summers
  */
-public class BizstatConfig extends AbstractConfig implements Initialisable {
+public class BizstatConfig extends AbstractConfig {
     
     Collection<String> networks = properties.splitCsv("networks");
     boolean run = properties.getBoolean("run", false);
@@ -91,7 +90,6 @@ public class BizstatConfig extends AbstractConfig implements Initialisable {
         }
     }
     
-    @Override
     public void init() {
         logger.info("userDir", Systems.userDir);
         logger.info("networks", networks);
