@@ -6,7 +6,7 @@ package crocserver.httphandler.secure;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import crocserver.app.CrocApp;
-import crocserver.httphandler.access.PKCS12KeyStore;
+import vellum.security.PKCS12KeyStore;
 import vellum.httpserver.Httpx;
 import java.io.IOException;
 import java.io.PrintStream;

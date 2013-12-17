@@ -20,7 +20,6 @@
  */
 package vellum.security;
 
-import crocserver.httphandler.access.PKCS12KeyStore;
 import java.io.OutputStream;
 import java.util.Date;
 import java.security.cert.X509Certificate;
