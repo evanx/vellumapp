@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class FbLogin {
     Logr logr = LogrFactory.getLogger(getClass());
-    HtmlBuilder builder = new HtmlBuilder(Streams.readResourceString(getClass(), "fblogin.html"));
+    HtmlBuilder builder = new HtmlBuilder(Streams.loadResourceString(getClass(), "fblogin.html"));
     HttpServletRequest req;
     HttpServletResponse res;
 

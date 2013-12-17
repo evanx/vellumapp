@@ -22,7 +22,7 @@ public class Page {
     HtmlBuilder builder;
 
     public Page(String htmlFileName) {
-        builder = new HtmlBuilder(Streams.readResourceString(getClass(), htmlFileName));
+        builder = new HtmlBuilder(Streams.loadResourceString(getClass(), htmlFileName));
     }
                    
     protected void service(HttpServletRequest req, HttpServletResponse res) throws IOException {

@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 public class Login {
 
     Logr logr = LogrFactory.getLogger(getClass());
-    HtmlBuilder builder = new HtmlBuilder(Streams.readResourceString(getClass(), "login.html"));
+    HtmlBuilder builder = new HtmlBuilder(Streams.loadResourceString(getClass(), "login.html"));
     HttpServletRequest req;
     HttpServletResponse res;
 
