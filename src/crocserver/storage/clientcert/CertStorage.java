@@ -10,7 +10,7 @@ import java.sql.*;
 import vellum.storage.StorageExceptionType;
 import java.util.ArrayList;
 import java.util.List;
-import vellum.query.QueryMap;
+import vellum.sql.QueryMap;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
 import vellum.connection.ConnectionEntry;

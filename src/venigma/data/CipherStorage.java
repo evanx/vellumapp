@@ -9,7 +9,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
-import vellum.util.RowSets;
+import vellum.extra.RowSets;
 import venigma.server.CipherConfig;
 import venigma.server.CipherContext;
 import venigma.server.CipherProperties;

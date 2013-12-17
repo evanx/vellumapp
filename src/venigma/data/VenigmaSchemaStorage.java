@@ -9,7 +9,7 @@ import java.sql.*;
 import javax.sql.RowSet;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
-import vellum.util.RowSets;
+import vellum.extra.RowSets;
 
 /**
  *

@@ -3,7 +3,7 @@ package mobi.servlet.reset;
 
 import vellum.printer.PrintStreamAdapter;
 import vellum.printer.StreamPrinter;
-import vellum.util.RowSets;
+import vellum.extra.RowSets;
 import vellum.util.Types;
 import java.io.InputStream;
 import java.sql.Connection;

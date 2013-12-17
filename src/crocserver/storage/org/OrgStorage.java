@@ -12,7 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import vellum.query.QueryMap;
+import vellum.sql.QueryMap;
 import vellum.connection.ConnectionEntry;
 import vellum.storage.StorageException;
 import vellum.storage.StorageExceptionType;

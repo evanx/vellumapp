@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import saltserver.app.VaultStorage;
-import vellum.query.QueryMap;
+import vellum.sql.QueryMap;
 import vellum.query.RowSets;
 import vellum.connection.ConnectionEntry;
 import vellum.storage.StorageException;

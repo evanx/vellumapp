@@ -10,7 +10,7 @@ import java.util.List;
 import saltserver.app.VaultStorage;
 import vellum.logr.Logr;
 import vellum.logr.LogrFactory;
-import vellum.query.QueryMap;
+import vellum.sql.QueryMap;
 import vellum.query.RowSets;
 import vellum.connection.ConnectionEntry;
 import vellum.storage.StorageException;
