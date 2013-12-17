@@ -95,7 +95,7 @@ public class WebHandler implements HttpHandler {
             logger.info("path", path, bytes.length);
             httpExchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
             httpExchange.getResponseBody().write(bytes);
-        } catch (Exception e) {
+        } catch (IOException e) {
             logger.warn(e);
             httpExchange.sendResponseHeaders(HttpURLConnection.HTTP_INTERNAL_ERROR, 0);
         }
