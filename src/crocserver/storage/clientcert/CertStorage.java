@@ -5,7 +5,6 @@
 package crocserver.storage.clientcert;
 
 import crocserver.storage.common.CrocStorage;
-import crocserver.storage.org.Org;
 import java.security.cert.X509Certificate;
 import java.sql.*;
 import vellum.storage.StorageExceptionType;
