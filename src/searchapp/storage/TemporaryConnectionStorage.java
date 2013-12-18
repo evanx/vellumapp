@@ -25,6 +25,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import searchapp.entity.ConnectionEntity;
 import vellum.storage.MapStore;
+import vellum.storage.StorageException;
 
 /**
  * 
@@ -35,7 +36,7 @@ public class TemporaryConnectionStorage extends MapStore<ConnectionEntity>
     static Logger logger = LoggerFactory.getLogger(TemporaryConnectionStorage.class);
 
     @Override
-    public Collection<ConnectionEntity> list(Comparable key) {
+    public Collection<ConnectionEntity> list(Comparable key) throws StorageException {
         return list();
     }
     
