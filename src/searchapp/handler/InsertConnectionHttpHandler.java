@@ -40,11 +40,11 @@ public class InsertConnectionHttpHandler implements HttpHandler {
             logger.info("connection {}", connection);
             if (!connection.isValid()) {
                 exchange.sendResponseHeaders(HttpURLConnection.HTTP_NOT_ACCEPTABLE, 0);
-            } else if (app.getStorage().getConnectionStorage().containsKey(
+            } else if (app.getStorage().getConnectionStorage().retrievable(
                     connection.getConnectionName())) {
                 exchange.sendResponseHeaders(HttpURLConnection.HTTP_CONFLICT, 0);
             } else {
-                app.getStorage().getConnectionStorage().insert(connection);
+                app.getStorage().getConnectionStorage().retrievable(connection);
                 exchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
             }
         } catch (Exception e) {

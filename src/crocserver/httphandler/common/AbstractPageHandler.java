@@ -51,10 +51,10 @@ public abstract class AbstractPageHandler implements HttpHandler {
         path = httpExchangeInfo.getPath();
         pathArgs = httpExchangeInfo.getPathArgs();
         httpExchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0); 
-        if (httpExchangeInfo.isAgentWget()) {
+        if (httpExchangeInfo.getRequestHeader("Agent").contains("wget")) {
             baos = new ByteArrayOutputStream();
             out = new PrintStreamAdapter(baos);
-        } else if (httpExchangeInfo.isAcceptGzip()) {
+        } else if (httpExchangeInfo.getRequestHeader("Accept").contains("gzip")) {
             httpExchange.getResponseHeaders().set("Content-encoding", "gzip");
             out = new PrintStreamAdapter(new GZIPOutputStream(httpExchange.getResponseBody()));
         } else {

@@ -21,12 +21,12 @@
 package searchapp.storage;
 
 import searchapp.entity.ConnectionEntity;
-import vellum.storage.EntityStore;
+import vellum.storage.EntityService;
 
 /**
  * 
  * @author evan.summers
  */
-public interface ConnectionStorage extends EntityStore<ConnectionEntity> {
+public interface ConnectionStorage extends EntityService<ConnectionEntity> {
 
 }

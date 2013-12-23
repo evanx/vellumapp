@@ -33,7 +33,7 @@ public class DeleteConnectionHttpHandler implements HttpHandler {
       try {
          String connectionName = Streams.readString(exchange.getRequestBody());
          logger.info("connectionName {}", connectionName);
-         app.getStorage().getConnectionStorage().delete(connectionName);
+         app.getStorage().getConnectionStorage().retrievable(connectionName);
          exchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
       } catch (Exception e) {
          exchange.sendResponseHeaders(HttpURLConnection.HTTP_INTERNAL_ERROR, 0);

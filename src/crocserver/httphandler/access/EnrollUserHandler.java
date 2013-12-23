@@ -48,8 +48,8 @@ public class EnrollUserHandler implements HttpHandler {
         httpExchangeInfo = new Httpx(httpExchange);
         httpExchange.getResponseHeaders().set("Content-type", "text/plain");
         logger.info("handle", getClass().getName(), httpExchangeInfo.getPath(), 
-                httpExchangeInfo.getRequestBody(), httpExchangeInfo.getParameterMap());
-        certReqPem = httpExchangeInfo.getRequestBody();
+                httpExchangeInfo.readString(), httpExchangeInfo.getParameterMap());
+        certReqPem = httpExchangeInfo.readString();
         out = httpExchangeInfo.getPrintStream();
         if (httpExchangeInfo.getPathLength() < 2) {
             httpExchangeInfo.sendError(httpExchangeInfo.getPath());

@@ -45,7 +45,7 @@ public class UpdateConnectionHttpHandler implements HttpHandler {
                 responseCode = HttpURLConnection.HTTP_NOT_ACCEPTABLE;
             } else if (!connection.getConnectionName().equals(connectionName)) {
                 responseCode = HttpURLConnection.HTTP_NOT_ACCEPTABLE;
-            } else if (!app.getStorage().getConnectionStorage().containsKey(connectionName)) {
+            } else if (!app.getStorage().getConnectionStorage().retrievable(connectionName)) {
                 responseCode = HttpURLConnection.HTTP_NOT_FOUND;
             } else {
                 app.getStorage().getConnectionStorage().update(connection);
