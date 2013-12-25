@@ -62,7 +62,7 @@ public class SearchAppTest {
         logger.info("init");
         for (ConnectionEntity connectionEntity : connectionEntities) {
             logger.info("insert {}", connectionEntity.getConnectionName());
-            app.getStorage().getConnectionStorage().insert(connectionEntity);
+            app.getStorage().getConnectionStorage().persist(connectionEntity);
         }
         populate();
     }

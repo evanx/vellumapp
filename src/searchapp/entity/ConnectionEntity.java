@@ -6,13 +6,13 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import vellum.parameter.StringMap;
-import vellum.storage.Entity;
+import vellum.storage.VellumEntity;
 
 /**
  *
  * @author evans
  */
-public class ConnectionEntity extends Entity {
+public class ConnectionEntity extends VellumEntity {
 
     private String connectionName;
     private String driver;
