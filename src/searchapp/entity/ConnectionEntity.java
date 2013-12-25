@@ -1,19 +1,18 @@
 package searchapp.entity;
 
 import java.sql.Connection;
-import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
-import vellum.storage.AbstractEntity;
 import vellum.parameter.StringMap;
+import vellum.storage.Entity;
 
 /**
  *
  * @author evans
  */
-public class ConnectionEntity extends AbstractEntity {
+public class ConnectionEntity extends Entity {
 
     private String connectionName;
     private String driver;
@@ -53,7 +52,7 @@ public class ConnectionEntity extends AbstractEntity {
     }
 
     @Override
-    public String getKey() {
+    public String getId() {
         return connectionName;
     }
     

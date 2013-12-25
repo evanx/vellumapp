@@ -24,6 +24,7 @@ import java.sql.Connection;
 import java.util.HashMap;
 import java.util.Map;
 import org.h2.tools.Server;
+import vellum.storage.EntityMatcher;
 
 /**
  *
@@ -31,8 +32,13 @@ import org.h2.tools.Server;
  */
 public class MockSearchStorage extends TemporaryConnectionStorage implements SearchStorage {
     Server h2Server;
-    ConnectionStorage connectionStorage = new TemporaryConnectionStorage();
+    ConnectionStorage connectionStorage;
     Map<String, Connection> connectionMap = new HashMap();
+
+    public MockSearchStorage(EntityMatcher matcher) {
+        super(matcher);
+        connectionStorage = new TemporaryConnectionStorage(matcher);
+    }
     
     @Override
     public void init() throws Exception {

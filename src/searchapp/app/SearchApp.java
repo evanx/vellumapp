@@ -51,7 +51,7 @@ public class SearchApp implements Shutdownable {
         logger.info("HTTPS server started");
         logger.info("started");
         if (config.getProperties().getBoolean("developing", true)) {
-            storage = new MockSearchStorage();
+            storage = new MockSearchStorage(null);
             SearchAppTest test = new SearchAppTest(this);
             test.init();
             if (config.getProperties().getBoolean("testing", false)) {

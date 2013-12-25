@@ -24,16 +24,21 @@ import java.util.Collection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import searchapp.entity.ConnectionEntity;
-import vellum.storage.MapStore;
+import vellum.storage.EntityMatcher;
+import vellum.storage.MapEntityService;
 import vellum.storage.StorageException;
 
 /**
  * 
  * @author evan.summers
  */
-public class TemporaryConnectionStorage extends MapStore<ConnectionEntity> 
+public class TemporaryConnectionStorage extends MapEntityService<ConnectionEntity> 
         implements ConnectionStorage {
     static Logger logger = LoggerFactory.getLogger(TemporaryConnectionStorage.class);
+
+    public TemporaryConnectionStorage(EntityMatcher matcher) {
+        super(matcher);
+    }
 
     @Override
     public Collection<ConnectionEntity> list(Comparable key) throws StorageException {
