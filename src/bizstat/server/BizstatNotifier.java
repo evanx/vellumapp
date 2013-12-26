@@ -7,8 +7,8 @@ import bizstat.entity.Contact;
 import bizstat.entity.ContactGroup;
 import bizstat.entity.HostServiceStatus;
 import bizstat.entity.ServiceRecord;
-import vellum.logr.Logr;
-import vellum.logr.LogrFactory;
+import vellumexp.logr.Logr;
+import vellumexp.logr.LogrFactory;
 import java.util.*;
 
 /**

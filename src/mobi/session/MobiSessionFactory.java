@@ -9,8 +9,8 @@ import java.util.Calendar;
 import javax.servlet.http.HttpSession;
 import mobi.exception.MobiException;
 import mobi.exception.MobiExceptionType;
-import vellum.logr.Logr;
-import vellum.logr.LogrFactory;
+import vellumexp.logr.Logr;
+import vellumexp.logr.LogrFactory;
 
 /**
  *

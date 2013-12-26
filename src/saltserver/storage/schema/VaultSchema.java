@@ -9,8 +9,8 @@ import java.io.InputStream;
 import java.sql.*;
 import javax.sql.RowSet;
 import saltserver.app.VaultStorage;
-import vellum.logr.Logr;
-import vellum.logr.LogrFactory;
+import vellumexp.logr.Logr;
+import vellumexp.logr.LogrFactory;
 import vellum.connection.ConnectionEntry;
 
 /**

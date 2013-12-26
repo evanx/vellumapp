@@ -12,8 +12,8 @@ import java.security.KeyStore;
 import java.security.SecureRandom;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
-import vellum.logr.Logr;
-import vellum.logr.LogrFactory;
+import vellumexp.logr.Logr;
+import vellumexp.logr.LogrFactory;
 import venigma.server.storage.VStorageException;
 import venigma.server.storage.VStorageExceptionType;
 

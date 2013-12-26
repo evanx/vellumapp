@@ -5,8 +5,8 @@
 package bizstat.server;
 
 import bizstat.enumtype.StatusChangeType;
-import vellum.logr.Logr;
-import vellum.logr.LogrFactory;
+import vellumexp.logr.Logr;
+import vellumexp.logr.LogrFactory;
 import vellum.system.Systems;
 import vellum.data.TimePeriod;
 import java.io.File;

@@ -6,8 +6,8 @@ package venigma.provider;
 
 import java.io.IOException;
 import java.net.Socket;
-import vellum.logr.Logr;
-import vellum.logr.LogrFactory;
+import vellumexp.logr.Logr;
+import vellumexp.logr.LogrFactory;
 import vellum.util.Streams;
 import vellum.io.JsonSockets;
 import venigma.server.CipherRequest;

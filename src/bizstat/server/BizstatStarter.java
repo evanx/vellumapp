@@ -15,9 +15,9 @@ import vellum.config.ConfigMap;
 import vellum.config.ConfigParser;
 import vellum.config.ConfigProperties;
 import vellum.config.ConfigEntry;
-import vellum.logr.Logr;
-import vellum.logr.LogrFactory;
-import vellum.logr.LogrLevel;
+import vellumexp.logr.Logr;
+import vellumexp.logr.LogrFactory;
+import vellumexp.logr.LogrLevel;
 
 
     

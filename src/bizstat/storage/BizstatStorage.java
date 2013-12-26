@@ -14,8 +14,8 @@ import vellum.data.EntityCache;
 import vellum.connection.DataSourceProperties;
 import javax.sql.DataSource;
 import vellum.data.SimpleEntityCache;
-import vellum.logr.Logr;
-import vellum.logr.LogrFactory;
+import vellumexp.logr.Logr;
+import vellumexp.logr.LogrFactory;
 
 /**
  *

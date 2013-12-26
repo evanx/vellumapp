@@ -26,14 +26,14 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import vellum.data.ComparableTuple;
-import vellum.storage.VellumEntity;
+import vellum.entity.ComparableEntity;
 import vellum.storage.EntityMatcher;
 
 /**
  *
  * @author evan.summers
  */
-public class ChronicMatcher<E extends VellumEntity> implements EntityMatcher<E> {
+public class ChronicMatcher<E extends ComparableEntity> implements EntityMatcher<E> {
         
     @Override
     public Collection<E> matches(Collection<E> entities, Comparable key) {

@@ -5,8 +5,8 @@
 package vellum.entity;
 
 import java.sql.SQLException;
-import vellum.logr.Logr;
-import vellum.logr.LogrFactory;
+import vellumexp.logr.Logr;
+import vellumexp.logr.LogrFactory;
 
 /**
  *

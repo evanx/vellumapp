@@ -9,8 +9,8 @@ import vellum.query.RowSets;
 import java.io.InputStream;
 import java.sql.*;
 import javax.sql.RowSet;
-import vellum.logr.Logr;
-import vellum.logr.LogrFactory;
+import vellumexp.logr.Logr;
+import vellumexp.logr.LogrFactory;
 import vellum.connection.ConnectionEntry;
 
 /**

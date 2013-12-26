@@ -4,8 +4,8 @@
  */
 package bizstat.entity;
 
-import vellum.logr.Logr;
-import vellum.logr.LogrFactory;
+import vellumexp.logr.Logr;
+import vellumexp.logr.LogrFactory;
 import vellum.util.Args;
 import bizstat.server.BizstatServer;
 import vellum.data.UniqueList;

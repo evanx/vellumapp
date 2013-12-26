@@ -13,8 +13,8 @@ import saltserver.app.VaultApp;
 import saltserver.app.VaultStorage;
 import saltserver.storage.secret.Secret;
 import vellum.util.Base64;
-import vellum.logr.Logr;
-import vellum.logr.LogrFactory;
+import vellumexp.logr.Logr;
+import vellumexp.logr.LogrFactory;
 import vellum.util.Streams;
 
 /**

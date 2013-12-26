@@ -12,8 +12,8 @@ import java.io.IOException;
 import java.io.PrintStream;
 import vellum.data.Millis;
 import vellum.jx.JMap;
-import vellum.logr.Logr;
-import vellum.logr.LogrFactory;
+import vellumexp.logr.Logr;
+import vellumexp.logr.LogrFactory;
 
 /**
  *

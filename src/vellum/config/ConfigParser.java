@@ -4,8 +4,8 @@
  */
 package vellum.config;
 
-import vellum.logr.Logr;
-import vellum.logr.LogrFactory;
+import vellumexp.logr.Logr;
+import vellumexp.logr.LogrFactory;
 import java.io.*;
 import vellum.system.Systems;
 

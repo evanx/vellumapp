@@ -11,8 +11,8 @@ import javax.sql.DataSource;
 import saltserver.storage.adminuser.AdminUserStorage;
 import saltserver.storage.schema.VaultSchema;
 import saltserver.storage.secret.SecretStorage;
-import vellum.logr.Logr;
-import vellum.logr.LogrFactory;
+import vellumexp.logr.Logr;
+import vellumexp.logr.LogrFactory;
 
 /**
  *

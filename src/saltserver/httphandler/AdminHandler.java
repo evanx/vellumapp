@@ -11,8 +11,8 @@ import saltserver.storage.adminuser.AdminRole;
 import saltserver.storage.adminuser.AdminUser;
 import sun.security.x509.X500Name;
 import vellum.httpserver.Httpx;
-import vellum.logr.Logr;
-import vellum.logr.LogrFactory;
+import vellumexp.logr.Logr;
+import vellumexp.logr.LogrFactory;
 import vellum.storage.StorageException;
 import vellum.storage.StorageExceptionType;
 

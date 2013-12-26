@@ -6,8 +6,8 @@ package mobi.exception;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
-import vellum.logr.Logr;
-import vellum.logr.LogrFactory;
+import vellumexp.logr.Logr;
+import vellumexp.logr.LogrFactory;
 
 public class Resources {
     static Logr logger = LogrFactory.getLogger(Resources.class);

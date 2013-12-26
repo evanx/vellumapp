@@ -11,8 +11,8 @@ import saltserver.httphandler.GetSecretHandler;
 import saltserver.httphandler.ManagerHandler;
 import saltserver.httphandler.PutSecretHandler;
 import saltserver.httphandler.ShutdownHandler;
-import vellum.logr.Logr;
-import vellum.logr.LogrFactory;
+import vellumexp.logr.Logr;
+import vellumexp.logr.LogrFactory;
 
 /**
  *

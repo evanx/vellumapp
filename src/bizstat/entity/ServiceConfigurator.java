@@ -12,8 +12,8 @@ import vellum.data.Millis;
 import java.util.Date;
 import java.util.List;
 import vellum.config.ConfigProperties;
-import vellum.logr.Logr;
-import vellum.logr.LogrFactory;
+import vellumexp.logr.Logr;
+import vellumexp.logr.LogrFactory;
 
 /**
  *

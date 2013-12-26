@@ -21,8 +21,8 @@
 package vellum.query;
 
 import vellum.exception.Exceptions;
-import vellum.logr.Logr;
-import vellum.logr.LogrFactory;
+import vellumexp.logr.Logr;
+import vellumexp.logr.LogrFactory;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;

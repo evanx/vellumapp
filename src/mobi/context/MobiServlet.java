@@ -2,8 +2,8 @@
  */
 package mobi.context;
 
-import vellum.logr.Logr;
-import vellum.logr.LogrFactory;
+import vellumexp.logr.Logr;
+import vellumexp.logr.LogrFactory;
 import java.io.IOException;
 import java.util.Enumeration;
 import javax.servlet.http.HttpServlet;

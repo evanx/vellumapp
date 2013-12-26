@@ -16,8 +16,8 @@ import crocserver.storage.clientcert.Cert;
 import vellum.httpserver.Httpx;
 import java.io.IOException;
 import java.io.PrintStream;
-import vellum.logr.Logr;
-import vellum.logr.LogrFactory;
+import vellumexp.logr.Logr;
+import vellumexp.logr.LogrFactory;
 
 /**
  *

@@ -24,8 +24,8 @@ import crocserver.storage.clientcert.Cert;
 import java.security.cert.X509Certificate;
 import java.sql.SQLException;
 import javax.net.ssl.X509TrustManager;
-import vellum.logr.Logr;
-import vellum.logr.LogrFactory;
+import vellumexp.logr.Logr;
+import vellumexp.logr.LogrFactory;
 import vellum.security.Certificates;
 import vellum.security.DefaultKeyStores;
 

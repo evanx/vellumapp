@@ -18,8 +18,8 @@ import vellum.util.Strings;
 import java.util.List;
 import vellum.data.Millis;
 import vellum.html.HtmlPrinter;
-import vellum.logr.LogrFactory;
-import vellum.logr.LogrRecord;
+import vellumexp.logr.LogrFactory;
+import vellumexp.logr.LogrRecord;
 import vellum.format.ListFormats;
 
 /**

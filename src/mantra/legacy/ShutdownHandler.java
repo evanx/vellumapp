@@ -8,8 +8,8 @@ import com.sun.net.httpserver.HttpHandler;
 import vellum.httpserver.Httpx;
 import java.io.IOException;
 import mantra.app.MantraApp;
-import vellum.logr.Logr;
-import vellum.logr.LogrFactory;
+import vellumexp.logr.Logr;
+import vellumexp.logr.LogrFactory;
 
 /**
  *

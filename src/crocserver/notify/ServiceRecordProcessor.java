@@ -25,8 +25,8 @@ import bizstat.enumtype.ServiceStatus;
 import crocserver.app.CrocApp;
 import crocserver.storage.servicerecord.ServiceRecord;
 import java.text.MessageFormat;
-import vellum.logr.Logr;
-import vellum.logr.LogrFactory;
+import vellumexp.logr.Logr;
+import vellumexp.logr.LogrFactory;
 import vellum.util.Strings;
 
 /**

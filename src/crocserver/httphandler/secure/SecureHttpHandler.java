@@ -16,8 +16,8 @@ import crocserver.httphandler.access.ViewServiceRecordHandler;
 import crocserver.httphandler.access.ViewUserHandler;
 import crocserver.storage.common.CrocStorage;
 import java.io.IOException;
-import vellum.logr.Logr;
-import vellum.logr.LogrFactory;
+import vellumexp.logr.Logr;
+import vellumexp.logr.LogrFactory;
 
 /**
  *

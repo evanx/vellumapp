@@ -3,7 +3,7 @@ package jelly.storage;
 import java.util.HashMap;
 import java.util.Map;
 import vellum.jx.JMap;
-import vellum.logging.ArrayLogger;
+import vellum.logging.ArgsLogger;
 import vellum.data.ComparableTuple;
 
 /**
@@ -11,7 +11,7 @@ import vellum.data.ComparableTuple;
  * @author evan.summers
  */
 public class TemporaryStorage implements Storage {
-    ArrayLogger logger = ArrayLogger.getLogger(TemporaryStorage.class);
+    ArgsLogger logger = ArgsLogger.getLogger(TemporaryStorage.class);
     
     Map<Comparable, JMap> store = new HashMap();
     

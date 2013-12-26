@@ -10,8 +10,8 @@ import bizstat.entity.HostServiceKey;
 import bizstat.entity.Network;
 import vellum.data.Millis;
 import vellum.util.Calendars;
-import vellum.logr.Logr;
-import vellum.logr.LogrFactory;
+import vellumexp.logr.Logr;
+import vellumexp.logr.LogrFactory;
 import java.util.*;
 import vellum.format.DefaultDateFormats;
 

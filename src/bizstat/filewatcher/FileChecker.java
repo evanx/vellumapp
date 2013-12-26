@@ -6,8 +6,8 @@ package bizstat.filewatcher;
 
 import vellum.util.Args;
 import java.io.File;
-import vellum.logr.Logr;
-import vellum.logr.LogrFactory;
+import vellumexp.logr.Logr;
+import vellumexp.logr.LogrFactory;
 
 /**
  *
