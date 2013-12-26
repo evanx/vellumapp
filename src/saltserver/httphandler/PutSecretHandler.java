@@ -5,7 +5,7 @@ package saltserver.httphandler;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
-import vellum.util.JsonStrings;
+import vellumexp.json.JsonStrings;
 import vellum.httpserver.Httpx;
 import java.io.IOException;
 import java.util.Arrays;

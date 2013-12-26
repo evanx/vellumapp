@@ -9,7 +9,7 @@ import java.net.Socket;
 import vellumexp.logr.Logr;
 import vellumexp.logr.LogrFactory;
 import vellum.util.Streams;
-import vellum.io.JsonSockets;
+import vellumexp.json.JsonSockets;
 import venigma.server.CipherRequest;
 import venigma.server.CipherRequestType;
 import venigma.server.CipherResponse;

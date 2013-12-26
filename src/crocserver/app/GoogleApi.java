@@ -20,7 +20,7 @@
  */
 package crocserver.app;
 
-import vellum.util.JsonStrings;
+import vellumexp.json.JsonStrings;
 import java.net.URL;
 import java.net.URLEncoder;
 import javax.net.ssl.HttpsURLConnection;

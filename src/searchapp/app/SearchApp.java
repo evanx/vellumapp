@@ -23,7 +23,7 @@ package searchapp.app;
 import searchapp.test.SearchAppTest;
 import searchapp.storage.SearchStorage;
 import searchapp.storage.MockSearchStorage;
-import vellum.jsonconfig.JsonConfig;
+import vellumexp.json.JsonConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import searchapp.util.http.DelegatingHttpHandler;
