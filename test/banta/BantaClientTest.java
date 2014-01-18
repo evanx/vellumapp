@@ -8,9 +8,9 @@ import java.io.OutputStream;
 import java.net.URL;
 import java.net.URLConnection;
 import org.junit.Test;
-import vellum.logr.Logr;
-import vellum.logr.LogrFactory;
 import vellum.util.Streams;
+import vellumexp.logr.Logr;
+import vellumexp.logr.LogrFactory;
 
 /**
  *
