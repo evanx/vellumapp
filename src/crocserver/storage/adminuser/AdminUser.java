@@ -4,10 +4,11 @@
  */
 package crocserver.storage.adminuser;
 
+import java.security.cert.CertificateEncodingException;
 import java.security.cert.X509Certificate;
 import java.util.Date;
 import vellum.entity.AbstractIdEntity;
-import vellum.parameter.StringMap;
+import vellum.jx.JMap;
 import vellum.security.Dnames;
 import vellumcert.Pems;
 
@@ -202,7 +203,7 @@ public class AdminUser extends AbstractIdEntity<Long> {
         this.region = region;
     }
 
-    public void setCert(X509Certificate x509Cert) {
+    public void setCert(X509Certificate x509Cert) throws CertificateEncodingException {
         this.cert = Pems.buildCertPem(x509Cert);
         this.subject = x509Cert.getSubjectDN().getName();
     }
@@ -247,8 +248,8 @@ public class AdminUser extends AbstractIdEntity<Long> {
         return authMillis;
     }
 
-    public StringMap getStringMap() {
-        StringMap map = new StringMap();
+    public JMap getMap() {
+        JMap map = new JMap();
         map.put("id", id);
         map.put("userName", userName);
         map.put("displayName", displayName);
@@ -261,7 +262,7 @@ public class AdminUser extends AbstractIdEntity<Long> {
     
     @Override
     public String toString() {
-        return getStringMap().toJson();
+        return getMap().toJson();
     }
     
 }

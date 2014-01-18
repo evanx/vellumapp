@@ -94,7 +94,6 @@ public class SignCertHandler implements HttpHandler {
             clientCert.setX509Cert(signedCert);
             storage.getServiceStorage().updateCert(clientCert);
         }
-        logger.info("issuer", Pems.getIssuerDname(signedCertPem));
         httpExchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, 0);
         out.println(signedCertPem);
     }

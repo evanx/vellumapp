@@ -45,10 +45,9 @@ public class EchoHandler implements HttpHandler {
             cookieMap.put("testCookieKey1", "testValue1");
             cookieMap.put("testCookieKey2", "testValue2");
             httpExchangeInfo.setCookie(cookieMap, Millis.fromHours(24));
-            httpExchangeInfo.sendResponse("text/plain", true);
-            out.println(httpExchange.getRequestURI().toString());
-            out.printf("cookie %s: %s\n", cookieKey, 
+            String response = String.format("cookie %s: %s\n", cookieKey, 
                     httpExchangeInfo.getCookieMap().getString(cookieKey));
+            httpExchangeInfo.sendResponse("text/plain", response);
             Headers reqHeaders = httpExchange.getRequestHeaders();
             for (String key : reqHeaders.keySet()) {
                 out.printf("request header %s: %d: %s\n", key, 

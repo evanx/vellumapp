@@ -94,8 +94,6 @@ public class EnrollUserHandler implements HttpHandler {
                     DefaultKeyStores.getPrivateKey(alias), DefaultKeyStores.getCert(alias),
                     new Date(), 999);
             String signedCertPem = Pems.buildCertPem(signedCert);
-            logger.info("subject", Pems.getSubjectDname(signedCertPem));
-            logger.info("issuer", Pems.getIssuerDname(signedCertPem));
             storage.getUserStorage().store(user);
             if (false) {
                 app.sendGtalkMessage(user.getEmail(), signedCert.getSubjectDN().toString());
@@ -103,7 +101,7 @@ public class EnrollUserHandler implements HttpHandler {
             httpExchangeInfo.sendResponse("application/x-pem-file", signedCertPem.getBytes());
         } else {
             storage.getUserStorage().store(user);
-            httpExchangeInfo.sendResponse(user.getStringMap());
+            httpExchangeInfo.sendResponse(user.getMap());
         }
     }
 }
