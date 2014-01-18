@@ -46,10 +46,10 @@ public class Pems {
     public static final String END_CERT_REQ = formatPem("END CERTIFICATE REQUEST");
     public static final String BEGIN_NEW_CERT_REQ = formatPem("BEGIN NEW CERTIFICATE REQUEST");
     public static final String END_NEW_CERT_REQ = formatPem("END NEW CERTIFICATE REQUEST");
-    private static final String dashes = "-----";
+    private static final String DASHES = "-----";
 
     private static String formatPem(String label) {
-        return dashes + label + dashes;
+        return DASHES + label + DASHES;
     }
     
     public static String buildPem(PKCS12KeyStore p12, String keyAlias, char[] password) 
@@ -103,13 +103,13 @@ public class Pems {
     }
 
     public static byte[] decodePemDer(String pem) throws Exception {
-        int index = pem.lastIndexOf(dashes);
+        int index = pem.lastIndexOf(DASHES);
         if (index > 0) {
             pem = pem.substring(0, index);
-            index = pem.lastIndexOf(dashes);
+            index = pem.lastIndexOf(DASHES);
             pem = pem.substring(0, index);
-            index = pem.lastIndexOf(dashes);
-            pem = pem.substring(index + dashes.length());
+            index = pem.lastIndexOf(DASHES);
+            pem = pem.substring(index + DASHES.length());
         }
         return new BASE64Decoder().decodeBuffer(pem);
     }

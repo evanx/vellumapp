@@ -7,7 +7,7 @@ package crocserver.storage.service;
 import java.security.cert.X509Certificate;
 import java.util.Date;
 import vellum.entity.AbstractIdEntity;
-import vellum.security.Pems;
+import vellumcert.Pems;
 
 /**
  *

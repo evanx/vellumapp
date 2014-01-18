@@ -19,10 +19,10 @@ import vellumexp.logr.Logr;
 import vellumexp.logr.LogrFactory;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
-import vellum.crypto.rsa.GenRsaPair;
 import vellum.data.Emails;
 import vellum.security.DefaultKeyStores;
-import vellum.security.Pems;
+import vellumcert.Pems;
+import vellumcert.GenRsaPair;
 
 /**
  *

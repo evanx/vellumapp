@@ -9,7 +9,7 @@ import java.util.Date;
 import vellum.entity.AbstractIdEntity;
 import vellum.parameter.StringMap;
 import vellum.security.Dnames;
-import vellum.security.Pems;
+import vellumcert.Pems;
 
 /**
  *

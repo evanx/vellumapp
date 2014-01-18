@@ -15,11 +15,11 @@ import vellumexp.logr.LogrFactory;
 import crocserver.storage.common.CrocStorage;
 import java.security.cert.X509Certificate;
 import java.util.Date;
-import sun.security.pkcs.PKCS10;
 import vellum.data.Patterns;
-import vellum.security.Certificates;
 import vellum.security.DefaultKeyStores;
-import vellum.security.Pems;
+import vellumcert.Pems;
+import vellumcert.CertReq;
+import vellumcert.CertReqs;
 
 /**
  *
@@ -89,10 +89,10 @@ public class EnrollUserHandler implements HttpHandler {
         logger.info("sign", user.getSubject(), certReqPem.length());
         if (!certReqPem.isEmpty()) {
             String alias = app.getServerKeyAlias();
-            PKCS10 certReq = Pems.createCertReq(certReqPem);
-            X509Certificate signedCert = Certificates.sign(
+            CertReq certReq = CertReqs.create(certReqPem);
+            X509Certificate signedCert = CertReqs.sign(certReq, 
                     DefaultKeyStores.getPrivateKey(alias), DefaultKeyStores.getCert(alias),
-                    certReq, new Date(), 999);
+                    new Date(), 999);
             String signedCertPem = Pems.buildCertPem(signedCert);
             logger.info("subject", Pems.getSubjectDname(signedCertPem));
             logger.info("issuer", Pems.getIssuerDname(signedCertPem));

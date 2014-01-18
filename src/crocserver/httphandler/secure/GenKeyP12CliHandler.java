@@ -18,10 +18,9 @@ import crocserver.storage.service.Service;
 import java.security.cert.X509Certificate;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
-import vellum.crypto.rsa.GenRsaPair;
 import vellum.security.DefaultKeyStores;
 import vellum.security.Dnames;
-import vellum.security.Pems;
+import vellumcert.Pems;
 import vellumcert.GenRsaPair;
 
 /**

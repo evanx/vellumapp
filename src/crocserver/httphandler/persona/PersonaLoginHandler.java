@@ -16,10 +16,10 @@ import java.io.IOException;
 import java.util.Date;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import vellum.crypto.rsa.GenRsaPair;
 import vellum.data.Emails;
 import vellum.parameter.StringMap;
 import vellum.util.Strings;
+import vellumcert.GenRsaPair;
 
 /**
  *

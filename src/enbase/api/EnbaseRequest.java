@@ -152,7 +152,7 @@ public class EnbaseRequest extends ComparableEntity implements Serializable, JMa
                 JMaps.entryValue("property", property),
                 JMaps.entryValue("value", value),
                 JMaps.entryValue("timestamp", timestamp),
-                JMaps.entryValue("timestampLabel", Millis.formatTime(timestamp))
+                JMaps.entryValue("timestampLabel", Millis.formatDefaultTimeZone(timestamp))
         );
     }
     
