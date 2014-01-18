@@ -8,7 +8,7 @@ import java.security.cert.X509Certificate;
 import java.util.Date;
 import vellum.entity.AbstractIdEntity;
 import vellum.parameter.StringMap;
-import vellum.security.Certificates;
+import vellum.security.Dnames;
 import vellum.security.Pems;
 
 /**
@@ -63,7 +63,7 @@ public class AdminUser extends AbstractIdEntity<Long> {
     }
     
     public String formatSubject() {
-        return Certificates.formatDname(email, displayName, userName, locality, region, country);
+        return Dnames.format(email, displayName, userName, locality, region, country);
     }
     
     public String getDisplayName() {

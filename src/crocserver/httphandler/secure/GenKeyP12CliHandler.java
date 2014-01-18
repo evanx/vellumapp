@@ -19,9 +19,10 @@ import java.security.cert.X509Certificate;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import vellum.crypto.rsa.GenRsaPair;
-import vellum.security.Certificates;
 import vellum.security.DefaultKeyStores;
+import vellum.security.Dnames;
 import vellum.security.Pems;
+import vellumcert.GenRsaPair;
 
 /**
  *
@@ -77,7 +78,7 @@ public class GenKeyP12CliHandler implements HttpHandler {
             org = new Org(orgName);
             storage.getOrgStorage().insert(org);
         }
-        String dname = Certificates.formatDname(clientName, hostName, orgName, 
+        String dname = Dnames.format(clientName, hostName, orgName, 
                 org.getRegion(), org.getLocality(), org.getCountry());
         logger.info("generate", dname);
         GenRsaPair keyPair = new GenRsaPair();

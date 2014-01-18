@@ -9,7 +9,7 @@ import vellum.data.Patterns;
 import vellum.entity.AbstractIdEntity;
 import vellum.jx.JMap;
 import vellum.jx.JMapException;
-import vellum.security.Certificates;
+import vellum.security.Dnames;
 import vellum.validation.ValidationException;
 import vellum.validation.ValidationExceptionType;
 
@@ -138,7 +138,7 @@ public final class Org extends AbstractIdEntity<Long> {
     }
 
     public String formatDname(String cn, String ou) {
-        return Certificates.formatDname(cn, ou, orgName, locality, region, country);
+        return Dnames.format(cn, ou, orgName, locality, region, country);
     }
     
     public Date getUpdated() {

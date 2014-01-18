@@ -90,7 +90,7 @@ public class EnrollUserHandler implements HttpHandler {
         if (!certReqPem.isEmpty()) {
             String alias = app.getServerKeyAlias();
             PKCS10 certReq = Pems.createCertReq(certReqPem);
-            X509Certificate signedCert = Certificates.signCert(
+            X509Certificate signedCert = Certificates.sign(
                     DefaultKeyStores.getPrivateKey(alias), DefaultKeyStores.getCert(alias),
                     certReq, new Date(), 999);
             String signedCertPem = Pems.buildCertPem(signedCert);

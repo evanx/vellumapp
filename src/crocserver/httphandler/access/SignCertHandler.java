@@ -18,10 +18,11 @@ import crocserver.storage.service.Service;
 import java.security.cert.X509Certificate;
 import java.util.Date;
 import sun.security.pkcs.PKCS10;
-import vellum.security.Certificates;
 import vellum.security.DefaultKeyStores;
+import vellum.security.Dnames;
 import vellum.security.Pems;
 import vellum.util.Streams;
+import vellumcert.Signer;
 
 /**
  *
@@ -74,12 +75,12 @@ public class SignCertHandler implements HttpHandler {
 
     private void sign() throws Exception {
         Org org = storage.getOrgStorage().get(orgName);
-        String dname = Certificates.formatDname(clientName, hostName, orgName,
+        String dname = Dnames.format(clientName, hostName, orgName,
                 org.getRegion(), org.getLocality(), org.getCountry());
         logger.info("sign", dname, certReqPem.length());
         String alias = app.getServerKeyAlias();
         PKCS10 certReq = Pems.createCertReq(certReqPem);
-        X509Certificate signedCert = Certificates.signCert(
+        X509Certificate signedCert = Signer.sign(
                 DefaultKeyStores.getPrivateKey(alias), DefaultKeyStores.getCert(alias),
                 certReq, new Date(), 999);
         String signedCertPem = Pems.buildCertPem(signedCert);
