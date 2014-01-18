@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import vellum.data.Millis;
+import vellum.exception.ParseException;
 import vellumexp.logr.Logr;
 import vellumexp.logr.LogrFactory;
 import vellum.util.Bytes;
@@ -103,12 +104,12 @@ public class ConfigProperties extends ExtendedProperties {
         return Enum.valueOf(enumType, name);
     }
 
-    public Long getMillis(String name, Long defaultMillis) {
+    public Long getMillis(String name, Long defaultMillis) throws ParseException {
         if (!containsKey(name)) return defaultMillis;
         return Millis.parse(get(name));
     }
 
-    public long getMillis(String name) {
+    public long getMillis(String name) throws ParseException {
         String string = get(name);
         if (string == null) {
             throw new ConfigException(ConfigExceptionType.NOT_FOUND, name);
@@ -116,11 +117,11 @@ public class ConfigProperties extends ExtendedProperties {
         return Millis.parse(string);
     }
 
-    public Date getTime(String name, Date defaultTime) {
+    public Date getTime(String name, Date defaultTime) throws java.text.ParseException {
         return DefaultDateFormats.timeSecondsFormat.parse(get(name), defaultTime);
     }
 
-    public long getByteSize(String name, Long defaultSize) {
+    public long getByteSize(String name, Long defaultSize) throws ParseException {
         return Bytes.parseConfig(get(name), defaultSize);
     }
 }

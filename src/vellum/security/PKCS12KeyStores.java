@@ -24,7 +24,7 @@ import java.io.OutputStream;
 import java.util.Date;
 import java.security.cert.X509Certificate;
 import java.util.concurrent.TimeUnit;
-import vellum.crypto.rsa.GenRsaPair;
+import vellumcert.GenRsaPair;
 
 /**
  * @see GeneratedRsaKeyPair
